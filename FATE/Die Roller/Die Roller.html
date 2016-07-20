@@ -9,18 +9,23 @@
 	<script>
 		var nothing = "<img src='../../images/FATE/Die Roller/nothing.bmp'></img>";
 		var images = [];
+		var total = 0;
 		
-		function SetUpDice() {
+		function SetUpDisplay() {
+			
+			document.getElementById("NUM_skill").value = 0;
+			
 			for (var i = 0; i < 4; i++) {
 				images[i] = nothing;
 			}
 			
-			DisplayRoll(0);
+			DisplayRoll();
 		}
 		
 		function RollFateDice() {
 			var roll;
-			var total = 0;
+			
+			total = 0;
 			
 			for (var i = 0; i < 4; i++) {
 				roll = Math.floor((Math.random() * 3) - 1);
@@ -36,12 +41,11 @@
 				}		
 			}
 			
-			DisplayRoll(total);
+			DisplayRoll();
 		}
 			
-		function DisplayRoll(total) {
+		function DisplayRoll() {
 		
-			document.getElementById("PAR_total").innerHTML = "Total : " + total;
 			document.getElementById("PAR_top").innerHTML = "";
 			document.getElementById("PAR_bottom").innerHTML = "";
 			
@@ -52,15 +56,30 @@
 					document.getElementById("PAR_bottom").innerHTML += images[i];
 				}
 			}
+			
+			UpdateTotal();
+		}
+		
+		function UpdateTotal()
+		{
+			document.getElementById("PAR_total").innerHTML = "Total : " + 
+				(parseInt(document.getElementById("NUM_skill").value) + total);
 		}
 	</script>
 </head>
-<body onload="SetUpDice()">
+<body onload="SetUpDisplay()">
 	<div class="container text-center"">
 	
-		<h1>FATE Die Roller</h1>
+		<h1>FATE Die Roller</h1><hr/>
 		
-		<button id="BTN_Roll" name"btn_roll" class="btn btn-primary btn-lg" onclick="RollFateDice()">
+		<div>
+			<label for="NUM_skill">Enter Skill Level : </label>
+			<input type="number" id="NUM_skill" min="0" style="text-align:center" onchange="UpdateTotal()">
+		</div>
+		
+		<br/>
+		
+		<button id="BTN_Roll" class="btn btn-primary btn-lg" onclick="RollFateDice()">
 			Roll Dice</button><br/><br/>
 		
 		<div class="panel-body">
