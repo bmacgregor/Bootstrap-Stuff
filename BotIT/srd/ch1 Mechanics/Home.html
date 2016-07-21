@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blade SRD Ch 1: Mechanics</title>
+	<link href="../../../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
+</head>
+
+<body>
+	<!-- Navbar begins here -->
+	<nav class="navbar navbar-inverse navbar-static-top no-margin" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				
+				<!-- Hamburger -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-test-navbar-collapse-1">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<!-- "logo" text -->
+				<a class="navbar-brand" href="#">Blade SRD : Chapter One</a>
+			</div>
+			
+			<div class="collapse navbar-collapse navbar-right" id="bs-test-navbar-collapse-1">
+			
+				<!-- Navbar links -->
+				<ul class="nav navbar-nav">
+					<li><a href="../Home.html">SRD Home</a></li>
+					
+					<li><a href="#P_DiceUsed">Dice Types Used</a></li>
+					
+					<!-- The Major Checks : Dropdown -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							The Major Checks<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#P_AttributeChecks">Attribute Checks</a></li>
+							<li><a href="#P_SkillChecks">Skill Checks</a></li>
+							<li><a href="#P_ProficiencyChecks">Proficiency Checks</a></li>
+							<li><a href="#P_TimedChecks">Timed Checks</a></li>
+							<li><a href="#P_Complications">Complications</a></li>
+						</ul>
+					</li>
+					
+					<!-- Basic Attributes : Dropdown -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Basic Attributes<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#P_Brawn">Brawn</a></li>
+							<li><a href="#P_Daring">Daring</a></li>
+							<li><a href="#P_Tenacity">Tenacity</a></li>
+							<li><a href="#P_Heart">Heart</a></li>
+							<li><a href="#P_Sagacity">Sagacity</a></li>
+							<li><a href="#P_Cunning">Cunning</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="#P_PassionAttributes">Passion Attributes</a><li>
+					
+					<!-- Combined Attributes : Dropdown -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Combined Attributes<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#P_Reflex">Reflex</a></li>
+							<li><a href="#P_Aim">Aim</a></li>
+							<li><a href="#P_Knockdown">Knockdown</a></li>
+							<li><a href="#P_Knockout">Knockout</a></li>
+							<li><a href="#P_Move">Move</a></li>
+						</ul>
+					</li>
+					
+					<!-- Tables : Dropdown -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Tables<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#TBL_SuccessesNeeded">Success Needed</a></li>
+							<li><a href="#TBL_QualityOfSuccess">Quality of Success</a></li>
+							<li><a href="#TBL_SkillLevels">Skill Levels</a></li>
+						</ul>
+					</li>
+					
+					<!-- Dropdown items -->
+					<li class="dropdown active">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Chapters<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li class="active"><a href="ch1 Mechanics/Home.html">Ch 1 : Mechanics</a></li>
+							<li><a href="../ch2 Characters/Home.html">Ch 2 : Characters</a></li>
+							<li><a href="../ch3 Training/Home.html">Ch 3 : Training</a></li>
+							<li><a href="../ch4 Melee/Home.html">Ch 4 : Melee</a></li>
+							<li><a href="../ch5 Travel/Home.html">Ch 5 : Travel and Health</a></li>
+							<li><a href="../ch6 Sorcery/Home.html">Ch 6 : Sorcery</a></li>
+							<li><a href="../ch7 SnS Gaming/Home.html">Ch 7 : S&S Gaming</a></li>
+							<li class="divider"></li>
+							<li><a href="../Appendix/Home.html">Appendix and Tables</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</nav>
+	<!-- Navbar ends here -->
+	
+	<!-- Jumbotron begins here -->
+	<div class="jumbotron">
+		<div class="container">
+			<p class="h2">What is a Role-playing Game?</p>
+			<p>Role-playing is about being creative and having fun. It involves getting together with friends to write a 
+			story, perhaps joining around a campfire or a dining room table to spin some tall tales. Role-Playing Games 
+			(RPGs) are stories in which you create one of the main characters and the story around that character. The rest 
+			of the Players create stories around their own characters. The “Referee” (or more simply “Ref”) brings those 
+			stories together. The Referee can be thought of as the “director” of the story. In most RPGs, the Referee 
+			will - with input from you, if you desire to give any - describe a world or setting. You and your friends will 
+			play the protagonists and characters of this world, guiding your Characters through the story that you and your 
+			friends create. Each Player plays a different Character, and each Character interacts with each of the other 
+			Characters. Role-playing, in this sense, is very much play-acting in the mind. You imagine what the Referee 
+			describes. Then you imagine your Character’s response to that situation, and describe that to the Ref and the 
+			other Players. They, in turn, each do the same with their Characters.</p>
+		</div>
+	</div>
+	<!-- Jumbotron ends here -->
+	
+	<!-- Content begins here -->
+	<div class="container text-justify">
+		<div class="panel-body">
+			<p class="h3">What is a Role-playing Game? (Continued)</p>
+			<p>In most games – board games, card games, and dice games – there is a clearly defined way to win and a 
+			clearly defined way to lose. Typically, winning is the goal of the game. In Role-Playing Games, the concepts 
+			of “winning” and “losing” do not exist. Your goal as a Player is to help create a story and to have fun. You 
+			may give your Character other goals, but the success of your Character does not determine any sense of 
+			“winning” or “losing.”</p>
+			
+			<p>Like life, it’s not so much whether you win or lose, but how you play the game. <em>That’s all well and good,
+			</em>you say, <em>but what actually goes on? What do these “Characters” do?</em> Most of the time, Characters 
+			are involved in adventures; adventures of the type that are immortalized in adventure movies and serial novels. 
+			In one game, the Characters might be a group of secret agents trying to save the world from nuclear destruction.
+			In another, you might play a rebel force trying to overthrow an evil star-spanning empire. You might play a 
+			group of warriors in eleventh century Europe, or King Arthur’s knights, or Superman, or Batman, or an original 
+			Character of your own creation - in any world you choose. Like all games and many RPGs, <em>Blade of the Iron 
+			Throne</em> involves elements of chance, skill, and strategy. These three elements are tightly related.</p>
+		
+			<hr/>
+		
+			<p class="h3">What kind of RPG is <em>Blade of the Iron Throne?</em></p>
+			<p><em>Blade of the Iron Throne</em> (hereafter <em>Blade</em>) is an amalgamation of a number of different 
+			game system mechanics, a blend of new and old school gaming sensibilities. It is also very much a game 
+			grounded in tales of Sword & Sorcery (S&S) fiction.</p>
+			
+			<p>Sword & Sorcery is a sub-genre of fantasy fiction, taking its name from the sword-slinging adventurers, who 
+			generally make up the genre’s protagonists, and the sorcery-using characters, who are often the villains and/or 
+			antagonists. Common to Sword & Sorcery stories is the mindset of the main character. The Sword & Sorcery hero 
+			is always a man (or woman) of action. He may be very intelligent and given to brooding and pondering (e.g. Kull 
+			of Valusia), but when a situation requires a response, he does not hesitate or procrastinate endlessly. 
+			He acts.</p>
+			
+			<p>In Sword & Sorcery stories, the world is an intrinsically harsh and tragic place. People’s lives are ruined 
+			or even terminated left and right. Just to survive, much less prosper, in this harsh world, the protagonist 
+			has to display a fair degree of harshness herself.</p>
+			
+			<p>However, a defining characteristic of Sword & Sorcery is that even a quite wicked Sword & Sorcery hero has 
+			an unofficial and informal code; one that does not allow him to cross the line and treat unfairly friends and 
+			companions, people he has shared danger with, and even respected enemies. Indeed, some he treats with 
+			consideration and kindness. The most vicious Sword & Sorcery hero adheres to this code; it separates him from 
+			the villains. A Sword & Sorcery villain will cross the line - that’s what makes him a villain.</p>
+			
+			<p><em>(See <a href="../ch7 SnS Gaming/Home.html">Chapter Seven – S&S Gaming</a>, for more information on 
+			running a Sword & Sorcery campaign using <strong>Blade</strong>.)</em></p>
+			
+			<hr/>
+				
+			<p class="h3" id="P_DiceUsed">Basic Rules - Checks</p>
+			<p class="h4">I. Dice Types Used</p>
+			<p>Most of the time in old-style gaming, you don’t use a rule; you make a ruling. The Players can describe any 
+			action without needing to look at a Character sheet to see if they “can” do it. The Referee, in turn, uses 
+			common sense to decide what happens or rolls a die only if she thinks there’s some random element involved. When 
+			needed, <em>Blade</em> uses two types of dice during play, twelve-sided dice (D12) and six-sided dice (D6). 
+			These may be easily purchased online or at your local game store. References throughout this book refer to 
+			twelve-sided dice unless otherwise noted.</p>
+			
+			<hr/>
+			
+			<p class="h4">II. The Major Checks</p>
+			<p>In <em>Blade</em>, Checks are made by rolling an appropriate number of dice for the Attribute or Skill level 
+			being tested against a fixed Target Number (TN) of seven (7). The number of successes needed for both Attribute 
+			and Skill Checks are drawn from the following table.</p>
+				
+			<div class="panel-body" id="TBL_SuccessesNeeded">
+				<p class="h4"><strong>Successes Needed</strong></p>
+				<table class="table table-striped table-hover">
+					<thead>
+						<th>Successes</th>
+						<th>Challenge Level *</th>
+					</head>
+					<tbody>
+						<tr>
+							<td>One</td>
+							<td>Average</td>
+						</tr>
+						<tr>
+							<td>Two</td>
+							<td>Challenging</td>
+						</tr>
+						<tr>
+							<td>Three</td>
+							<td>Difficult</td>
+						</tr>
+						<tr>
+							<td>Four</td>
+							<td>Amazing</td>
+						</tr>
+						<tr>
+							<td>Five</td>
+							<td>Legendary</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p><strong>* If the applicable dice pool is more than three times the required number of successes, no roll is 
+			needed, instead the character is considered to have achieved the amount of successes</strong></p>
+				
+			<p>Only dice rolled that meet or exceed the Target Number of seven (7) are successes. With the exception of 
+			Proficiency and Mystery Checks, all Checks are made vs. Target Number seven (TN7) unless modified by Assets. 
+			Quality of Success may also denote an action’s degree of success as indicated in the following table.</p>
+		
+			<div class="panel-body" id="TBL_QualityOfSuccess">
+				<p class="h4"><strong>Quality of Success</strong></p>
+				<table class="table table-striped table-hover">
+					<thead>
+						<th>Net Number of Successes</th>
+						<th>Result</th>
+					</head>
+					<tbody>
+						<tr>
+							<td>Zero</td>
+							<td>Failure</td>
+						</tr>
+						<tr>
+							<td>(Tie)</td>
+							<td>Result Varies</td>
+						</tr>
+						<tr>
+							<td>One</td>
+							<td>Basic Success</td>
+						</tr>
+						<tr>
+							<td>Two</td>
+							<td>Good</td>
+						</tr>
+						<tr>
+							<td>Three</td>
+							<td>Well Done</td>
+						</tr>
+						<tr>
+							<td>Four</td>
+							<td>Expertly Done</td>
+						</tr>
+						<tr>
+							<td>Five</td>
+							<td>Perfect</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+				
+			<p>While only one success is normally needed for an action to be successful, some actions at the Ref’s 
+			discretion may be tasked with additional success requirements. One example could be a Player Character 
+			attempting to pick a lock while pressed for time:</p>
+		
+			<div class="panel-body bg-warning" id="DIV_Exaple_SuccessRequirements">
+				<p><em><strong>Ref: </strong>You want to pick this lock? That would normally be only Average, but to do it 
+				in time is Challenging. You’re going to need two successes. Getting no successes will mean things get 
+				complicated! (See the section on <a href="#P_Complications">Complications</a> later in this 
+				chapter)</em></p>
+				
+				<p><em><strong>Player: </strong>Damn! I don’t have Lock Picking as a skill! Can I try it using that 
+				lock-pick Otho gave me?</em></p>
+				
+				<p><em><strong>Ref: </strong>Sure - but it’ll be tougher since you don’t know what you’re doing. Now you’re 
+				going to need four successes. And any result of two or less successes will earn you a Complication.</em></p>
+				
+				<p>In this example one success would normally achieve the task (opening the lock), but an additional 
+				success is required to achieve the intended result (opening it before something else happens), for a total 
+				of two successes.</p>
+			</div>
+		
+			<br/>
+		
+			<p<strong>Attempting a task as an Attribute Check instead of a Skill Check, as required, <em>doubles</em> the 
+			number of to required successes</strong>. <em>Blade</em> follows the idea that one action requires one Check. 
+			There are five basic types of Checks:</p>
+		
+			<div class="panel-body" id="P_AttributeChecks">
+				<p class="h4">1. Attribute Checks</p>
+				
+				<p><strong>Attribute Checks</strong> are made with a die pool derived from an Attribute level. They 
+				represent tasks attempted with one’s natural, inborn ability - one’s talent - with abilities one has picked 
+				up along the way without formal training.</p>
+			</div>
+			
+			<div class="panel-body" id="P_SkillChecks">
+				<p class="h4">2. Skill Checks</p>
+				<p><strong>Skill Checks</strong> are tests made with a die pool derived from a Skill level. Skills reflect 
+				a Character’s aptitude in a trained, acquired pursuit. The degree of capability a Character can attain 
+				through training is limited by his talent for it. <strong>Thus when using a Skill, a character’s Skill dice 
+				pool may never be as high or higher than twice the value of the Attribute that would be most applicable for 
+				the task attempted</strong>.</p>
+				
+				<p>For example, Cunning three (3) means that you can use no more than five (5) dice from the Lock Picking 
+				Skill in any situation, if Cunning would be the most appropriate Attribute Checked for the situation.</p>
+				
+				<p>Conversely, Characters unskilled in a particular discipline work at a strong disadvantage compared to 
+				their skilled counterparts. They may attempt the Check by using the most closely corresponding Attribute 
+				instead of the Skill, but <strong>require twice as many successes as somebody knowing the Skill 
+				would</strong>.</p>
+				
+				<div class="panel-body bg-warning" id="DIV_Example_SkillCheck">
+					<p><em><strong>Example</strong>: Otho wants to accomplish a task requiring the Animal Ken Skill, but is 
+					untrained in it. He has a Heart of six (6) and therefore may use it for the Check instead. If someone 
+					skilled in Animal Ken would normally need two (2) successes to succeed at a specific Animal Ken Check, 
+					Otho would instead need four (4).</em></p>
+				</div>
+				
+				<br/>
+				
+				<p>Attribute and Skill values range from one (1) to eight (8), with <em>one</em> Skill and one Attribute at 
+				level nine (9) allowed <strong>per Player or NPC. While no two PCs may have a score of nine in the same 
+				Attribute or Skill</strong>, NPCs are not bound by this stricture and thus may have the same Skill or 
+				Attribute at level nine that his Player counterpart enjoys. However, <em>for each Attribute or Skill there 
+				may only be a single NPC per campaign who has this Attribute or Skill at level nine. If this NPC dies or 
+				otherwise leaves the campaign, he may not be replaced by another NPC with a score of nine in that Attribute 
+				or Skill for the rest of the campaign.</em></p>
+				
+				<p>Skill Check Challenge Levels should always frame the task in terms of how hard it is for someone who 
+				does it all the time. They are invariably vs. Target Number seven (TN7), unless modified by an Asset.</p>
+				
+				<div class="panel-body bg-warning" id="DIV_Example_HardSkillCheck">			
+					<p><em><strong>Example</strong>: Having gained admission to the radja’s dinner ball, Otho prowls the 
+					halls in search for his intended pickpocket victim. The Ref advises that the society vultures are 
+					unusually acerbic tonight and that Otho will have to bluff his way through several social encounters 
+					before locating the victim. He declares drawing no attention whatsoever to him a Challenging (two 
+					successes needed) feat of Etiquette.</em></p>
+				</div>
+				
+				<br/>
+				
+				<p>Skill levels are generally rated as per the following table.</p>
+							
+				<div class="panel-body" id="TBL_SkillLevels">
+					<p class="h4">Skill Levels</p>
+					<table class="table table-striped table-hover">
+					<tbody>
+						<tr>
+							<td>Zero</td>
+							<td>Default for untrained characters</td>
+						</tr>
+						<tr>
+							<td>One</td>
+							<td>Beginner; Most students</td>
+						</tr>
+						<tr>
+							<td>Two</td>
+							<td>Apprentice; Growing in skill</td>
+						</tr>
+						<tr>
+							<td>Three - Four</td>
+							<td>Journeyman; Trained professionals</td>
+						</tr>
+						<tr>
+							<td>Five - Seven</td>
+							<td>Adept; Skilled and respected veterans</td>
+						</tr>
+						<tr>
+							<td>Eight - Nine</td>
+							<td>Master; Well-known and sought after</td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+			</div>
+			
+			<div class="panel-body" id="P_ProficiencyChecks">
+				<p class="h4">3. Proficiency Checks</p>
+				<p><strong>Proficiency Checks</strong> are Checks made with a dice pool calculated from several 
+				contributing scores, and are made by rolling any number of dice drawn from the appropriate pool (Melee,
+				Archery, or Sorcery Pool) against Target Numbers that frequently differ from the usual Target Number of 
+				seven. They are more fully explained in chapters <a href="../ch4 Melee/Home.html">four 
+				(Melee)</a> and <a href="../ch6 Sorcery/Home.html">six (Sorcery)</a>.</p>
+			</div>
+					
+			<div class="panel-body" id="P_OpposedChecks">
+				<p class="h4">4. Opposed Checks</p>
+				<p><strong>Opposed Checks</strong> are made whenever two Characters or forces match each other for 
+				supremacy. Examples include attacking an opponent, detecting an ambush, or slipping past a patrol.</p>
+				
+				<p>All manner of Checks may be tested against any other, with one Player possibly attempting a Skill Check, 
+				while her opponent rolls an Attribute Check in opposition. With Opposed Checks, both participants roll 
+				against Target Number seven. The number of successes of the participant with the <em>smaller</em> number of 
+				successes are subtracted from the other participant’s, leaving the latter as the winner with a Quality of 
+				Success as an indicator of the general degree of victory.</p>
+				
+				<p>For example, if Otho is trying to lie to a Street Thug, both roll their Falsehood skill against a Target
+				Number of seven.  Otho rolls a 12, 8, 7, and 4 for a total of three successes, while the Thug rolls a 10, 3, 
+				and a 2 for a total of one success.  The Thug's successes are then subtratced from Otho's (3 - 1) leaving
+				Otho with a final result - or Quality of Success - of two.</p>
+				
+				<p>If an Opposed Skill Check is called for and one party is lacking the required Skill, he may substitute 
+				the most appropriate Attribute, as normal, but must compare his result to twice the number of successes of 
+				his opponent.</p>
+				
+				<p>Ties are counted as victories for the party who wants to maintain the status quo. In picking somebody’s 
+				pockets, a tie would for example be a failure for the thief, but in attempting to avoid detection by a 
+				guard, a tie would be a success.</p>
+				
+				<p>A Quality of Success of one (1) will always achieve the desired task. If the referee deems this too easy, 
+				thinking that additional factors would make the task harder to achieve for one than the other party, he is 
+				advised not to call for an Opposed Check, but for a straightforward but difficult Attribute or Skill Check 
+				instead.</p>
+				
+				<p>If an Opposed Check matches one Character against several others at the same time, a single roll is 
+				made for every Character, with the solitary character comparing his result with every opponent’s result. 
+				For example, if a thief tries to sneak past two soldiers standing guard, one roll is made for the thief and 
+				one for every soldier, and the thief’s result compared separately to both results, for two Qualities of 
+				Success.</p>
+				
+				<div class="panel-body bg-warning" id="DIV_Example_MultipleOpponents">
+					<p><em><strong>Example</strong>: Otho makes his move at the ball and invites a rich old dowager (and her 
+					beautiful diamond necklace!) to dance. As they swirl about the dance floor he directs her to a somewhat 
+					unobserved spot and deftly attempts to remove the necklace. An Opposed Check with two antagonists to 
+					Otho is now called for: The guard closest to the pair makes a Check of his Sagacity four (4) Attribute, 
+					testing his powers of observation. The dowager makes a Check of her Sagacity three (3) Attribute, to 
+					determine if she is aware of the necklace being removed.</em></p>
+					
+					<p>Otho will make a single Check of his Skill of Pick Pockets six (6) against both. Otho needs to tie 
+					the guard’s result to pocket the necklace unobserved by the guard (the status quo being that the guard 
+					notices nothing special), but he needs to trump the dowager’s successes to filch the necklace (the 
+					status quo being that she has it).</p>
+					
+					<p><em>Unluckily, Otho achieves a single successes, the guard rolls two successes, and the dowager a 
+					somewhat lucky two successes as well. While the guard would have noticed nothing out of the ordinary, 
+					the dowager feels Otho’s groping fingers and raises a ruckus, leaving Otho to bluff his way out of a 
+					tight spot.</em></p>
+				</div>
+			</div>
+			
+			<br/>
+			
+			<div class="panel-body" id="P_TimedChecks">
+				<p class="h4">5. Timed Checks</p>
+				<p><strong>Timed Checks</strong> can be made of any of the previously mentioned Checks. These rolls are 
+				made when the time in which a lengthy task is accomplished is of importance, such as when pursuing research 
+				crafting an item, or searching the wilderness for the outlaws’ encampment.</p>
+				
+				<p>Each Timed Check requires a number of successes that must be achieved over the course of any amount of 
+				rolls. Each roll usually represents the passage of a fixed amount of time. With Opposed Timed Checks, the 
+				numbers of successes from each component Check are not usually subtracted from each other, but every party 
+				totals their successes. As soon as one party achieves the required number of successes, it achieves its goal. 
+				This number of successes may or may not be equal. The former would for example be the case in a race, the 
+				latter in a pursuit.</p>
+				
+				<div class="panel-body bg-warning" id="DIV_Example_TimedChecks">			
+					<p><em><strong>Example One</strong>: Otho, having been cheated out of some swag from a robbery, is 
+					pursuing three fellow thieves through the White Knuckle Mountains. As both parties are traversing the 
+					trackless wilderness on foot, the Ref determines that this is an Opposed Check matching Otho’s Survival 
+					Skill against the fugitives’ single worst Survival Skill (staying together, they are travelling at the 
+					speed of the slowest among them).</em></p>
+					
+					<p><em>He advises that Otho will need a Quality of Success of twelve (12) against the fugitive’s Quality of 
+					Success of eight (8) to catch up with them before they reach, cross, and destroy the sole rope bridge 
+					across Raven’s Gorge.</em></p>
+					
+					<hr/>
+					
+					<p><em><strong>Example Two</strong>: As the stars are rapidly moving into the constellation presaging 
+					the return of the demon lord Yslsl, Braddeyas the sorcerer is attempting to make sense of a coded 
+					passage in the Tome of Du’Karrn that is thought to instruct about Yslsl’s weakness. The Referee informs 
+					him that he has to achieve a Quality of Success of twenty (20) on his Decipher Skill Check, with every 
+					Check taking an entire day, and the stars moving in constellation in seven days.</em></p>
+				</div>
+			</div>
+			
+			<br/>
+			
+			<div class="panel-body" id="P_Complications">
+				<p class="h4">Complications</p>
+				<p>In <em>Blade</em>, any Unopposed Check that fails to meet its required number of successes by more than 
+				one or any Opposed Check made with five (5) or more dice and failing to achieve even a single Quality of 
+				Success is what amounts to a botch or bad fumble. However, instead of penalties, catastrophes or comedic 
+				moments of embarrassment inappropriate to individuals as formidable as the Players, such results create 
+				“Complications”.</p>
+				
+				<p>While Drama use (see the section on Drama under Passion Attributes in the 
+				<a href="../ch3 Training/Home.html">Training chapter</a>) may add specific elements to a story that are of 
+				interest to the player, Complications are a way for the referee to add their own plot twists to the tale. 
+				They signify something untoward happening to the PC, some newly arising difficulty, or a stroke of luck for 
+				his opponents.</p>
+				
+				<p>Complications should be introduced quickly by the referee, certainly no later than by the following 
+				scene, and should have an at least tenuous connection with the task that was badly failed.</p>
+				
+				<div class="panel-body bg-warning" id="DIV_Example_Complications">			
+					<p><em><strong>Example</strong>: Otho, abducting the Radja’s daughter for ransom, battles past a 
+					number of guards, and after failing badly twice during the raid, finally manages to slip away with his 
+					prize slung over his shoulder. BANG! The Ref decides to have both his Complications kick in 
+					immediately:</em></p>
+					
+					<ol>
+						<li><em>His horse is missing! Hell! The guards are not far behind!</em></li>
+						<li><em>Unknown to Otho, he was against all odds recognized by one of the guards. His identity is 
+						just being disclosed to the Radja. The ground might soon be getting too hot for Otho...</em></li>
+					</ol>
+				</div>
+			</div>
+			
+			<hr/>
+						
+			<p class="h4">III. Attribute Descriptions</p>	
+			<p>In <em>Blade</em> each character is defined by a set of Attributes that combined, form the core of that 
+			individual.</p>
+			
+			<div class="panel-body" id="DIV_BasicAttributes">
+				<p class="h4">1. Basic Attributes</p>
+				<p><strong>Basic Attributes</strong>, or just Attributes, are the character’s inherent physical, spiritual, 
+				and social capabilities and govern, among other things, how he is perceived by others, how strong, fast, 
+				healthy, knowledgeable, and smart he is, and how well developed his instincts and social intelligence are. 
+				The six Basic Attributes are:</p>
+							
+				<div class="panel-body bg-success" id="DIV_BasicAttributeDescription">
+					<p class="h4" id="P_Brawn">Brawn (BN)</p>
+					<p><strong>Brawn</strong> is a measure of your muscle, your vitality, or your frame. It indicates how 
+					much damage you do unaided, and how easily you resist punishment, disease, and poison.</p>
+					
+					<p class="h4" id="P_Daring">Daring (DG)</p>
+					<p><strong>Daring</strong> is a measure of your courage and ability to take decisive action. It affects 
+					how well you can strike and parry, as well as how skilled you are with actions like climbing, 
+					acrobatics and all kinds of athletics.</p>
+					
+					<p class="h4" id="P_Tenacity">Tenacity (TY)</p>
+					<p><strong>Tenacity</strong> is a measure of your ability to focus on a task or goal, a measure of the 
+					strength of your persona. It affects how easily influenced you are, your inner discipline, and your 
+					sanity.</p>
+					
+					<p class="h4" id="P_Heart">Heart (HT)</p>
+					<p><strong>Heart</strong> is a measure of your social aptitude. It affects both how charismatic you 
+					appear to others (people and animals) and how easily you can get them to do your bidding. It governs 
+					your ability for empathy, and the understanding of human and animal nature.</p>
+					
+					<p class="h4" id="P_Sagacity">Sagacity (SY)</p>
+					<p><strong>Sagacity</strong> is a measure of your mental agility. It indicates how logical, intuitive, 
+					and smart you are. It affects situations that require reasoning, sharpness of the senses, as well as 
+					any judgment relating to them.</p>
+					
+					<p class="h4" id="P_Cunning">Cunning (CG)</p>
+					<p><strong>Cunning</strong> is a measure of your raw instincts, agility, reaction time and balance. It 
+					affects how skilled you are with actions like lock picking, pick pocketing, hiding, and sneaking.</p>
+				</div>
+			</div>
+			
+			<div class="panel-body"id="P_PassionAttributes">
+				<p class="h4">2. Passion Attributes</p>
+				<p>All characters possess four Passion Attributes, or for short, Passions, each having a <strong>maximum 
+				value of five (5) points</strong>. In addition, each character has a special fixed Passion Attribute known 
+				as “<em>Drama</em>”.</p>
+				
+				<p>Quite simply, Passion Attributes give your character the will, drive, and determination to accomplish 
+				and succeed when the going gets tough.</p>
+				
+				<p class="h4">How They Work</p>
+				<p>If your character is involved in a situation where he is struggling to defend, protect, further, or 
+				foster a Passion Attribute, that Passion gives its numerical value as extra dice added to the roll. For 
+				Attribute or Skill Checks, when one or more Passion potentially apply, the highest applicable Passion 
+				Attribute's value will be added to the appropriate dice pool for the Check.</p>
+				
+				<p>For example, if you decide that one of your Passions is to find all six artifacts of the first Emperor, 
+				and you find an ancient rune clue in a tomb you believe has one of the artifacts, then the Ref might let 
+				you add your applicable Passion Attribute's equivalent dice value to your roll to read the rune.</p>
+				
+				<p>In Combat, Passion Attributes work in a similar manner. However, instead the highest applicable Passion 
+				adding its value to every roll, while in combat, <strong>apply the highest applicable Passion Attribute, 
+				plus an extra die for every other applicable Passion Attribute, regardless of its current rating, as a 
+				scene bonus to the character’s Melee, Archery, and Sorcery Pools</strong>. All Passion Attributes should be 
+				collectively determined before play begins, with thought given to the harmony of the varied goals of all 
+				players participating in the session. Remember, Passion Attributes let you, <em>the Players</em>, 
+				collectively tell the referee exactly what <em>you</em> want the game to be about.</p>
+				
+				<p class="h4">I Have To Make Them up Myself?</p>
+				<p>Yes, you do. This is understandably the most daunting, yet the most exciting task of Character Creation. 
+				Regardless of whatever else is written on that sheet, no matter how strong or weak the Characters' 
+				other Attributes, combat skills, magical aptitude, or skills, nothing is more influential to that character 
+				than those four lines. For a detailed description on how to create your Passions, click 
+				<a href="Passions.html">here</a></p>
+				
+				<p>While your four Passion Attributes define the general story being told, the <em>Drama Passion</em> fine 
+				tunes the result. Do you want to develop a love interest with the noblewoman you just met? Spend a Drama 
+				point! Do you need a convenient hay wagon to land in when leaping from a window? Spend a Drama point! Drama 
+				points can be used in most situations and are earned by roleplaying your character well.</p>
+				
+				<p class="h4">Passions also advance my Character?</p>
+				<p>Yes, they do. You see, anytime you role-play and act on one of your Passion Attributes, the Ref may 
+				reward your role-playing with a Passion Attribute point. By acting on a Passion, it shows that it means 
+				something to the Character, and it advances. As an aside, the numerical value of any Passion Attribute does 
+				not represent its importance to your Character or its priority over your other Passion Attribute’s; that's 
+				determined by your role-playing alone, and merely defines which Passion is currently the focus of you, the 
+				Player.</p>
+				
+				<p>So, by playing your Passion Attribute’s, they increase. Now, does the Ref keep a tally of what you did 
+				and then dole points out at the end of the session?</p>
+				
+				<p>No! He <em>immediately</em> awards you with a point and the game becomes a dynamic field, where emotions 
+				and drama fluctuate naturally, instead of waiting for the pause between ‘episodes.’</p>
+				
+				<p class="h4">Wait - So, if They get Awarded at Any Time...</p>
+				<p>That’s right! You can <em>spend them</em> at any time. Suddenly do you wish you were a bit stronger, 
+				or maybe a bit more nimble of mind? Then spend the points mid game, and it is so. See 
+				<a href="../ch2 Characters/Home.html">Chapter Two - Characters</a>, and 
+				<a href="../ch3 Training/Home.html">Chapter Three - Training</a> for more information.</p>
+			</div>
+				
+			<div class="panel-body" id="DIV_CombinedAttributes">
+				<p class="h4">3. Combined Attributes</p>
+				<p><strong>Combined Attributes</strong> are derived directly from the Basic Attributes. These are:</p>
+				
+				<div class="panel-body bg-success" id="DIV_CombinedAttributeDescriptions">
+					<p class="h4" id="P_Reflex">Reflex</p>
+					<p><strong>Reflex</strong> determines how quickly a character physically reacts to external stimulus. It
+					is calculated by taking the average of your Daring and Cunning attributes. Decimal values equal to and 
+					greater than .5 are rounded up.</p>
+					
+					<p class="h4" id="P_Aim">Aim</p>
+					<p><strong>Aim</strong> quantifies one’s natural ability to hit a target over distances. It is 
+					calculated by taking the average of your Sagacity and Cunning attributes. Decimal values equal to and 
+					greater than .5 are rounded up.</p>
+					
+					<p class="h4" id="P_Knockdown">Knockdown</p>
+					<p><strong>Knockdown</strong> is a measure of how solid and balanced one remains after taking a blow. 
+					It is calculated by taking the average of your Brawn and Daring attributes. Decimal values equal to 
+					and greater than .5 are rounded up.</p>
+					
+					<p class="h4" id="P_Knockout">Knockout</p>
+					<p><strong>Knockout</strong> is a measure of how hard it is to knock a character unconscious. It is 
+					calculated by taking the average of your Brawn and Tenacity attributes. Decimal values equal to and 
+					greater than .5 are rounded up.</p>
+					
+					<p class="h4" id="P_Move">Move</p>
+					<p><strong>Move</strong> is a measure of how much distance one can cover on foot in a hurry. It is 
+					calculated by taking the average of your Brawn, Cunning, and Daring attributes.  Decimal values equal 
+					to and greater than .5 are rounded up.</p>	
+				</div>
+				
+				<br/>
+				
+				<p>Sorcerous characters have a sixth Combined Attribute governing the use of sorcery, <em>Power.</em></p>
+				<br/>
+			</div>
+		</div>
+	</div>
+	<!-- Content ends here -->
+	
+	<!-- Footer begins here -->
+	<footer class="site-footer footer-static-bottom">
+		<div class="container-fluid">
+			<h3>Created by Brennan MacGregor, 2016</h3>
+		</div>
+	</footer>
+	<!-- Footer ends here -->
+	
+	<!-- Bootstrap JS items -->
+	<script src="../../../js/jquery.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
+</body>
+
+</html>
