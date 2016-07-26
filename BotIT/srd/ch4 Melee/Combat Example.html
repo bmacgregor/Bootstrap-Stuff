@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blade SRD Combat Example</title>
+	<link href="../../../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
+</head>
+
+<body>
+	<!-- Navbar begins here -->
+	<nav class="navbar navbar-inverse navbar-static-top no-margin" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				
+				<!-- Hamburger -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-test-navbar-collapse-1">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<!-- "logo" text -->
+				<a class="navbar-brand" href="#">Blade SRD : Combat Example</a>
+			</div>
+			
+			<div class="collapse navbar-collapse navbar-right" id="bs-test-navbar-collapse-1">
+			
+				<!-- Navbar links -->
+				<ul class="nav navbar-nav">
+					<li><a href="../Home.html">SRD Home</a></li>
+					
+					<!-- Dropdown items -->
+					<li class="active">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Chapters<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="../ch1 Mechanics/Home.html">Ch 1 : Mechanics</a></li>
+							<li><a href="../ch2 Characters/Home.html">Ch 2 : Characters</a></li>
+							<li><a href="../ch3 Training/Home.html">Ch 3 : Training</a></li>
+							<li class="active"><a href="../ch4 Melee/Home.html">Ch 4 : Melee</a></li>
+							<li><a href="../ch5 Travel/Home.html">Ch 5 : Travel and Health</a></li>
+							<li><a href="../ch6 Sorcery/Home.html">Ch 6 : Sorcery</a></li>
+							<li><a href="../ch7 SnS Gaming/Home.html">Ch 7 : S&S Gaming</a></li>
+							<li class="divider"></li>
+							<li><a href="../Appendix/Home.html">Appendix and Tables</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</nav>
+	<!-- Navbar ends here -->
+	
+	<!-- Content begins here -->
+	<div class="container text-justify">
+		<div>
+			<p class="h4">An Example of Melee Combat</p>
+			<p>Skold Skullsplitter, the Danish reaver, has just plundered some foul deity’s sacred jewel from its shrine 
+			among the Orkneys. Trying to make his way back to his ship, two pursuing Pictish savages catch up with him on 
+			the rocky beach and rush him.</p>
+			
+			<hr/>
+			
+			<p><em>Skold Skullsplitter:</em></p>
+			
+			<ul>
+				<li>Brawn: 7, Daring: 6, Cunning: 5, Sagacity: 4, Tenacity: 4, Heart: 4</li>
+				<li>Reflex: 6, Polearms Proficiency: 10, Passion Bonus Dice: 3, Melee Pool: 19</li>
+				<li>Armour: Sleeveless metal scale shirt down to (and including) groin (Piercing Armor Value 4), Metal 
+				helmet for top of head only (Piercing Armor Value 6).</li>
+				<li>Weapons: Long-hafted axe, used two-handed (Reach M: Attack Target Number 7, Damage Rating +2, Defence 
+				Target Number 7; Reach Long: Attack Target Number 8, Damage Rating +3, DTN 8; Damage Rating +1 against 
+				armor, Shock +1)</li>
+			</ul>
+			
+			<br/>
+			
+			<p><em>Pictish Savages:</em></p>
+			
+			<ul>
+				<li>Brawn: 5, Daring: 5, Cunning: 5, Sagacity: 4, Tenacity: 5, Heart: 4</li>
+				<li>Reflex: 5, Knockdown: 5, Spear & Shield Proficiency: 5, Melee Pool: 10</li>
+				<li>Armour: Short-sleeved leather jerkin down to (and including) groin (Cleaving Armor Value 2), Hardened 
+				leather helmet for top of head only (Cleaving Armor Value 2).</li>
+				<li>Weapons: Short spear, used one-handed (Reach Medium, Attack Target Number 8, Damage Rating +1, Defence 
+				Target Number 7), Small shield (Defence Target Number 6).</li>
+			</ul>
+			
+			<hr/>
+			
+			<p>As the Picts rush at Skold, the ref informs the player that the combat will take place on particularly bad 
+			footing – the wet rocks of the beach – necessitating a deduction of 2 dice from all combatants’ MPs, bringing 
+			them down to 17 and 8 respectively. At the outset of Combat Round One, the referee declares that the Picts’ 
+			charge puts them into an aggressive stance and that Skold, seeing them rush at him, has time to prepare him 
+			self and declare a stance as well. Wanting to finish this combat before more Picts can arrive, the player has 
+			Skold assume an aggressive stance as well and also announces that Skold is going to move in such a way that 
+			one Pict is between himself and the other, preventing the second Pict from attacking him right away. This 
+			necessitates an (Unopposed) Terrain Check, with a single Success required. The player commits 5 dice (taking 
+			his MP to 12) and rolls, achieving 4 Successes (1, 10, 10, 11, 11), for now easily avoiding the second Pict 
+			among the rocks and boulders.</p>
+			
+			<p>The Pict’s intention to attack is apparent from his ferocious charge, and the player declares Skold as 
+			attacker as well. As both combatants have assumed aggressive stances, their MPs receive 2 bonus dice each, for 
+			14 and 10 respectively.</p>
+			
+			<p>With both combatants attacking, an Opposed Reflex Check will determine who attacks fractionally first, but 
+			Maneuvers and dice must be assigned before this Check. The player announces a Cleave from diagonally above at 
+			the Pict’s head and shoulders (Target Zone 4) for 11 dice, executed at Long Reach. The ref declares a Thrust 
+			at the groin (Target Zone 10) for all the Pict’s 10 dice.</p>
+			
+			<p>Both combatants’ Reflex is then Checked, with a TN equal to their weapon’s Attack Target Number; as the 
+			Pict’s spear has Reach M and Skold axe Reach L, Skold receives a +1 die bonus and the Pict a corresponding 1 
+			die penalty. Skold rolls 7 dice (Reflex 6 +1) against TN 8, achieving but 1 Success (1, 2, 4, 5, 6, 6, and 9). 
+			The Pict rolls 4 dice (Reflex 5 –1) against TN 8, achieving 4 Successes (8, 11, 12, 12) – the Pict goes 
+			first!</p>
+			
+			<p>The player has however an ace up his sleeve and has Skold attempt Stealing Initiative. He pays the 
+			Activation Cost of 2 dice (half opponent’s SY), and after his previous bad luck decides to play it safe and 
+			purchase 1 bonus die for the Check, for a total Activation Cost of 3 dice. This uses up the uncommitted 
+			remainder of his MP. The Pict checks DG, with a flat penalty of 1 for having the weapon with shorter Reach, 
+			and Skold his own CG, with a flat bonus of 1 for having the weapon with the longer Reach, and the 1 purchased 
+			bonus die.</p>
+			
+			<p>Skold thus rolls 7 dice (CG 5 +1 +1) against a static TN 7, achieving 3 Successes (2, 2, 5, 5, 8, 9, 11). 
+			The Pict rolls 4 dice (DG 5 –1) against a static TN 7, achieving 2 Successes (3, 4, 10, 11) – just as the Pict 
+			thrusts with his spear, Skold’s axe comes down hard. Skold attacks with the MP dice previously committed, 
+			rolling 11 dice against Attack Target Number 8 and achieving 5 Successes (1, 1, 3, 3, 5, 6, 8, 9, 11, 11, 12). 
+			The Pict cannot defend, so the attack QoS is 5. The player rolls d6 on the Cleaving Damage Tables to determine 
+			the exact hit location, achieving a 3 for a result of a cross-cut across the Pict’s chest, which is protected 
+			by his leather jerkin.</p>
+			
+			<p>The Impact Rating is determined by then taking the QoS (5), adding half BN (4), and adding Damage Rating 
+			(3 +1 for striking armor), for a total of 13. From this Impact Rating is subtracted half the Pict’s BN (3) and 
+			his chest Armor Value (2), for a remaining total of 8, corresponding to the maximum Wound Level of 6. As the 
+			Pict is just a mook, the Level 6 injury kills him instantly, without any need to consult the Wound Tables.</p>
+			
+			<p>As Skold has neither MP nor opponent remaining, there is no second Exchange to this Combat Round, and the 
+			second Combat Round commences with the remaining Pict charging Skold across the rocky beach. The ref decrees 
+			that all fighters still have to deduct 2 dice from their MP for treacherous footing, and that Skold can only 
+			just turn in time to receive the charging Pict and cannot thus assume a stance. He announces that the Pict’s 
+			charge effectively puts him into aggressive stance. Combat Round two starts with the declaration of attack or 
+			defence. The Pict is declared as aggressor, granting him 2 bonus dice from stance for a total MP of 10, and 
+			Skold as defender.</p>
+			
+			<p>Next, the aggressor declares Maneuver and assigned dice – he declares a Thrust with 7 dice at Skold’s crotch 
+			(Target Zone 10). Smiling evilly, Skold’s player declares a Counter, paying the Activation Cost of 3 dice and 
+			assigning 10 of his remaining 14 MP dice to it. The Pict rolls his assigned 7 dice against Attack Target Number 
+			8, with a penalty of 1 for having a weapon one Reach increment shorter than Skold, for a total of 6 dice, and 
+			achieves 3 Successes (1, 4, 6, 9, 10, and 11). Skold’s player rolls the assigned 10 dice against the axe’s 
+			DTN of 8, as per the Counter rules, achieving 4 Successes (4, 4, 5, 6,7, 7, 8, 9, 9, 10). With a defense QoS 
+			of 1, a sweep of the axe knocks aside the thrusting spear harmlessly and the attacker now on Exchange Two 
+			assumes the role of defender (with Counter, even a defense QoS of 0 would allow him to do so).</p>
+			
+			<p>Exchange Two commences with Skold assuming the role of aggressor. The Pict has 3 remaining MP dice and so 
+			Skold 4, but as per the Counter rules, Skold receives dice equal to the total Successes in the countered attack 
+			as bonus dice for his follow-up attack; as the Pict achieved 3 Successes, so Skold now receives 3 bonus dice, 
+			for an MP of 7.</p>
+			
+			<p>The Exchange begins with the declaration of attack, with the player declaring an attack with all 7 dice, 
+			randomly as per the rules for the follow-up on a Counter. A d12 is rolled on Counter Table 3.3 to determine 
+			the exact nature of Skold’s attack, and yields a result of 2, a cross-cut at thigh height. The Pict declares a 
+			Block with his remaining 3 dice as his defense.</p>
+			
+			<p>The player rolls the assigned 7 dice against Attack Target Number 8, achieving 4 Successes (2, 6, 7, 8, 8, 
+			8, 11). The Pict rolls 3 dice against his shield’s DTN 6, achieving 2 Successes (2, 8, 10), for an attack QoS 
+			of 2. The player rolls d6 on the Cleaving Tables to determine exact hit location, achieving a 4 for a cut to 
+			the thigh, which is unarmored.</p>
+			
+			<p>The Impact Rating is determined by taking the attack QoS (2), adding half BN (4) and weapon Damage Rating 
+			(3), for a total of 9. From the Impact Rating is subtracted half the defender’s BN (3), for a net total of 6, 
+			once again enough to kill a mook like the Pict without the need to look up the injury on the Wound Table.</p>
+			
+			<p>Exchange Two of Combat Round Two ends with the second Pict falling down dead or dying. Combat Round Three 
+			begins with the referee announcing that the 2 dice penalty for bad footing does not apply to the prone Pict, 
+			but that Skold is still on bad footing; as he is the only combatant standing, he does not simply subtract 2 
+			dice, but rather must pass a Terrain Check to avoid falling. The Pict is prone and thus at half MP, for an MP 
+			of 5. To this, Shock 15 from the preceding Exchange is applied; Thus bringing the Pict’s MP to 0, and the 
+			remaining 10 dice added as bonus dice to Skold MP against the Pict, raising his MP for the Combat Round to 
+			27.</p>
+			
+			<p>Two Picts charged Skold Skullsplitter. He wheeled, getting one between himself and the other. Skold then 
+			brought his axe down a mere blink of an eye before his Pictish opponent’s spear thrust hit home, cleaving the 
+			savage’s chest to the spine and knocking him to the ground dead. He then wheeled to receive the second Pict, 
+			coolly swept aside his opponent’s spear thrust with his axe, and in the same fluid motion brought the weapon 
+			around in a narrow arc, dipping under the shield’s rim to sever the Pict’s leg just below the crotch. With the 
+			fallen Pict screaming on the ground and spurting out his life in but a few heartbeats, Skold leaves the scene 
+			of carnage.</p>
+			
+			<!-- Content must end before this -->
+			<br/>  
+		</div>
+	</div>
+	<!-- Content ends here -->
+	
+	<!-- Footer begins here -->
+	<footer class="site-footer footer-static-bottom">
+		<div class="container-fluid">
+			<h4>Created by Brennan MacGregor, 2016</h4>
+		</div>
+	</footer>
+	<!-- Footer ends here -->
+	
+	<!-- Bootstrap JS items -->
+	<script src="../../../js/jquery.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
+</body>
+
+</html>

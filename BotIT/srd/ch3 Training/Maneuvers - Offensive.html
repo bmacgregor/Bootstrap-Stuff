@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blade SRD TEMPLATE</title>
+	<title>Blade SRD Offensive Maneuvers</title>
 	<link href="../../../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
 </head>
@@ -24,7 +24,7 @@
 				</button>
 				
 				<!-- "logo" text -->
-				<a class="navbar-brand" href="#">Blade SRD : TEMPLATE</a>
+				<a class="navbar-brand" href="#">Blade SRD : Offensive Maneuver Tables</a>
 			</div>
 			
 			<div class="collapse navbar-collapse navbar-right" id="bs-test-navbar-collapse-1">
@@ -40,7 +40,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="../ch1 Mechanics/Home.html">Ch 1 : Mechanics</a></li>
 							<li><a href="../ch2 Characters/Home.html">Ch 2 : Characters</a></li>
-							<li><a href="../ch3 Training/Home.html">Ch 3 : Training</a></li>
+							<li class="active"><a href="../ch3 Training/Home.html">Ch 3 : Training</a></li>
 							<li><a href="../ch4 Melee/Home.html">Ch 4 : Melee</a></li>
 							<li><a href="../ch5 Travel/Home.html">Ch 5 : Travel and Health</a></li>
 							<li><a href="../ch6 Sorcery/Home.html">Ch 6 : Sorcery</a></li>
@@ -56,22 +56,293 @@
 	</nav>
 	<!-- Navbar ends here -->
 	
-	<!-- Jumbotron begins here -->
-	<div class="jumbotron">
-		<div class="container">
-			<p class="h2"> <!-- Jumbotron Header Text --> </p>
-			<p class="text-justify"> <!-- Jumbotron Content --> </p>
-		</div>
-	</div>
-	<!-- Jumbotron ends here -->
-	
 	<!-- Content begins here -->
 	<div class="container text-justify">
 		<div>
-			<p class="h4"><!-- Content Paragraph Header --></p>
-			<p><!-- Content Paragraph --></p>
+			<p class="h4">Offensive Maneuver Activation Costs</p>
+			<table class="table table-bordered table-condensed" id="TBL_ActivationCosts_ONE">
+				<thead>
+					<th></th>
+					<th>Bash</th>
+					<th>Beat</th>
+					<th>Bind & Strike</th>
+					<th>Cut</th>
+					<th>Disarm</th>
+					<th>Double Attack</th>
+					<th>Evasive Attack</th>
+					<th>Grapple</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Brawling *</td>
+						<td>0/1</td>
+						<td>(3)</td>
+						<td>(3)</td>
+						<td>(3)</td>
+						<td>3</td>
+						<td>(2)</td>
+						<td>(2)</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Cut & Thrust</td>
+						<td>(2)</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>(2)</td>
+					</tr>
+					<tr>
+						<td>Dagger **</td>
+						<td>1 (2)</td>
+						<td>(3)</td>
+						<td>(2)</td>
+						<td>0</td>
+						<td>2</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Greatsword</td>
+						<td>(1)</td>
+						<td>0</td>
+						<td>(2)</td>
+						<td>1</td>
+						<td>1</td>
+						<td>(3)</td>
+						<td>1</td>
+						<td>(3)</td>
+					</tr>
+					<tr>
+						<td>Lance</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>Longsword</td>
+						<td>(1)</td>
+						<td>0</td>
+						<td>(1)</td>
+						<td>0</td>
+						<td>1</td>
+						<td>(2)</td>
+						<td>1</td>
+						<td>(2)</td>
+					</tr>
+					<tr>
+						<td>Mass Weapon & Shield</td>
+						<td>0</td>
+						<td>1</td>
+						<td>0</td>
+						<td>0</td>
+						<td>1</td>
+						<td>(3)</td>
+						<td>2</td>
+						<td>(3)</td>
+					</tr>
+					<tr>
+						<td>Polearm</td>
+						<td>0</td>
+						<td>0</td>
+						<td>(3)</td>
+						<td>0</td>
+						<td>2</td>
+						<td>(4)</td>
+						<td>1</td>
+						<td>(3)</td>
+					</tr>
+					<tr>
+						<td>Spear & Shield</td>
+						<td>(1)</td>
+						<td>1</td>
+						<td>0</td>
+						<td>(1)</td>
+						<td>(3)</td>
+						<td>(4)</td>
+						<td>2</td>
+						<td>(4)</td>
+					</tr>
+					<tr>
+						<td>Sword & Shield</td>
+						<td>(1)</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>1</td>
+						<td>(3)</td>
+						<td>2</td>
+						<td>(3)</td>
+					</tr>
+					<tr>
+						<td>Wrestling ***</td>
+						<td>1/2</td>
+						<td>(3)</td>
+						<td>(3)</td>
+						<td>(3)</td>
+						<td>2</td>
+						<td>(3)</td>
+						<td>(4)</td>
+						<td>0</td>
+					</tr>
+				</tbody>
+			</table>
+			<p><strong>* Brawling: Bash Activation Cost 0 is for punches, 1 for kicks and any other Bashes that might 
+			come up.</strong></p>
+			<p><strong>** Dagger: Bash Activation Cost 1 is for punches, 2 for any other Bashes that might come 
+			up.</strong></p>
+			<p><strong>*** Wrestling: Bash Activation Cost 1 is for punches, 2 for kicks and any other Bashes that might 
+			come up.</strong></p>
 			
+			<br/>
 			
+			<p class="h4">Offensive Maneuver Activation Costs (Continued)</p>
+			<table class="table table-bordered table-condensed" id="TBL_ActivationCosts_TWO">
+				<thead>
+					<th></th>
+					<th>Hook</th>
+					<th>Master-Strike</th>
+					<th>Murder Stroke</th>
+					<th>Quick Draw</th>
+					<th>Simultaneous Block/Strike</th>
+					<th>Stop Short</th>
+					<th>Thrust</th>
+					<th>Toss</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Brawling</td>
+						<td>(3)</td>
+						<td>(5)</td>
+						<td>(4)</td>
+						<td>(4)</td>
+						<td>1</td>
+						<td>(1)</td>
+						<td>(3)</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>Cut & Thrust</td>
+						<td>(2)</td>
+						<td>4</td>
+						<td>(2)</td>
+						<td>2</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>Dagger</td>
+						<td>(3)</td>
+						<td>(5)</td>
+						<td>(4)</td>
+						<td>1</td>
+						<td>1</td>
+						<td>1</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>Greatsword</td>
+						<td>(2)</td>
+						<td>3</td>
+						<td>1</td>
+						<td>(4)</td>
+						<td>(3)</td>
+						<td>0</td>
+						<td>0</td>
+						<td>(2)</td>
+					</tr>
+					<tr>
+						<td>Lance</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>0</td>
+						<td>-</td>
+						<td>1</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>Longsword</td>
+						<td>(2)</td>
+						<td>3</td>
+						<td>1</td>
+						<td>(3)</td>
+						<td>(2)</td>
+						<td>0</td>
+						<td>0</td>
+						<td>(1)</td>
+					</tr>
+					<tr>
+						<td>Mass Weapon & Shield</td>
+						<td>1</td>
+						<td>(5)</td>
+						<td>(2)</td>
+						<td>(4)</td>
+						<td>0</td>
+						<td>0</td>
+						<td>1</td>
+						<td>(1)</td>
+					</tr>
+					<tr>
+						<td>Polearm</td>
+						<td>1</td>
+						<td>(6)</td>
+						<td>(2)</td>
+						<td>(4)</td>
+						<td>(3)</td>
+						<td>0</td>
+						<td>0</td>
+						<td>(2)</td>
+					</tr>
+					<tr>
+						<td>Spear & Shield</td>
+						<td>1</td>
+						<td>(6)</td>
+						<td>(3)</td>
+						<td>(4)</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>(1)</td>
+					</tr>
+					<tr>
+						<td>Sword & Shield</td>
+						<td>(2)</td>
+						<td>4</td>
+						<td>1</td>
+						<td>2</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>(1)</td>
+					</tr>
+					<tr>
+						<td>Wrestling ***</td>
+						<td>(2)</td>
+						<td>(6)</td>
+						<td>(4)</td>
+						<td>(4)</td>
+						<td>2</td>
+						<td>(1)</td>
+						<td>(3)</td>
+						<td>(1)</td>
+					</tr>
+				</tbody>
+			</table>
+						
 			<!-- Content must end before this -->
 			<br/>  
 		</div>
