@@ -6,6 +6,10 @@
 	<title>Blade SRD Ch3: Training</title>
 	<link href="../../../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
+	
+	<!-- Bootstrap JS items -->
+	<script src="../../../js/jquery.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -33,31 +37,18 @@
 				<ul class="nav navbar-nav">
 					<li><a href="../Home.html">SRD Home</a></li>
 					
-					<!-- Buying and Raising Items : Dropdown -->
-					<li>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Buying and Raising Statistics<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#P_Proficiencies">Proficiencies</a></li>
-							<li><a href="#P_Assets">Assets</a></li>
-							<li><a href="#P_Skills">Skills</a></li>
-						</ul>
-					</li>
-					
-					<li><a href="#P_Loot">Loot</a></li>
-					
 					<!-- Dropdown items -->
-					<li class="active">
+					<li class="dropdown active">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Chapters<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="../ch1 Mechanics/Home.html">Ch 1 : Mechanics</a></li>
-							<li><a href="../ch2 Characters/Home.html">Ch 2 : Characters</a></li>
-							<li class="active"><a href="ch3 Training/Home.html">Ch 3 : Training</a></li>
-							<li><a href="../ch4 Melee/Home.html">Ch 4 : Melee</a></li>
-							<li><a href="../ch5 Travel/Home.html">Ch 5 : Travel and Health</a></li>
-							<li><a href="../ch6 Sorcery/Home.html">Ch 6 : Sorcery</a></li>
-							<li><a href="../ch7 SnS Gaming/Home.html">Ch 7 : S&S Gaming</a></li>
+							<li><a href="ch1 Mechanics/Home.html">Chapter One: Mechanics</a></li>
+							<li><a href="../ch2 Characters/Home.html">Chapter Two: Character Creation</a></li>
+							<li class="active"><a href="../ch3 Training/Home.html">Chapter Three: Training</a></li>
+							<li><a href="../ch4 Melee/Home.html">Chapter Four: Combat</a></li>
+							<li><a href="../ch5 Travel/Home.html">Chapter Five: Travel and Health</a></li>
+							<li><a href="../ch6 Sorcery/Home.html">Chapter Six: Sorcery</a></li>
+							<li><a href="../ch7 SnS Gaming/Home.html">Chapter Seven: S&S Gaming</a></li>
 							<li class="divider"></li>
 							<li><a href="../Appendix/Home.html">Appendix and Tables</a></li>
 						</ul>
@@ -69,130 +60,26 @@
 	</nav>
 	<!-- Navbar ends here -->
 	
-	<!-- Jumbotron begins here -->
-	<div class="jumbotron">
-		<div class="container">
-			<p class="h2">Character Progression</p>
-			<p>As your character experiences new things, furthers his own goals, beliefs, and personal philosophies, he 
-			will also improve in many ways. There is no concept of character “levels”, as each trait grows independently, 
-			allowing the entire character to grow and change according to his player’s wishes. All advancement comes from 
-			one source: constant effort in playing out and furthering one’s Passion Attributes. Each major aspect of your 
-			character, and how to advance in that area, is now discussed.</p>
-		</div>
-	</div>
-	<!-- Jumbotron ends here -->
-	
 	<!-- Content begins here -->
 	<div class="container text-justify">
 		<div>
-			<p>
-				<a class="btn btn-primary btn-lg" role="button" href="Skills.html">Skill List</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Assets.html">Asset List</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Proficiencies.html">Proficiencies</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Maneuvers.html">Maneuvers</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Passion Attributes.html">Passion Attributes</a>
-			</p>
+		
+			Character advancement is covered <a href="Training.html">here</a>.<br/>
+		
+			<hr/>
+			
+			A descripive list of Assets can be found <a href="Assets.html">here</a>.<br/>
+			Proficiencies are described <a href="Proficiencies.html">here</a>.<br/>
+			The full Proficiency Table, with all default levels can be found <a href="Proficiency Table.html">here</a>.<br/>
+			A complete list of Skills can be found <a href="Skills.html">here</a>.<br/>
+			A guide on how to choose your Character's skills is <a href="Skill Guide.html">here</a>.<br/>
 			
 			<hr/>
 			
-			<p class="h4">Raising Basic Attributes</p>
-			<p>Any Attribute may be raised by spending Passion Attribute equal to three times its current score. Raising a 
-			character’s “Focus” Attribute costs 1 point less. No Attribute may be increased by more than one point per 
-			session.</p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_Proficiencies">Buying and Raising Proficiencies</p>
-			<p>These are easier to raise than Attributes, but require that a character either spend some time training or 
-			use the Proficiency in the course of play. Not much training is needed, assuming the character has an hour or 
-			so a day to spend practicing. </p>
-			
-			<p>To raise Proficiency by one level, simply spend a number of Passion Attribute points equal to twice the 
-			current Proficiency level. Hence the cost to raise the Greatsword Proficiency from 4 to 5 would be 8 Passion 
-			Attribute Points. As with Attributes only one level increase per Proficiency is allowed during any one game 
-			session.</p>
-			
-			<p>Acquiring a new Proficiency requires either that the Proficiency has been used during the course of play, 
-			or that a teacher with Proficiency level 3 or better was consulted. These cost a mere 1 Passion point. 
-			Entirely new Proficiencies are bought up from the PC’s best default rating in that Proficiency. Thus buying 
-			Cut & Thrust would cost 1 point to begin at level 1, but if already proficient in Greatsword (which defaults 
-			to Cut & Thrust at -3) you could buy the new Proficiency as if you were already at the same level as 
-			Greatsword -3.</p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_Assets">Buying and Raising Assets</p>
-			<p>Some Assets may be bought or bought off during the game, provided that these developments seem plausible to 
-			the group. Acquiring an entirely new Good Asset or buying off a Poor Asset acquired from the Culture Priority 
-			Pick costs 20 Passion. Buying off a Poor Asset not derived from the Culture Priority choice, or acquiring the 
-			Good aspect of an Asset of which the character already has the Poor aspect costs only 15 Passion.</p>
-			
-			<p>With some Assets, for example Berserk and Spell-Gifted, it does not make sense to have both their Good and 
-			Poor aspects simultaneously. If a character has the Poor aspect of one and buys it off, he can never acquire 
-			its Good aspect. If he has designs of changing such an Asset’s Poor aspect into the Good one, he first must 
-			purchase the Good aspect and only then buy off the Poor aspect. For as long as he has not bought off the Poor 
-			aspect, it applies in full and he does not receive the benefits from the purchased Good aspect.</p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_Skills">Buying and Raising Skills</p>
-			<p>Skills are easy to develop. To raise a Skill by one level, simply spend a number of Passion Attribute 
-			points equal to the current Skill level. Entirely new Skills may be purchased for 1 Passion Attribute point, 
-			and begin at level 1. Keep in mind that when purchasing a new Skill at a level lower than the rating the 
-			PC has in that Skill’s most applicable Attribute (as listed in the Skill’s description), it will cost 1 point 
-			less than the Attribute’s rating, though always at least 1 point.</p>
-			
-			<p>Finally, improving one’s Skill rating in either the Ancient Languages or Foreign Language Skill costs one 
-			less Passion point than would otherwise be charged, though again a minimum of 1 point must be spent. 
-			Furthermore, the initial Passion point expended towards the acquisition of an entirely new Foreign Language 
-			(though not Ancient Language) Skill immediately buys an initial rating level of 2, not 1.</p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_Loot">Loot</p>
-			<p>The Loot rating measures a character’s wealth. Every point in it represents an abstract amount of 
-			affluence. In more concrete terms, every point of Loot represents roughly ten times the wealth of the level 
-			immediately below it. This encompasses a character’s total wealth in both money and movable and immovable 
-			goods.</p>
-			
-			<ul>
-				<li>0 : Dead broke. Just the shabby or torn (and thus worthless) clothes on your back</li>
-				<li>1 : Poor. A set of clothes, some coin, or a few items</li>
-				<li>2 : Average. The normal amount of wealth for a commoner</li>
-				<li>3 : Rich. Fashionable clothes and spending money</li>
-				<li>4 : Filthy Rich. Accompianied by servants</li>
-				<li>5 : Fantastically Rich. Titled nobility</li>
-			</ul>
-			
-			<p>If a character wants to buy something, the referee judges whether his Loot score suggests that he should be 
-			able to afford it or not. If the purchase seems clearly within the character’s means, he can buy it. If it’s 
-			judged to be well beyond it, he can’t.</p>
-			
-			<p>If the issue seems questionable, the character’s Cunning pool is typically rolled against either a 
-			Challenging or Difficult task. If the Check is successful, the character can make the purchase, but he can’t 
-			afford to make any other purchase that would require a roll for the remainder of the session.</p>
-			
-			<p>A newly created character’s Loot is set at any level the player wants, provided it corresponds to the PC’s 
-			backstory and the circumstances under which he commences play. The entire group is the communal arbitrator of 
-			whether an assigned Loot score is reasonable or not.</p>
-			
-			<p>When a character acquires money or valuables of a magnitude that suggests an increase to his current Loot, 
-			his rating is increased automatically, provided the wealth gained is judged to be clearly many times greater 
-			than the character’s current means. If it is merely deemed to be considerably greater, the character should 
-			make a Cunning Check with his possible new Loot rating as the Challenge Level. If he passes the test, his Loot 
-			rating increases.</p>
-			
-			<p>Sword & Sorcery protagonists are notoriously bad at hanging on to money, either because they spend 
-			fistfuls of it on drink, wenching, gambling and other forms of hard carousing, or because they simply don’t 
-			seem to care much about keeping their accounts balanced. Therefore, a character’s Loot rating is decreased by 
-			1 between game sessions, provided that considerable game time has passed since the last session.</p>
-			
-			<p>The player can avoid having his Loot deteriorate if he passes a Check of his character’s CG with a 
-			Challenge Level of (5 – current Loot). PAs don’t apply to this roll, but Drama can be spent in the usual 
-			manner. What constitutes a sufficient span of time for Loot to decrease due to spending depends on the 
-			circumstances in which this time is passed. In a city, a week is definitely sufficient, but in a remote 
-			monastery or some such, several months should pass before a roll becomes necessary.</p>
-			
+			How Passion Attributes affect the game is detailed <a href="Passion Attributes.html">here</a>.<br/>
+			Using Drama for in-game effets is described <a href="Drama.html">here</a>.<br/>
+			Spending (and gaining) Karma is explained <a href="Karma.html">here</a>.<br/>
+						
 			<br/>
 		</div>
 	</div>
@@ -205,10 +92,6 @@
 		</div>
 	</footer>
 	<!-- Footer ends here -->
-	
-	<!-- Bootstrap JS items -->
-	<script src="../../../js/jquery.js"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>

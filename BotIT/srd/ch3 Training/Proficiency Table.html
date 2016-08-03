@@ -3,9 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blade SRD Proficiency Table</title>
+	<title>Proficiency Table</title>
 	<link href="../../../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
+	
+	<!-- Bootstrap JS items -->
+	<script src="../../../js/jquery.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -33,18 +37,37 @@
 				<ul class="nav navbar-nav">
 					<li><a href="../Home.html">SRD Home</a></li>
 					
+					<!-- Character Creation : Dropdown items -->
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Training<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="Training.html">Training and Advancement</a></li>
+							<li class="divider"></li>
+							<li><a href="Assets.html">Assets</a></li>
+							<li><a href="Proficiencies.html">Proficiencies</a></li>
+							<li class="active"><a href="Proficiency Table.html">Proficiency Table</a></li>
+							<li><a href="Skills.html">Skills</a></li>
+							<li><a href="Skill Guide.html">Skill Guide</a></li>
+							<li class="divider"></li>
+							<li><a href="Passion Attributes.html">Passion Attributes</a></li>
+							<li><a href="Drama.html">Drama</a></li>
+							<li><a href="Karma.html">Karma</a></li>
+						</ul>
+					</li>
+					
 					<!-- Dropdown items -->
-					<li class="active">
+					<li class="dropdown active">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Chapters<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="../ch1 Mechanics/Home.html">Ch 1 : Mechanics</a></li>
-							<li><a href="../ch2 Characters/Home.html">Ch 2 : Characters</a></li>
-							<li class="active"><a href="../ch3 Training/Home.html">Ch 3 : Training</a></li>
-							<li><a href="../ch4 Melee/Home.html">Ch 4 : Melee</a></li>
-							<li><a href="../ch5 Travel/Home.html">Ch 5 : Travel and Health</a></li>
-							<li><a href="../ch6 Sorcery/Home.html">Ch 6 : Sorcery</a></li>
-							<li><a href="../ch7 SnS Gaming/Home.html">Ch 7 : S&S Gaming</a></li>
+							<li><a href="ch1 Mechanics/Home.html">Chapter One: Mechanics</a></li>
+							<li><a href="../ch2 Characters/Home.html">Chapter Two: Character Creation</a></li>
+							<li class="active"><a href="../ch3 Training/Home.html">Chapter Three: Training</a></li>
+							<li><a href="../ch4 Melee/Home.html">Chapter Four: Combat</a></li>
+							<li><a href="../ch5 Travel/Home.html">Chapter Five: Travel and Health</a></li>
+							<li><a href="../ch6 Sorcery/Home.html">Chapter Six: Sorcery</a></li>
+							<li><a href="../ch7 SnS Gaming/Home.html">Chapter Seven: S&S Gaming</a></li>
 							<li class="divider"></li>
 							<li><a href="../Appendix/Home.html">Appendix and Tables</a></li>
 						</ul>
@@ -271,10 +294,6 @@
 		</div>
 	</footer>
 	<!-- Footer ends here -->
-	
-	<!-- Bootstrap JS items -->
-	<script src="../../../js/jquery.js"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>
