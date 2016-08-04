@@ -3,9 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blade SRD Ch4: Melee</title>
+	<title>Blade SRD Ch4: Combat</title>
 	<link href="../../../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
+	
+	<!-- Bootstrap JS items -->
+	<script src="../../../js/jquery.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -24,7 +28,7 @@
 				</button>
 				
 				<!-- "logo" text -->
-				<a class="navbar-brand" href="#">Blade SRD : Melee</a>
+				<a class="navbar-brand" href="#">Blade SRD : Combat</a>
 			</div>
 			
 			<div class="collapse navbar-collapse navbar-right" id="bs-test-navbar-collapse-1">
@@ -33,47 +37,18 @@
 				<ul class="nav navbar-nav">
 					<li><a href="../Home.html">SRD Home</a></li>
 					
-					<li><a href="#P_Limelight">Limelight</a></li>
-					<li><a href="#P_CombatOrder">Combat Order</a></li>
-					
-					<!-- Stances : Dropdown -->
-					<li>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Stances<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#P_Stance_Aggressive">Aggressive</a></li>
-							<li><a href="#P_Stance_Defensive">Defensive</a></li>
-							<li><a href="#P_Stance_Neutral">Neutral</a></li>
-						</ul>
-					</li>
-					
-					<!-- Initiative : Dropdown -->
-					<li>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Initiative<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#P_Initiative">Initiative</a></li>
-							<li><a href="#P_StealInitiative">Stealing Initiative</a></li>
-							<li><a href="#P_Surprise">Surprise</a></li>
-						</ul>
-					</li>
-					
-					<li><a href="#P_TheExchange">The Exchange</a></li>
-					<li><a href="#P_Reach">Weapon Reach</a></li>
-					<li><a href="#P_Damage">Damage</a></li>
-					
 					<!-- Dropdown items -->
-					<li class="active">
+					<li class="dropdown active">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Chapters<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="../ch1 Mechanics/Home.html">Ch 1 : Mechanics</a></li>
-							<li><a href="../ch2 Characters/Home.html">Ch 2 : Characters</a></li>
-							<li><a href="../ch3 Training/Home.html">Ch 3 : Training</a></li>
-							<li class="active"><a href="ch4 Melee/Home.html">Ch 4 : Melee</a></li>
-							<li><a href="../ch5 Travel/Home.html">Ch 5 : Travel and Health</a></li>
-							<li><a href="../ch6 Sorcery/Home.html">Ch 6 : Sorcery</a></li>
-							<li><a href="../ch7 SnS Gaming/Home.html">Ch 7 : S&S Gaming</a></li>
+							<li><a href="ch1 Mechanics/Home.html">Chapter One: Mechanics</a></li>
+							<li><a href="../ch2 Characters/Home.html">Chapter Two: Character Creation</a></li>
+							<li><a href="../ch3 Training/Home.html">Chapter Three: Training</a></li>
+							<li class="active"><a href="../ch4 Melee/Home.html">Chapter Four: Combat</a></li>
+							<li><a href="../ch5 Travel/Home.html">Chapter Five: Travel and Health</a></li>
+							<li><a href="../ch6 Sorcery/Home.html">Chapter Six: Sorcery</a></li>
+							<li><a href="../ch7 SnS Gaming/Home.html">Chapter Seven: S&S Gaming</a></li>
 							<li class="divider"></li>
 							<li><a href="../Appendix/Home.html">Appendix and Tables</a></li>
 						</ul>
@@ -85,474 +60,33 @@
 	</nav>
 	<!-- Navbar ends here -->
 	
-	<!-- Jumbotron begins here -->
-	<div class="jumbotron">
-		<div class="container">
-			<p class="h2">Melee Combat Overview</p>
-			<p>The world of <em>Blade</em> is a dangerous one. Though fierce monsters and abominations inhabit the far 
-			corners of the world, adventurers must also be on the lookout for thugs, cutpurses, assassins, mercenaries 
-			and anybody else who would kill them for their silver. And the most deadly foes care nothing for treasure, 
-			and instead want a hero’s corpse for darker purposes...</p>
-			
-			<p>As characters adventure throughout the world, they will encounter those who stand in their way. 
-			Unfortunately, not all villains will launch themselves at the characters with sword in hand. The more 
-			dangerous ones use their snake tongues, devious minds, or sorcery to bring the heroes to ruin. Good referees 
-			will throw all types of foes against characters – those who fight with tooth and claw, cowards who would 
-			sooner run than battle, and those who seek to undermine adventurers with a labyrinth of plans and 
-			deception.</p>
-			
-			<p>Sometimes, battle is inevitable. Though the warriors of Blade are well trained and deadly, even the most 
-			inexperienced knave can thrust a pitchfork into the throat of a battle-hardened king. Players should always 
-			keep in mind that more people walk into battle than walk from it...</p>
-		</div>
-	</div>
-	<!-- Jumbotron ends here -->
-	
 	<!-- Content begins here -->
 	<div class="container text-justify">
 		<div>
-			<p>
-				<a class="btn btn-primary btn-lg" role="button" href="Damage Types.html">Damage Types</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Defence.html">Defence</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Ranged Combat.html">Ranged Combat</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Mounted Combat.html">Mounted Combat</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Terrain Checks.html">Terrain Checks</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Animals in Combat.html">Animals in Combat</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Fatigue.html">Fatigue (Optional)</a>
-				<a class="btn btn-primary btn-lg" role="button" href="Combat Example.html">A Combat Example</a>
-			</p>
-			
-			<hr/>
 		
-			<p class="h4" id="P_Limelight">1. Limelight and the Combat Round</p>
-			<p>The basic temporal unit any Combat Scene in Blade is the Combat Round. During the Combat Round, every 
-			combatant has dice to spend on actions equal to his Melee Pool (MP). Players will have to be judicious about 
-			what activities they spend their MP dice on, and all associated costs to their MP pool. A subdivision of the 
-			Combat Round is the Exchange, with every Combat Round consisting of two.</p>
-			
-			<p>The Exchange is thus the shortest temporal division of a Combat Scene, which ultimately consists of any 
-			number of Combat Rounds, each made up of a pair of Exchanges. In <em>Blade</em>, combat is never handled by 
-			going around the table from player to player in order every single Round, let alone Exchange. Instead, every 
-			player goes through a number of Rounds before it is the next player’s turn. This collection of unbroken Combat 
-			Rounds is called the “Limelight”.</p>
-			
-			<p>Limelight harks back to the way swashbuckling fights were once portrayed in movies, when the camera focused 
-			on one combatant and his enemies for an intense set of actions and then, at a suitably dramatic moment, cut 
-			to another exciting moment within the scene. This cut to another moment sometimes pulled the viewer back in 
-			time, if the scene’s new focus took place prior to the moment cut from. This tried and true dramatic way of 
-			portraying fights is reborn in Blade.</p>
-			
-			<p>There are no firm rules as to how many Combat Rounds a Limelight has, only guidelines when to end it and 
-			“cut” to another player’s Limelight. Generally speaking, a Limelight is terminated at the end of its first 
-			Combat Round in which something significant happens. We call this a <strong>cliff-hanger</strong>! A 
-			cliff-hanger can be a wound being inflicted, a combatant being killed, a weapon being lost or knocked away, 
-			a change in how the fight is being waged, for instance when the opponents switch from Melee combat to a 
-			grappling match, or any other noticeable change in the flow of the fight. Once something like this happens, 
-			the ref calls an end to one Limelight and switches to another player’s new Limelight.</p>
-			
-			<p>The order in which players go through their Limelight’s is largely determined at the outset of the fight 
-			and then remains fixed, unless changed by player action; see below.</p>
-			
-			<p>Under some circumstances, for instance when one PC out of several is under surprise attack, it’s obvious 
-			whose Limelight is handled first, but in most cases it isn’t. If circumstances don’t dictate the order of 
-			Limelight’s, the ref taps players in ascending order of their Character's Cunning; lower Cunning levels go 
-			first and high Cunning levels go last, with ties broken by Reflex, or by the highest Melee Proficiency, if 
-			still tied. However, any player whose character’s Cunning is higher than the Cunning of the PC being called 
-			up by the ref may opt to step in before the round begins and have his PC’s Limelight resolved earlier. Thus 
-			characters with high CG have control of the initial Limelight order.</p>
-			
-			<p>Once every player at the table has had a Limelight, what’s called a Round of Limelights, the order of 
-			Limelights is established, and this order remains unchanged for the entire combat – unless player’s step in to 
-			change this sequence.</p>
-			
-			<br/>
-			
-			<p class="h4">A Word on Time</p>
-			<p>Neither Exchanges nor Combat Rounds take a fixed amount of time. Depending on circumstances, a Round may 
-			easily be as little as 1 second and as much as 5 seconds, or even more; as long as a PC is going through his 
-			Limelight, there is no telling how much time has actually passed. However, once a Round of Limelights has 
-			been completed, time snaps back, and the PCs all realign to the same point in time. Thus the player who has 
-			in his Limelight played through five Combat Rounds is at the same point in time as the player who played 
-			through just two.</p>
-			
-			<p>At any time between one player’s Limelight completion, but before the next player’s Limelight commences, 
-			any player who has not yet had his Limelight moment within the round may step in and “Steal the Limelight”, 
-			thus having his Limelight conducted immediately. Doing so requires the payment of 1 Drama point, and the sole 
-			caution that the player who Steals the Limelight must not yet have had his Limelight moment during the 
-			current Round of Limelights.</p>
-			
-			<p>By Stealing the Limelight, the sequence of Limelights is changed – and remains changed. The player who has 
-			spent the Drama point has thereby elevated himself from his old place in the sequence to the new one, and the 
-			order of Limelights created by this act of Stealing the Limelight becomes the new order of Limelights for the 
-			remainder of the combat – or until someone else Steals the Limelight yet again. Stealing the Limelight can be 
-			advantageous in many situations, and is often done to enable one PC to rush to another character’s aid.</p>
-			
-			<div class="panel-body bg-warning" id="DIV_Example_Limelights">
-				<p><em><strong>Example</strong>: Three characters, Rufo, Karg, and Otho, are each fighting an enemy in 
-				this order during the current round of Limelights. When the second Round of Limelights begins, all three 
-				are engaged in melee combat. Having his Limelight first, Rufo is wounded during it, an appropriate point 
-				for the ref to cut to Karg’s Limelight.</p>
-				
-				<p>Sometime into Karg’s Limelight, he and his opponent go from melee into a grappling ground fight, again 
-				a useful juncture to cut to Otho, who during his Limelight dispatches his opponent, thereby ending his 
-				own Limelight. A new Round of Limelights begins, with Rufo going first – but as Rufo has just been wounded, 
-				there is a danger of him being killed by his opponent’s coup de grace, so Otho’s player decides to spend 
-				1 Drama point to Steal the Lime light. Otho, now going first and being unengaged, has by Stealing the 
-				Limelight, gained a chance to rush to injured Rufo’s side and save him.</em></p>
-			</div>
-			
-			<br/>
-			
-			<p>In quite a few fights, not all PCs will actually be Melee combatants, or combatants at all, and their 
-			Limelights conversely work a bit differently. While their place in the sequence of Limelights is determined 
-			normally, instead of fighting, they use their Limelight to do one relevant thing. Doing something relevant - 
-			this truly is the heart of the matter: Not preparing for something relevant, but doing it, all the way. This 
-			relevant action could be a lot of things. Often, it will be firing a missile (and yes, even cocking a heavy 
-			crossbow, loading and then discharging it are accomplished within the space of a single Limelight) or casting 
-			a spell, but it might be picking a lock, breaking down a door, lighting a fire, untethering the group’s 
-			horses – anything really.</p>
-			
-			<p>The sole constraint is that the action should be one that could conceivably be accomplished within the 
-			space of 30 seconds. So, all sorcery and missile attacks work alike in melee situations. You can use your 
-			pool, whether Archery Pool or SP, once, and only once per Limelight. That said, there is nothing to prevent a 
-			sorcerer from beginning a Limelight using his MP and then switching over to a sorcerous action and using his 
-			SP. This would be governed by exactly the same mechanics as somebody switching over from using his MP to 
-			using his Archery Pool. But note that he may do so only at the beginning of a round’s 2nd Exchange, with an 
-			upfront SP Activation Cost equaling the amount of MP spent by him during the 1st Exchange. This represents 
-			the rigors of invoking sorcery in the middle of a hectic melee.</p>
-			
-			<p>NPCs, even the most important ones, do not have a Limelight of their own. An NPC’s opportunity to act 
-			arrives when the PC with whom he is locked in some kind of struggle or other interaction has his own Limelight. 
-			If this PC moves to a new place within the Order of Limelights, the NPC moves with him. In those cases, where 
-			NPCs not currently in some form of contest with a PC try to accomplish something entirely on their own and 
-			unopposed by a PC (e.g. breaking down a door), the referee should adjudicate this action with common sense and 
-			just announce its progress or completion as seems right.</p>
-			
-			<p>In those very rare and exceptional cases when timing should be more important, such an NPC can be given a 
-			place within the Order of Limelights of his own. This is however only possible for as long as this NPC does 
-			not interact with a PC; the moment he starts interacting with a PC (e.g. having broken down the door, the NPC 
-			charges the PC), he loses his own place within the Order of Limelights and commences acting on the PC’s 
-			Limelight.</p>
-			
-			<p>All NPCs must be assigned to a given PC’s Limelight right at the beginning of that Limelight, with all 
-			players being informed of any NPC attached to his character’s current Limelight, whether the character would 
-			be aware of the presence of the NPC or not. An NPC who was not assigned to a PC’s Limelight cannot interact 
-			with that PC during this Limelight.</p>
-			
-			<p>In addition, an NPC can only be assigned to one PC’s Limelight during any given Round of Limelights; should 
-			he fail to act on this Limelight, he cannot be reassigned to another Limelight later taking place during the 
-			current Round of Limelights.</p>
+			Melee Combat is described <a href="Melee Combat.html">here</a>.<br/>
+			Ranged Combat is detailed <a href="Ranged Combat.html">here</a>.<br/>
+			Mounted Combat is covered <a href="Mounted Combat.html">here</a>.<br/>
 			
 			<hr/>
 			
-			<p class="h4" id="P_CombatOrder">2. The Order of a Combat Round</p>
-			<p>A Combat Round is fought in the following sequence:</p>
-			
-			<ol>
-				<li>All stances are declared.</li>
-				<li>Aggressor and defender is established (initiative). Melee Pool fills/refreshes, with all Modifiers.</li>
-				<li>During the first half of the Combat Round, the first Exchange, the aggressor attacks and defender 
-				defends.</li>
-				<li>Damage is resolved and/or new attitude determined (aggressor or defender).</li>
-				<li>During the second half of the Combat Round, the second Exchange, the aggressor attacks and defender 
-				defends. These roles may have been reversed since the first Exchange.</li>
-				<li>All damage is resolved and/or new attitude determined (aggressor or defender).</li>
-			</ol>
-			
-			<p>Steps 2-6 continue to repeat until the resolution of the combat, or until the flow of combat is interrupted 
-			otherwise (a pause). At the beginning of each new melee conflict (or following a pause) begin at step 1, then 
-			repeat 2-6 as normal.</p>
+			Defending is covered <a href="Defence.html">here</a>.<br/>
+			Rules on Terrain Checks can be found <a href="Terrain Checks.html">here</a>.<br/>
+			Damage types are detailed here <a href="Damage Types.html">here</a>.<br/>
+			Weapon Reach is described <a href="Reach.html">here</a>.<br/>
+			How Limelights work is explained <a href="Limelight.html">here</a>.<br/>
 			
 			<hr/>
 			
-			<p class="h4">3. Steps 1 & 2: Stances, Initiative, and Surprise</p>
-			<p>Unless taken by surprise, combatants will usually have time and opportunity to declare a stance – these 
-			should be clearly announced at the table. Stances potentially provide for a stronger attack or defence, though 
-			perhaps adding some rigidity to a combatant’s action.</p>
-			
-			<p>Though every school speaks with confidence on the superiority of its teaching, three stances are universal; 
-			Aggressive, Defensive, and Neutral stances.</p>
-			
-			<br/>
-			
-			<p class="h4" id="P_Stance_Aggressive">Aggressive Stance</p>
-			<p>Aggressive stances provide an attack bonus at the cost of making one’s defense more difficult. Assuming 
-			them adds 2 MP dice for an attack but increases Activation Costs for Defensive Maneuvers by 2 MP.</p>
-			
-			<br/>
-			
-			<p class="h4" id="P_Stance_Defensive">Defensive Stance</p>
-			<p>Defensive stances grant a defensive bonus while making attack execution more difficult. Such stances add 2 
-			MP dice when Defending but increase the activation costs for any Offensive Maneuver by 2 MP.</p>
-			
-			<br/>
-			
-			<p class="h4" id="P_Stance_Neutral">Neutral Stance</p>
-			<p>Neutral stances are the favorite of many. In a Neutral stance one’s weapon is positioned to allow for either 
-			quick attack or defensive response. Neutral stances provide no bonus to either attack or defense.</p>
-			
-			<br/>
-			
-			<p><em>Note: Stances are only in effect until the first blow or movement—once a character’s weapon moves, the 
-			stance is gone. Once melee is joined the stances of both attacker and defender are treated as neutral, with 
-			no bonus conveyed to either. A stance cannot be taken (or regained) until the combatants separate for a full 
-			pause.</em></p>
+			Melee Maneuvers are fully covered <a href="Maneuvers.html">here</a>.<br/>
+			The Offensive Maneuver Table can be found <a href="Maneuvers - Offensive.html">here</a>.<br/>
+			The Defensive Maneuver Table can be found <a href="Maneuvers - Defensive.html">here</a>.<br/>
 			
 			<hr/>
 			
-			<p class="h4" id="P_Initiative">Initiative</p>
-			<p>Initiative is determined after any stances are declared, when each combatant announces their intent to 
-			either attack or defend. The intent of the combatants will usually be very clear from the circumstances under 
-			which they enter combat – more often than not, one or even both will charge the other. Apart from of course 
-			counting as an aggressive stance, such a charge automatically suggests the intent to attack, leaving the 
-			other party to decide whether to receive the charge with a defence or to himself attack.</p>
-			
-			<p>Some rare combat encounters, for example formal duels or gladiatorial bouts, may however start out less 
-			unambiguous, with both combatants gauging each other, shifting from stance to stance and waiting for an 
-			opening in their opponent’s defence to attack. In these cases, it is advisable to demand that both parties 
-			declare intent to attack or defend simultaneously, maybe by lifting one finger for attack and two for defence. 
-			Until at least one party declares attack, the bout does not actually commence.</p>
-			
-			<p>If a party fails to declare intent while the other declares attack, then this character is considered to 
-			have hesitated and may only defend for one full Combat Round – if even that (see Surprise).</p>
-			
-			<p>The attacker, now having the initiative, declares how many dice from his Melee Pool are being spent on the 
-			attack, where the attack is aimed, and what Maneuver, if any, is being used.</p>
-			
-			<p>The defender in response to the attacker declares how many dice from his Melee Pool are going towards 
-			defense, what defense is being used, and what Maneuver, if any, is being executed.</p>
-			
-			<p>If both combatants declare as aggressors, Offensive Maneuvers and assigned dice are announced before the 
-			Reflex Check to see who goes fractionally first. The combatant with the higher Reflex may choose whether to 
-			declare first or second; tied Reflex scores are broken by the higher CG score, and tied CG scores by the 
-			higher Proficiency.</p>
-			
-			<p>An Opposed Reflex Check (with the combatants’ own Attack Target Number for Target Numbers — see the 
-			Appendix for weapon Attack Target Numbers) then determines whose strike lands first. For every step of Reach 
-			difference of the weapons used, the wielder of the longer weapon receives 1 bonus dice to this Check, and the 
-			wielder of the shorter weapon is penalized 1 die. In the rare cases where the combat begins at the optimum 
-			engagement range of the shorter Reach weapon, these modifiers are reversed.</p>
-			
-			<p>Note that no defense is possible in the middle of an attack, so the loser of this Check will likely be 
-			killed. In the Exchange that follows, the winner of this Exchange now assumes the role of aggressor and his 
-			opponent that of defender. Should the Opposed Reflex Check be tied, both combatants strike at exactly the same 
-			time.</p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_StealInitiative">Stealing Initiative</p>
-			<p>Stealing Initiative is only and exclusively possible immediately before the first blows of any bout are 
-			traded and is usually done in one of two circumstances: The first is when two combatants declare as aggressors 
-			and attack simultaneously. If one combatant turns out to be fractionally slower than the other, he may attempt 
-			to Steal Initiative, but if both combatants attack at exactly the same time, the combatant with the higher 
-			Reflex score is the one first entitled to attempt to Steal Initiative; tied Reflex scores are broken by the 
-			higher CG score, and tied CG scores by the higher Proficiency. Should he decline to try Stealing Initiative, 
-			the other combatant may then opt to attempt to.</p>
-			
-			<p>The party attempting to Steal Initiative pays an Activation Cost equal to half his opponent’s SY (0.50 
-			rounds up). The attempt itself is an Opposed Check between the initiator’s CG and his opponent’s DG.</p>
-			
-			<p>This contest is modified by differences in the Reach of the weapons used; if there is any difference, the 
-			wielder of the longer weapon receives a flat +1 die bonus on his Check while the wielder of the shorter weapon 
-			must incur a flat -1 die penalty. When the combatants begin the bout already at the Reach of the shorter of 
-			the weapons involved, the above modifiers are reversed: Shorter weapons garner a flat +1 die bonus, and 
-			longer weapons a flat -1 die penalty.</p>
-			
-			<p>Finally, the initiator of the attempt, and only he, may buy bonus dice for his Check by spending dice from 
-			his MP on a one-to-one basis, up to the value of his DG rating. PAs do not modify to this check, as PAs are 
-			added to one’s MP pool at the beginning of the combat scene, and are thus already accounted for.</p>
-			
-			<p>The winner of the Opposed Check strikes first, and the loser, should he still be able to continue after his 
-			opponent’s attack, second. In a tie, both combatants strike simultaneously, which might well result in the 
-			death of both. In any case, a combatant who had the Initiative stolen from him may immediately try to steal it 
-			back. Such attempts to Steal Initiative or steal it back may theoretically continue until one party depletes 
-			his MP. wish to Steal Initiative can occur when a character who has previously declared defense wishes to 
-			switch over and instead attack. The process is identical to that described above.</p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_Surprise">Surprise</p>
-			<p>Surprise can occur at any time, even when you suspect that danger is near. When a Surprise Check is called 
-			for, the player checks Reflex against TN7, with the difficulty based on how alert the character or NPC was. 
-			Table 14, Surprise Challenge Levels, provides guidelines. Failure indicates no action can be taken until the 
-			next Combat Round.</p>
-			
-			<p>Meeting the required number of Successes means that the target may defend themselves (or attempt to Steal 
-			Initiative).</p>
-			
-			<br/>
-			
-			<p class="h4" id="P_SurpriseLevels">Surprise Challenge Levels</p>
-			<table class="table table-striped table-hover" id="TBL_SurpriseLevels">
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Target is on high alter, waiting for an attack</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Target is uneasy or suspicious, attack comes from than unexpected source or player 
-						hesitated</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Target is caught completely off-guard</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Target is caught completely off-guard, plus attacked from the side or rear</td>
-					</tr>
-				</tbody>
-			</table>
-			
-			<hr/>
-			
-			<p class="h4" id="P_TheExchange">4. Steps 3 & 5: The Exchange</p>
-			<p>Again, each Combat Round consists of two Exchanges. During an Exchange each of the participants may perform 
-			but one action, usually attacking or defending by use of a single one of either the Offensive or Defensive 
-			Maneuvers.</p>
-			
-			<p>One who is in the role of aggressor may utilize both Offensive and Defensive Maneuvers, though will of 
-			course usually not choose one of the latter. One who is in the role of defender may freely utilize nothing but 
-			Defensive Maneuvers, but may choose to execute an Offensive Maneuver instead if he pays a special Activation 
-			Cost (see below).</p>
-			
-			<p>All attacks must be aimed at a specific locale, numbered 1-14 on the Target Zone diagrams. Arrows indicate 
-			swing Target Zones, while circles mark Target Zones for thrusting or missile attacks. While a player need not 
-			declare a specific number, he must describe the attack in terms that may be easily understood, i.e., Thrust to 
-			the face, Slash to the right foot, etc.), as random attacks are not a part of Blade melee. Maneuvers and chosen 
-			Target Zones may increase or decrease TNs for both attacker and defender alike, and may also require an 
-			additional Activation Cost: Optionally, all melee thrusts to head and limbs (Target Zones 8, 9, 13, and 14) 
-			require an additional 1-point Activation Cost to execute.</p>
-			
-			<p>Both participants now roll the allotted Dice from their Melee Pool (See Step 2), with all modifiers totaled 
-			from all Maneuvers, stances, or other situations factors. This is a normal Opposed Check, where one party’s 
-			Victories are subtracted from the other’s, leaving the winner with a net QoS. An attack may potentially cause 
-			damage only if the attacker achieves a QoS of 1 or more. Ties in the Opposed Check or an outright QoS in the 
-			defender’s favor means no damage was inflicted.</p>
-			
-			<p>All Target Numbers for this Check come from the ATN (Attack Target Number, used when attacking) or DTN 
-			(Defense Target Number, used when defending) listed with each weapon (see the Appendix) or defence. After all 
-			damage is resolved, a winning aggressor maintains his role as aggressor, unless he declines it, or cannot 
-			continue because of depleted MP, while conversely his opponent still retains uncommitted MP dice. If either is 
-			the case, the defender may choose to take on the role of aggressor.</p>
-			
-			<p>With a successful net QoS, the defender may now take on the role of aggressor, unless he merely tied the 
-			aggressor, in which case the latter retains his role.</p>
-			
-			<p>Note that some Defensive Maneuvers may on a case-by-case basis allow a successful defender to either assume 
-			the role of aggressor upon a tie, or upon paying an additional Activation Cost, or perhaps under no 
-			circumstances at all. Any such special mechanics are explained within their respective Maneuvers.</p>
-			
-			<p>Finally, should a defender enter a new Exchange and wishes to execute an Offensive Maneuver and attack, 
-			regardless of the consequences, he may declare an Offensive Maneuver like the aggressor, announcing both his 
-			Maneuver for the Exchange and the number of dice allocated to it. This declaration of an Offensive Maneuver 
-			carries an Activation Cost equal to half the aggressor’s DG (0.50 rounds up, as always), above and beyond any 
-			normal Activation Cost for the Offensive Maneuver.</p>
-			
-			<p>In such circumstances, the aggressor resolves his Maneuver first and only then does the defender resolve 
-			his Offensive Maneuver, should he still have the required dice in his MP to do so. Sneaking in an attack does 
-			not in itself turn the previous defender into the aggressor; he still begins the next Exchange as the defender, 
-			and his opponent the aggressor. However, should the defender manage to inflict a higher Wound Level upon the 
-			aggressor than he received himself, he now assumes the role of aggressor.</p>
-			
-			<p>Visibility has a profound effect on combat. In dim lighting (for example, dusk) deduct 1 die from all Melee 
-			Pools. During hours of darkness (moonlight) reduce all MPs to ¾. In pitch black conditions drop all MPs to half 
-			value. Archery Pools are affected twice as severely as MPs. Deduct 2 dice from all Archery Pools for dim 
-			lighting and drop it to half value for darkness. In pitch black conditions, all Archery Pools are at 0 
-			dice.</p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_Reach">Weapon Reach</p>
-			<p>Weapon Reach plays an enormous role in any combat. Weapon Reach is in six distinct Steps:</p>
-			
-			<ol>
-				<li><strong>Hand</strong>: Fists, daggers, knee-strikes, grappling, etc.</li>
-				<li><strong>Short</strong>: Long daggers, short swords, maces, etc.</li>
-				<li><strong>Medium</strong>: Arming swords, ball-and-chains, sabers, short spears, etc.</li>
-				<li><strong>Long</strong>: Hand-and-a-half swords, rapiers, spears, short polearms, etc.</li>
-				<li><strong>Very Long</strong>: Greatswords, long polearms, etc.</li>
-				<li><strong>Extremely Long</strong>: Lances, pikes, etc.</li>
-			</ol>
-			
-			<p>Engaging the wielder of a longer weapon is conducted at -1 MP penalty for each Reach increment (Hand to 
-			Short, Short to Medium, etc.) the attacker needs to close; the extreme case of engaging a pike man with bare 
-			fists would carry a penalty of 5 MP. This penalty holds until the shorter weapon makes a damaging strike, after 
-			which the penalty transfers to the longer weapon until he scores a damaging blow, when again the penalty goes 
-			to the shorter weapon. When the shorter weapon is out of range this penalty applies only to attacks; when the 
-			longer weapon is penalized, it applies to both offense and defense. Often the best course of action for long 
-			weapons is to use a full evasion in the event of sudden close combat, or to drop weapons and wrestle! Certain 
-			maneuvers (such as the Half-sword) are particularly effective in such situations.</p>
-			
-			<p>Likewise, many weapons—such as spears and other two-handed weapons— may shorten their reach. Botching in 
-			combat is left for the referee to introduce as Complications at dramatic moments, to spice up events, increase 
-			tension, and put pressure on the PCs. Still, if a group absolutely feels it has to have a mechanic for random 
-			botches, this optional rule can be used:</p>
-			
-			<p><em>When an attack or defence comes up with 0 Successes, a botch results. No Complication arises from this 
-			botch, but the character’s MP for the remainder of the Combat Round, or the following Combat Round if the 
-			botch occurs on the second Exchange, is reduced by the number of dice rolled on the botched Check. In addition, 
-			if the botched roll was made with 5+ dice, something else detrimental also happens. The exact nature of this 
-			fumble is up to the referee, but most likely occurrences are the weapon breaking or slipping from the 
-			character’s hand, or the character slipping and falling.</em></p>
-			
-			<hr/>
-			
-			<p class="h4" id="P_Damage">5. Steps 4 & 6: Damage</p>
-			<p>Should an attacker have one or more Successes over his opponent then the attack has landed (see Steps 3 & 5) 
-			and a D6 is rolled to determine the specific location within the Target Zone (i.e. 1-14, as per the Target 
-			Zone diagrams). Normally a lower roll means a lower hit and a higher roll a higher hit. A character can exert 
-			some control over exactly where this blow lands by paying an additional activation cost before launching his 
-			attack. Spending 1 additional die from his MP allows him to modify the d6 roll for the exact hit location 
-			within Target Zone by +/– 1; an additional 2 dice (i.e. a total of 3) purchases a modifier of up to +/– 2, 
-			and further 3 dice, for a maximum of 6 dice achieves a modifier of up to +/– 3.</p>
-			
-			<p><em>Note that a player need not use his full modifier, but may use it in part or none at all. Damage is 
-			calculated by adding the Quality of Success (QoS) from the attack roll, (after defence Successes have been 
-			subtracted), to the Damage Rating (DR) of the weapon used.</em></p>
-			
-			<p>The Damage Ratings for the various types of attacks possible with a weapon are found in the Weapon Tables 
-			in the Appendix and will often fall in a range of –2 to +3. To this value, half the attacker’s BN (rounded up 
-			for .50 or higher) is then added. This represents muscle power put behind the attack, the overall toughness 
-			and muscle mass protecting the body from serious injury (with a bit of good fortune). This creates a subtotal, 
-			or Impact Rating. From this Impact Rating, half the defender’s BN (again, .50 or higher rounds up) is 
-			subtracted, representing a mixture of grit, health, and muscle mass protecting the vitals.</p>
-			
-			<p>Last, if the defender is wearing armor at the location hit, its Armor Value (AV) is subtracted from the 
-			Impact Rating to arrive at a final damage number. This damage number is the Wound Level. For every wound’s 
-			location and severity, there will be a corresponding entry rendering a few words describing the wound 
-			accompanied by several numeric values.</p>
-			
-			<p>Wound Levels are rated from 1 to 6. A level 1 wound is usually a bruise, scratch or minor cut with no 
-			notable adverse effects. Wounds of level 2 and 3 are worse, but hardly debilitating, while a level 4 wound is 
-			quite a serious matter that will, more likely than not, decide the fight against the wounded person.</p>
-			
-			<p>While level 4 wounds are very debilitating, those of level 5 and 6 are lethal either immediately, because of 
-			massive bleeding, or with other consequences, eventually fatal.</p>
-			
-			<div class="panel-body bg-warning" id="DIV_Example_Limelights">
-				<p><em><strong>Example</strong>: Otho’s weapon has a Damage Rating of 2, and the wound that Otho inflicted 
-				on Olaf has a sub-total (or Impact Rating) of 11. Rolling the location on a D6, we reference a direct hit 
-				by Otho to Olaf’s unprotected neck!</p>
-				
-				<p>Having no armor at this location, Olaf may only subtract half his BN (5) from the Impact Rating... 
-				11 - 3 (2.5 rounded up) = 8. This value of 8 defaults down to a level 6 wound, a Wound Level which 
-				indicates the complete decapitation of Olaf’s head!</em></p>
-			</div>
-			
-			<br/>
-			
-			<p>Location always makes a difference with wounds – a stab to an offhand will be much less damaging than the 
-			same level stab wound to the belly, and a well-placed cut to the throat can be deadly at even low Wound Levels. 
-			Wound Levels are not cumulative, even from multiple wounds to the exact same location. Each wound and all 
-			consequences from the wound description are recorded separately, and while the consequences of wounds may 
-			add up (see below), many small wounds do not combine into one larger wound. To kill somebody, a solid injury 
-			is needed, not many very minor ones.</p>
-			
-			<p>Of course, a number of minor wounds may well – and often will – accumulate and thus handicap a fighter so 
-			that his enemy is likely to drive home that one telling hit needed to dispatch him. Barring more esoteric 
-			forms of damage such as sorcery, the most common are listed below.</p>
+			Rules for Animals in Combat are described <a href="Animals in Combat.html">here</a>.<br/>			
+			A detailed example of Melee Combat is shown <a href="Melee Combat Example.html">here</a>.<br/>
+			The optional Fatigue rules can be found <a href="Fatigue.html">here</a>.<br/>
 			
 			<br/>
 		</div>
@@ -566,10 +100,6 @@
 		</div>
 	</footer>
 	<!-- Footer ends here -->
-	
-	<!-- Bootstrap JS items -->
-	<script src="../../../js/jquery.js"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>
