@@ -3,9 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blade SRD Terrain Checks</title>
+	<title>Terrain Checks</title>
 	<link href="../../../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
+	
+	<!-- Bootstrap JS items -->
+	<script src="../../../js/jquery.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -39,18 +43,43 @@
 					<li><a href="#P_HigherGround">Higher Ground</a></li>
 					<li><a href="#P_AvoidingOpponents">Avoiding Opponents</a></li>
 					
+					<!-- Combat : Dropdown items -->
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Combat<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="Melee Combat.html">Melee Combat</a></li>
+							<li><a href="Ranged Combat.html">Ranged Combat</a></li>
+							<li><a href="Mounted Combat.html">Mounted Combat</a></li>
+							<li class="divider"></li>
+							<li><a href="Defence.html">Defence</a></li>
+							<li class="active"><a href="Terrain Checks.html">Terrain Checks</a></li>
+							<li><a href="Damage Types.html">Damage Types</a></li>
+							<li><a href="Reach.html">Weapon Reach</a></li>
+							<li><a href="Limelight.html">Limelights</a></li>
+							<li class="divider"></li>
+							<li><a href="Maneuvers.html">Maneuvers</a></li>
+							<li><a href="Maneuvers - Offensive.html">Offensive Maneuver Table</a></li>
+							<li><a href="Maneuvers - Defensive.html">Defensive Maneuver Table</a></li>
+							<li class="divider"></li>
+							<li><a href="Animals in Combat.html">Animals in Combat</a></li>
+							<li><a href="Melee Combat Example.html">Melee Combat Example</a></li>
+							<li><a href="Fatigue.html">Fatigue (Optional)</a></li>
+						</ul>
+					</li>
+					
 					<!-- Dropdown items -->
-					<li class="active">
+					<li class="dropdown active">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Chapters<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="../ch1 Mechanics/Home.html">Ch 1 : Mechanics</a></li>
-							<li><a href="../ch2 Characters/Home.html">Ch 2 : Characters</a></li>
-							<li><a href="../ch3 Training/Home.html">Ch 3 : Training</a></li>
-							<li  class="active"><a href="../ch4 Melee/Home.html">Ch 4 : Melee</a></li>
-							<li><a href="../ch5 Travel/Home.html">Ch 5 : Travel and Health</a></li>
-							<li><a href="../ch6 Sorcery/Home.html">Ch 6 : Sorcery</a></li>
-							<li><a href="../ch7 SnS Gaming/Home.html">Ch 7 : S&S Gaming</a></li>
+							<li><a href="ch1 Mechanics/Home.html">Chapter One: Mechanics</a></li>
+							<li><a href="../ch2 Characters/Home.html">Chapter Two: Character Creation</a></li>
+							<li><a href="../ch3 Training/Home.html">Chapter Three: Training</a></li>
+							<li class="active"><a href="../ch4 Melee/Home.html">Chapter Four: Combat</a></li>
+							<li><a href="../ch5 Travel/Home.html">Chapter Five: Travel and Health</a></li>
+							<li><a href="../ch6 Sorcery/Home.html">Chapter Six: Sorcery</a></li>
+							<li><a href="../ch7 SnS Gaming/Home.html">Chapter Seven: S&S Gaming</a></li>
 							<li class="divider"></li>
 							<li><a href="../Appendix/Home.html">Appendix and Tables</a></li>
 						</ul>
@@ -66,9 +95,9 @@
 	<div class="jumbotron">
 		<div class="container">
 			<p class="h2">Terrain Checks</p>
-			<p>Terrain Checks in Blade take place within the abstracted combat environment. During a melee, it is not 
-			only common but actually necessary that combatants twist and turn about, advance and step back, so that once 
-			a combat begins, all fighters will by default move significantly from the spot they occupied at its outset.</p>
+			<p>Terrain Checks in <em>Blade</em> take place within the abstracted combat environment. During a melee, it is 
+			not only common but actually necessary that combatants twist and turn about, advance and step back. Once a 
+			combat begins, all fighters will by default move significantly from the spot they occupied at its outset.</p>
 			
 			<p>Even a single Combat Round might easily shift the combatants as much as five meters in an unforeseen 
 			direction, and frequently more; that’s the nature of footwork. Once a combat with multiple fighters has been 
@@ -81,123 +110,138 @@
 	<!-- Content begins here -->
 	<div class="container text-justify">
 		<div>
-			<p>Their own footwork, the press of enemies, and wheeling manoeuvres will have carried every pair of fighters 
-			in a largely random direction, where allies who started out fighting side by side will by necessity find 
-			themselves separated very quickly. In short, as long a Limelight is underway, it is impossible to tell where 
-			anyone is in respect to anyone else.</p>
+			<p>Their own footwork, the press of enemies, and wheeling maneuvers will have carried every pair of fighters 
+			in a largely random direction; allies who started out fighting side by side will by find themselves separated 
+			quickly. In short, as long a Limelight is underway, it is impossible to tell where anyone is in respect to 
+			anyone else.</p>
 			
 			<p>Locations are roughly re-established once a Limelight ends, and with certainty when a Round of Limelights 
-			completes. Positions are determined by the ref’s common sense, based on what has happened during the previous 
-			Round of Limelights. As a player vividly describes his combat actions, the ref is encouraged to take note and 
-			visualize the PC’s end location within the combat environment. It can thus happen that a player finds his PC 
-			in a location where he doesn’t want him to be, which is only a concern if the PC is desperately needed 
-			elsewhere.</p>
+			completes. Positions are determined by the Game Masters common sense based on what has happened during the 
+			previous Round of Limelights. As a Player vividly describes his combat actions, the GM is encouraged to take 
+			notes and visualize the Characters end location within the combat environment. It can happen that a Player 
+			finds his Character in a location where he doesn’t want him to be, which is only a concern if the Character is 
+			desperately needed elsewhere.</p>
 			
 			<p class="h4" id="P_EngagingDistantFoes">Engaging a Distant Foe</p>
-			<p>If the character wants to engage somebody who is quite a distance away, or get to any other location in the 
-			combat environment, this is not handled by measuring movement, but by a Terrain Check.</p>
+			<p>If the Character wants to engage somebody who is quite a distance away, or get to any other location in the 
+			combat environment, this is handled by a Terrain Check.</p>
 			
-			<p>A Terrain Check is made with dice from the character’s MP – any number of dice, player’s choice. The ref 
-			sets the Difficulty of the Check by how far and over what difficult terrain the character will have to move, 
-			but it will rarely, if ever, be greater than a Difficult Challenge Rating. If the optional Encumbrance rules 
-			are being used, every Terrain Check other than one for bad footing or refusing to be dislodged from a fixed 
-			location carries an Activation Cost that can be found in Table 5.2. If several such Terrain Checks should be 
-			made during the same Combat Round, this Activation Cost must be paid separately for every Check.</p>
+			<p>A Terrain Check is made with dice from the Character’s Melee Pool – any number of dice, Player’s choice. The 
+			Game Master sets the Difficulty of the Check by how far and over what terrain the Character will have to move, 
+			but it will rarely, if ever, be greater than a Difficult Challenge Rating (three successes). If the optional 
+			Encumbrance rules are being used, every Terrain Check other than one for bad footing or refusing to be 
+			dislodged from a fixed location carries an Activation Cost that can be found in the Encumbrance Terrain 
+			Modifier table. If several such Terrain Checks should be made during the same Combat Round, this Activation 
+			Cost must be paid separately for every Check.</p>
 			
-			<p>If the Check is passed, the character arrives at the point he wanted to reach “in time”, whatever that may 
-			mean (usually to engage somebody in melee with the dice remaining in his MP), and if not, he arrives there 
-			“late”.</p>
+			<p>If the Check is passed, the Character arrives at the point she wanted to reach in time, whatever that may 
+			mean (usually to engage somebody in melee with the dice remaining in her Melee Pool), and if not, she arrives 
+			there late.</p>
 			
 			<div class="panel-body bg-warning" id="DIV_Example_Terrain">
-				<p><em><strong>Example</strong>: Returning to where we abandoned Otho in the previous example, right after 
-				spending a point of Drama to have his Limelight out of the usual order to rush to Rufo’s aid, the ref 
-				tells Otho’s player that 2 Successes on the Terrain Check are necessary to get to Rufo’s side in time.</p>
+				<p><em><strong>Example</strong>: Otho has just spent a point of Drama to come to Rufo's aid. The GM tells 
+				Otho’s Player that two Successes on a Terrain Check are necessary to get to Rufo’s side before he is struck 
+				down.</p>
 				
-				<p>Playing it safe, Otho’s player opts to spend 6 dice, and achieves 3 Successes. Rushing at Rufo’s enemy, 
-				Otho attacks with the remaining dice in his MP, just in time to save his companion.</em></p>
+				<p>Playing it safe, Otho’s Player opts to spend six dice, and achieves three Successes. Rushing at Rufo’s 
+				enemy, Otho attacks with the remaining dice in his Melee Pool, just in time to save his companion.</em></p>
 			</div>
 			
-			<p>Failing this kind of Terrain Check should only rarely, if at all, be interpreted as the player having 
-			wasted his Limelight on a failed attempt. Instead, the ref should give him some thing else to do, or a new 
-			unexpected challenge. A failure might for example be interpreted as the character being intercepted by a new 
-			enemy, if applicable. The use of Terrain Checks are not limited to simply getting somewhere on time. A 
-			Terrain Check may also be needed to navigate an area with poor footing.</p>
+			<p>Failing this kind of Terrain Check should rarely, if at all, be interpreted as the player having wasted his 
+			Limelight on a failed attempt. Instead, the Game Master should give him some thing else to do or a new, 
+			unexpected challenge. A failure might be interpreted as the Character being intercepted by a new enemy, if 
+			applicable. The use of Terrain Checks are not limited to simply getting somewhere on time. A Terrain Check may 
+			also be needed to navigate an area with poor footing.</p>
+			
+			<hr/>
 			
 			<p class="h4" id="P_TypesOfFooting">Types of Footing</p>
 			<p>Normal footing like broken ground, light snow, mud, or deep sand do not necessitate a Check, but truly 
 			poor areas such as steep, slippery slopes, scree fields, stairs, narrow ledges, ice, deep snow, or water and 
-			the like, do. If all combatants of a particular Melee are on this kind of difficult ground, 2 dice are 
-			deducted from everyone’s MP and the need for a Check simply done away with. If only one combatant is on poor 
-			ground, a Terrain Check must be made for that character.</p>
+			the like do. If all combatants of a particular Melee are on this kind of difficult ground, 2 dice are 
+			deducted from everyone’s Melee Pool, and the need for a Check simply done away with. If only one combatant is 
+			on poor ground however, a Terrain Check must be made for that Character.</p>
 			
-			<p>If he achieves even a single Success with the dice he sets aside for this purpose, he can act and move 
-			normally, but if not, he slips, stumbles, or falls down. It is thus clearly advantageous to fight on level 
+			<p>If she achieves even a single Success with the dice she sets aside for this purpose, she can act and move 
+			normally, but if not, she slips, stumbles, or falls down. Because of this, it's advantageous to fight on level 
 			ground while forcing one’s opponent into a position of poor footing. Provided there is poor ground nearby, 
-			Terrain Checks can also be used to force an opponent onto such bad footing, and keep him there, or to get out 
+			Terrain Checks can also be used to force an opponent onto bad footing, and keep her there, or to get out 
 			of it oneself. Such attempts are handled through an Opposed Terrain Check. The initiator of the attempt 
-			announces a number of dice from his MP to be used, after which his opponent sets aside a number of dice from 
-			his MP as well, then both roll. To win the contest, the initiator needs a QoS of 1 if he is currently the 
-			aggressor, or 2 if the defender – it is easier to force somebody somewhere than to lure him.</p>
+			announces a number of dice from her Melee Pool to be used, after which her opponent sets aside a number of dice 
+			from her Melee Pool as well, then both roll. To win the contest, the initiator needs a Quality of Success of 
+			one if she is currently the aggressor, or two if the defender – it is easier to force somebody somewhere than 
+			to lure them.</p>
 			
-			<p>This can even be used to force somebody over a nearby drop, but only if initiated by the aggressor. As 
-			people are remarkably reluctant to fall from heights, success on such an attempt does not simply require a 
-			QoS of 1, but now at least 3, provided that the drop is of a kind likely to injure the falling person. In many 
-			cases, somebody on bad footing facing an enemy on level ground need not force his opponent back so that he can 
+			<p>This can even be used to force someone over a nearby drop, but only if initiated by the aggressor. As 
+			people are remarkably reluctant to fall from heights, success on such an attempt requires a Quality of Success 
+			of at least three, provided that the drop is of a kind likely to injure the falling person. In many cases, 
+			someone on bad footing facing an enemy on level ground need not force his opponent back so that he can 
 			get firm footing himself, but may well opt to simply step back up a pace or two, enticing the opponent to 
-			follow him onto the disadvantageous ground and thus evening the odds. This need merely be announced and 
-			requires just a normal Terrain Check to avoid slippage on the poor surface, no opposed roll needed; if the 
+			follow him onto the disadvantageous ground and thus evening the odds. This only needs to be announced, and 
+			requires a normal Terrain Check to avoid slipping on the poor surface; no opposed roll is needed. If the 
 			opponent declines to follow, the bout ends. However, it is not always feasible to entice the opponent to 
 			follow; sometimes one will want to, and have to, fight one’s way onto the opponent’s better ground.</p>
 			
-			<p>If the opponent is for example holding the head of a stairway or the top of a steep slope against all 
-			comers, no normal amount of enticement will force him down to his opponent. While these cases assume at least 
-			some room for lateral movement on the holding character’s part, there may be other scenarios, where he cannot 
-			move anywhere at all, such as when defending a doorway. While such positions are advantageous in terms of 
-			limiting the number of possible attackers, they interdict footwork and thus cramp combat performance.</p>
+			<p>If the opponent is holding the head of a stairway or the top of a steep slope against all comers, no normal 
+			amount of enticement will force him down to her opponent. While these cases assume at least some room for 
+			lateral movement on the holding Character’s part, there may be other scenarios, where she cannot move anywhere 
+			at all, such as when defending a doorway. While such positions are advantageous in terms of limiting the number 
+			of possible attackers, they interdict footwork and can cramp combat performance.</p>
 			
 			<p class="h4" id="P_HoldingGround">Holding Ground</p>
-			<p>An attempt to remain firmly in one spot requires but 1 Success on a Terrain Check – if unopposed. If an 
+			<p>An attempt to remain firmly in one spot requires one Success on a Terrain Check, if unopposed. If an 
 			enemy is actively trying to dislodge one from a position he is holding, the Terrain Check becomes Opposed. 
 			The initiator of the attempt, who must be the current aggressor, declares the number of dice committed, after 
-			which his enemy does the same, then both roll. To dislodge the holding person, a victory with a QoS of 1+ is 
-			needed; ties signify that the holding opponent remains firmly in place.</p>
+			which his enemy does the same, and then both of them roll. To dislodge the holding person, a victory with a 
+			Quality of Success of one or greater is needed; ties signify that the holding opponent remains in place.</p>
+			
+			<hr/>
 			
 			<p class="h4" id="P_HigherGround">Higher Ground</p>
-			<p>Higher footing (as provided by stairs or horses) adds 2 MP at the beginning of the Round (Step 2). This 
-			also affects attack zone targeting for all involved combatants according to common sense. Finally, Terrain 
-			Checks can be used by a player with multiple opponents to avoid facing several at once. By moving so that 
-			his opponents foul each other’s attacks, and by exploiting the environment, the combatant tries to limit the 
-			number of opponents he fights this Combat Round. If these opponents are important NPCs, the Terrain Check is 
-			an Opposed one.</p>
+			<p>Higher footing (as provided by stairs or horses) adds two dice to the Melee Pool at the beginning of the 
+			Round (Step 2). This also affects attack zone targeting for all involved combatants according to common 
+			sense.</p>
+			
+			<hr/>
 			
 			<p class="h4" id="P_AvoidingOpponents">Avoiding Opponents</p>
-			<p>The player declares which opponent he wants to avoid. This opponent announces a number of dice from his 
-			MP to oppose the PC’s attempt to avoid him, and the player then sets aside a number of dice from his MP 
-			himself. An Opposed Check using these dice is then made. A QoS of 0 suffices to attain the player’s objective 
-			if the PC wasn’t engaged with the opponent in the previous Combat Round, but a QoS of 1 is required to avoid 
-			an opponent with whom he was previously engaged.</p>
+			
+			<p>Finally, Terrain Checks can be used by a Player with multiple opponents to avoid facing several at once. By 
+			moving so that his opponents foul each other’s attacks and by exploiting the environment, the combatant tries 
+			to limit the number of opponents he fights this Combat Round. If these opponents are important NPCs, the 
+			Terrain Check is an Opposed one.</p>
+			
+			
+			<p>The Player declares which opponent he wants to avoid. This opponent announces a number of dice from his 
+			Melee Pool to oppose the Characters attempt to avoid him, and the Player then sets aside a number of dice from 
+			his Melee Pool himself. An Opposed Check using these dice is then made. A Quality of Success of zero allows the 
+			Player to attain his objective, provided that the Character wasn’t engaged with the opponent in the previous 
+			Combat Round. A Quality of Success of one is required to avoid an opponent with whom he was previously 
+			engaged.</p>
 			
 			<p>This means of breaking off a combat bout can only be used if facing multiple opponents at once, as it 
 			represents moving in a manner that has one opponent getting in the other’s way. If facing only one opponent, 
 			a bout can only be broken off after a successful Full Evasion, or if both combatants decline to attack. If 
 			the first opponent is thus avoided, the next opponent is treated in the same fashion. A number of dice 
-			from both MPs are again set aside and an Opposed Check made. The QoS of the previous Opposed Terrain Check 
-			for avoiding the first opponent is added as bonus dice to this second Check. There are no additional Checks 
-			needed, as it is physically impossible for more than three opponents to beset the same person at the 
-			same time.</p>
+			from both Melee Poolss are again set aside and an Opposed Check made. The Quality of Success of the previous 
+			Opposed Terrain Check for avoiding the first opponent is added as bonus dice to this second Check. There are no 
+			additional Checks needed, as it is <strong>physically impossible for more than three opponents to attack the 
+			same person at one time</strong>.</p>
 			
-			<p>If the enemies aren’t important NPCs, the Terrain Check is unopposed. If the PC is trying to avoid one 
-			of his two opponents, he simply needs a QoS of 1. If he is facing three opponents, a QoS of 3 is required to 
-			avoid two opponents, while a QoS of 2 avoids one. At the very outset of the battle, the required QoS for 
-			avoiding one or two out of three opponents are reduced by one, provided the PC is not surrounded by his 
-			opponents. A QoS of 2 avoids two out of three opponents, and a QoS of 1 one out of three. As soon as the PC 
-			has become engaged in combat with any of his opponents, this reduced QoS to avoid opponents no longer 
-			applies, nor does it apply if the PC started out surrounded or in a comparably disadvantageous position.</p>
+			<p>If the enemies aren’t important NPCs, the Terrain Check is unopposed. If the Character is trying to avoid 
+			one of her two opponents, she needs a Quality of Success of one. If she is facing three opponents, a Quality of 
+			Success of three is required to avoid two opponents, while a Quality of Success of two avoids one. At the very 
+			outset of the battle, the required Quality of Success for avoiding one or two out of three opponents are 
+			reduced by one, provided the Character is not surrounded by his opponents. A Quality of Success of two avoids 
+			two out of three opponents, and a Quality of Success of one avoids one out of the three. As soon as the 
+			Character becomes engaged in combat with any of her opponents, this reduced Quality of Success to avoid 
+			opponents no longer applies, nor does it apply if the Character started out surrounded, or in a comparably 
+			disadvantageous position.</p>
 			
-			<p>Please note that a character may use a Terrain Check to move into positions where the number of opponents 
-			who can engage him at once is limited, for example with his back against a wall. In such an instance a 
-			maximum of only two, not three opponents can attempt to engage the character at the same time. There are a few 
-			further uses for Terrain Checks, which are discussed in the section on ranged combat.</p>
+			<p>Please note that a Character may use a Terrain Check to move into positions where the number of opponents 
+			who can engage him at once is limited, for example with his back against a wall. In such an instance, a 
+			maximum of only two - not three - opponents can attempt to engage the Character at the same time. There are a 
+			few further uses for Terrain Checks, which are discussed in the section on ranged combat.</p>
 			
 			<!-- Content must end before this -->
 			<br/>  
@@ -212,10 +256,6 @@
 		</div>
 	</footer>
 	<!-- Footer ends here -->
-	
-	<!-- Bootstrap JS items -->
-	<script src="../../../js/jquery.js"></script>
-	<script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>
