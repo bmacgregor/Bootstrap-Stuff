@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mechanics</title>
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet"> <!-- my stylesheet -->
+	
+	<!-- Bootstrap JS items -->
+	<script src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<!-- Navbar begins here -->
+	<nav class="navbar navbar-inverse navbar-static-top no-margin" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				
+				<!-- Hamburger -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-test-navbar-collapse-1">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<!-- "logo" text -->
+				<a class="navbar-brand" href="#"><em>Duelist : Game Mechanics</em></a>
+			</div>
+			
+			<div class="collapse navbar-collapse navbar-right" id="bs-test-navbar-collapse-1">
+			
+				<!-- Navbar links -->
+				<ul class="nav navbar-nav">
+				
+					<!-- Check Navbar links -->
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Checks<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#DIV_Checks">The Need for Checks</a></li>
+							<li><a href="#P_CHECK_WhenToRoll">When Should Checks be Rolled?</a></li>
+							<li><a href="#P_CHECK_OpposedChecks">Opposed Checks</a></li>
+							<li><a href="#P_CHECK_TimedChecks">Timed Checks</a></li>
+							<li><a href="#P_CHECK_TiedChecks">Tied Checks</a></li>
+							<li><a href="#P_CHECK_FailedChecks">Failed Checks</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="#">|</a></li>
+
+					<!-- Dropdown items -->
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Chapters<b class="caret"></b></a>
+						<ul class="dropdown-menu" style="width:325px">
+							<li><a href="../Home.html">Introduction</a></li>
+							
+							<li class="divider"></li>
+							
+							<li class="active"><a href="Home.html">Part One : Character</a><ul>
+								<li><a href="#"><strong>Chapter 1 : Game Mechanics</strong></a></li>
+								<li><a href="Creation.html">Chapter 2 : Character Creation</a></li>
+								<li><a href="Advancement.html">Chapter 3 : Character Advancement</a></li>
+							</ul></li>
+							
+							<li class="divider"></li>
+							
+							<li><a href="../Combat/Home.html">Part Two : Combat</a><ul>
+								<li><a href="../Combat/Melee.html">Chapter 4 : Melee Combat</a></li>
+								<li><a href="../Combat/Ranged.html">Chapter 5 : Ranged Combat</a></li>
+								<li><a href="../Combat/Magic.html">Chapter 6 : Magic</a></li>
+								<li><a href="../Combat/Mounted.html">Chapter 7 : Mounted Combat</a></li>
+							</ul></li>
+							
+							<li class="divider"></li>
+							
+							<li><a href="../World/Home.html">Part Three : The World</a><ul>
+								<li><a href="../World/Equipment.html">Chapter 8 : Equipment and Gear</a></li>
+								<li><a href="../World/Travel.html">Chapter 9 : Travel and Healing</a></li>
+							</ul></li>
+							
+							<li class="divider"></li>
+							
+							<li><a href="../Tables/Home.html">Part Four : Tables</a><ul>
+								<li><a href="../Tables/Melee.html">Appendix 1 : Melee Weapons</a></li>
+								<li><a href="../Tables/Ranged.html">Appendix 2 : Ranged Weapons</a></li>
+								<li><a href="../Tables/Spells.html">Appendix 3 : Spells and Effects</a></li>
+								<li><a href="../Tables/Damage.html">Appendix 4 : Damage Tables</a></li>
+							</ul></li>
+							
+							<li class="divider"></li>
+							
+							<li><a href="../People/Home.html">Part Five : People and Threats</a><ul>
+								<li><a href="../People/NPCs.html">Appendix 5 : NPC's</a></li>
+								<li><a href="../People/Beasts.html">Appendix 6 : Beasts</a></li>
+								<li><a href="../People/Monsters.html">Appendix 7 : Monsters</a></li>
+							</ul></li>
+						</ul>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</nav>
+	<!-- Navbar ends here -->
+	
+	<!-- Jumbotron begins here -->
+	<div class="jumbotron">
+		<div class="container">
+			<p class="h2"><strong>Game Mechanics</strong></p>
+			<p class="text-justify">This section covers the types of <a href="#DIV_Dice">dice used</a> in <em>Duelist</em>, 
+			describes the six <a href="#DIV_Attributes">primary Attributes</a> that each Character has, goes over how 
+			Players roll for <a href="#DIV_Checks">Checks</a> (things they want their Characters to do), and talks about 
+			the <a href="#DIV_Difficulty">Difficulty</a> of those Checks.</p>
+		</div>
+	</div>
+	<!-- Jumbotron ends here -->
+		
+	<!-- Content begins here -->
+	<div class="container text-justify">
+		<div class="panel panel-default">
+			<div class="panel-body" id="DIV_Dice">
+				<p class="h3">Dice Used</p>
+				<p><em>Duelist</em> uses ten-sided dice (or d10's) for nearly everything in the game. Players will need to 
+				have at least ten d10's available to them, and in some situations (like combat, for instance) they might 
+				need even more. Players will also need two six-sided dice (d6's). Ideally, one d6 should be red and the 
+				other, black, but the colours don't really matter. What <em>is</em> important is that a Player has two 
+				d6's, and that they are <strong>different colours</strong>. This is gone into more detail in the 
+				<a href="../Combat/Home.html">Combat</a> chapter, but to briefly explain:</p>
+				
+					<div class="panel-body bg-info" id="INFO_d6Colour">
+						<p>When combat starts, Players have to decide if they want to attack or defend. Unless its obvious 
+						(like in an ambush, or on a charge), opponents will have to gauge one another, trying to figure out 
+						when an opportune time to attack might be. To represent this, opponents will conceal one of the 
+						d6's in their hand, hiding the other one away.</p>
+						
+						</p>A red d6 indicates an attack, while a black d6 means the Character is defending. The dice are 
+						revealed at the same time, and might result in the opponents attacking each other at the same time, 
+						only one attacking, or the combatants circling and waiting for an opening. This is more fully 
+						explained in the Combat chapter, however, and is included here as a note for the curious.</p>
+					</div>
+			</div>
+		</div>
+			
+		<div class="panel panel-default">
+			<div class="panel-body" id="DIV_Attributes">
+				<p class="h3">Attributes</p>
+				<p>Attributes in <em>Duelist</em> are split into two broad categories, Mind and Body, with each describing 
+				a measure of a Character's strength, dexterity, and toughness.</p>
+				
+				<br/>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<p class="h4">Intellect</p>
+						<p>Intellect is a measure of a Character's strength of mind. It determines how quickly a Character 
+						can learn things, their general knowledge, and the amount of power they can throw into their 
+						spells. A Character with high intellect can put massive force behind their sorceries.</p>
+					</div>
+					
+					<div class="col-md-6">
+						<p class="h4">Brawn</p>
+						<p>Brawn describes a Character's raw, physical power. With high strength, a Character can deliver 
+						crippling strikes and batter down doors, as well as how much a Character can lift at a given time, 
+						and a general idea of how much brute force they can bring to bear.</p>
+					</div>
+				</div>
+				
+				<hr/>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<p class="h4">Cunning</p>
+						<p>Cunning represents a Character's ability to out-think opponents. It is as much used by generals 
+						as it is by thieves, and is used for outmaneuvering in battles, trap-making and trap-finding, and 
+						creating devious puzzles. Combined with sorceries, Cunning can be used to find gaps in an opponents 
+						defence.</p>
+					</div>
+					
+					<div class="col-md-6">
+						<p class="h4">Agility</p>
+						<p>Agility determines how easily a Character can avoid punishment; it governs dodging in combat, 
+						moving past obstacles, and impacts how much critical damage a Character can deliver. A truly agile 
+						Character can move an incredible speed, and often uses blitz-like tactics to deal with 
+						opponents.</p>
+					</div>
+				</div>
+				
+				<hr/>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<p class="h4">Will</p>
+						<p>Will is how strong a Character's mind is. For sorceries, it governs how long a <em>Duelist</em> 
+						can hold a spell, and to what extent they are able to increase the effects of their sorceries. A 
+						Character that can envelop a city in a protective shield or bring time to a crawl possesses an 
+						incredibly strong Will.</p>
+					</div>
+					
+					<div class="col-md-6">
+						<p class="h4">Endurance</p>
+						<p>Endurance determines a Character's physical mettle - it governs how long they're able to stay in 
+						Combat, how much gear they can use, and the amount of punishment they're able to take. A 
+						<em>Duelist</em> encased in heavy armour, carrying a tower shield, and wielding a warhammer has a 
+						high Endurance.</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+			
+		<div class="panel panel-default">
+			<div class="panel-body" id="DIV_Checks">
+				<p class="h3" id="P_CHECK_Intro">The Need for Checks</p>
+				<p>Generally, Checks don't need to be rolled. <em>Duelists</em> are competent adventurers, and games 
+				shouldn't be bogged down by rolling for every little thing - menial tasks like finding wood for a campfire 
+				can be hand-waved rather than checking if a Character has the necessary survival skills and then rolling 
+				dice to see if they're able to find wood.</p>
+				
+				<p>Things that are more difficult, such as forging weapons or pushing a horse to gallop across broken 
+				country can generally skirt the need for rolling a Check as well, <em>provided that they are 
+				role-played</em>. This adds flavour to a game and the experience of everyone at the table; for example, if 
+				a Player needed to scale some cliffs under the cover of nightfall, they might role-play it out, describing 
+				the lashing winds and salt-filled gusts from the turbulent sea below as they grope blindly for handholds, 
+				hauling themselves toward the clifftop.</p>
+
+				<p>Although there is an element of danger here, it's assumed that the Game Master has included this scene 
+				for its cinematic nature and to deepen the story for the Players. As such, it's <em>assumed</em> that the 
+				Players will survive the climb so that they can carry on with the adventure. Allowing Players to role-play 
+				difficult sections out, rather than rolling for them moves the story along and also immerses the table in 
+				the world.</p>
+				
+				<hr id="P_CHECK_WhenToRoll">
+				
+				<p class="h3">When Should Checks be Rolled?</p>
+				<p>If a Check has a <em>significant</em> element of failure, such as the death of several NPC's, derailment 
+				of a Character's plans, Character death, or any possible branch in the Game Masters story that is directly 
+				affected by the Character's success or failure, a Check is rolled. Checks should serve as junctures in the 
+				plot - a time when something can go as planned or spiral out of control.</p>
+				
+				<div class="panel-body bg-success" id="RULE_RollingChecks">
+					<p class="h4">How to Roll for a Check</p>
+					<p>First, the Game Master chooses a Difficulty Level (see below). This is based on how hard or easy the 
+					proposed action is - something like vaulting over a table in a melee is considered to be fairly simple, 
+					while tracking someone through a swamp under heavy rains a week late is next to impossible*. It's 
+					considered good form to tell the Player what the difficulty level is before they roll the dice.</p>
+					
+					<p>The Difficulty Level is how many successes a Player needs to roll to succeed at the Check. A success 
+					is any roll of six (6) or higher on a d10. Anything lower than this (five or less) counts as a failure. 
+					The number of successes a Player rolls is called the <strong>Margin of Success</strong>, and indicates 
+					how well a Character does at any given Check.</p>
+					
+					<p>Next, the Player rolls dice based on the skill being tested. If a Character doesn't have the 
+					relevant skill, they can still make an attempt, but require <strong>twice as many</strong> successes as 
+					required by the Check. For instance, if a Character needs three successes to calm an enraged bear, they 
+					could either use an appropriate skill to try and get the three successes needed, or they could use an 
+					attribute. If the Player opts to use an attribute, they would need to roll <em>six</em> (3 * 2 = 6) 
+					successes to calm the bear.</p>
+					
+					<p><em>* A Note to Game Masters: unless you have a good reason, don't make things impossible. That 
+					said, Players shouldn't be able to Mary Sue their way through everything, citing this small note as 
+					reason for why "befriending the dragon / seducing the main villain / creating their own demi-plane" 
+					ought to be possible. Use common sense.</em></p>
+				</div>
+					
+				<br id="P_CHECK_OpposedChecks">
+					
+				<p class="h3">Opposed Checks</p>
+				<p>NPC's can oppose a Character's Check. This can happen in a variety of situations; some examples include 
+				when a Character tries to lie to someone, attempts to outrun (or catch) an NPC, and in most combat 
+				situations. In these cases, where one party is opposing another, a Check is rolled, as normal, but there 
+				isn't a Difficulty Level assigned. Instead, the Character's successes are compared against the NPC's, and 
+				whomever has the most is the successful party. In the event that a Margin of Success is needed (for 
+				calculating damage, for instance) the higher amount of successes is subtracted from the lower total.</p>
+				
+				<div class="panel-body bg-warning" id="EXAMPLE_OpposedChecks">
+					<p><strong>Example</strong>: Rell is trying to barter with a shopkeep to get a better price for the 
+					wolf pelt she's selling. Because the shopkeep is unwilling to give her a better deal (and loves to 
+					barter), the Game Master calls for an Opposed Negotiation Check. Rell's Negotiation is a four (having 
+					dealt with frugal merchants for years), and the shopkeep has a three. Both roll their respective pool 
+					of dice.</p>
+					
+					<p>Rell rolls a 9, 4, 7 and a 1. The 9 and the 7 are counted as successes (both 6 or greater) for a 
+					total of two successes. The shopkeep rolls a 10, 5, and a 3 for a single success.</p>
+					
+					<p>Rell's total (2) is subtracted from the shopkeep's total (1), leaving her with a Margin of 
+					Success of 1. Somewhat grudgingly, the shopkeep gives her a slightly better price for the pelt, his 
+					eyes twinkling from the exchange.</p>
+				</div>
+					
+				<p>In the above example, Rell's Margin of Success directly impacted the price difference for her sale. Had 
+				she rolled more successes, the Game Master would have been obligated to give her an even better price. 
+				Conversely, had the shopkeep beaten her in the Check, he could have offered her an even <em>lower</em> 
+				price.</p>
+				
+				<p>Once a Check is made, it stands. Further Checks can be made, but are impacted by the previous attempts. 
+				For instance, if Rell wanted to drive an even harder bargain, she could try to Negotiate again, however, 
+				her successes would only be <em>half</em> as effective. This means that she would need two successes for 
+				every one of the shopkeep. Characters can certainly push their luck with this (re-checking for traps, 
+				further trying to intimidate a foe, etc.) but things become much harder if follow-up Checks are attempted. 
+				In Rell's case, although she's secured a better price for her pelt, she could risk offending the shopkeep, 
+				being thrown out of the store, or outright banned from coming back.</p>
+				
+				<hr id="P_CHECK_TimedChecks">
+				
+				<p class="h3">Timed Checks</p>
+				<p>Timed Checks are handled a little differently than an Opposed Check. To succeed at a timed task, the 
+				Game Master will assign a Difficulty <em>Total</em> and a number of attempts the Character has to reach the 
+				total. For instance, Characters desperately searching a library for a scroll to give them information 
+				needed to stop a demon lord from being summoned might need to accumulate twenty-five Search successes across 
+				three rounds of Searching (a round being long enough for each Player to roll once). If they are successful, 
+				the scroll is found in time. If they are too slow, however, a hellish portal will tear the fabric of 
+				reality, allowing the Demon Lord and its subjects to pour through into their world...</p>
+				
+				<hr id="P_CHECK_TiedChecks">
+				
+				<p class="h3">Tied Checks</p>
+				<p>A tied Check results in a success for the party that wants to maintain the status quo. In combat, this 
+				means an attacker misses (the status quo being that the defender is uninjured). If a Character is 
+				attempting to steal something from an NPC, it indicates that the NPC keeps the object (though, doesn't 
+				notice the Character's attempt, this also being part of the status quo). In Rell's example, it would mean 
+				that the shopkeep is firm on the price offered.</p>
+				
+				<hr id="P_CHECK_FailedChecks">
+				
+				<p class="h3">Failed Checks</p>
+				<p>While a successful Check has a positive Margin of Success, a failed Check has a Margin of Failure. 
+				Generally speaking, a small Margin of Failure simply means that the Check fails. A Character is unable to 
+				climb a wall in time, and might be caught by the guards; an attempt at thievery is unsuccessful, and might 
+				be noticed - in short, something goes awry.</p>
+				
+				<p>If a Check is failed by two or more, a minor complication ensues, as determined by the Game Master. 
+				This won't be anything catastrophic, but will definitely put a Character in a difficult spot. A Character 
+				Navigating their way through the trackless wilderness might blunder around, arriving late to their 
+				destination, or unable to find a suitable spot to camp for the night and have to make due sleeping in an 
+				exposed place. Someone attempting to translate a piece of lore might believe the text says something 
+				entirely different, and while this might not cause massive detriment to their studies, it will certainly 
+				cause an issue which will leave the Player on the back-foot.</p>
+				
+				<p>In short, a Margin of Failure by two or more is a setback, something that wastes time and resources, 
+				but that can (with effort) be corrected. In the case of a thief attempting to filch a purse, their attempt 
+				will be noticed, but they might be able to correct their blunder without a significant amount of 
+				trouble.</p>
+				
+				<p>A Margin of Failure of five or more, however, implies dire consequences. In a chase, a Character might 
+				run headlong into a door that opened at the exact wrong time, sending them sprawling. They will likely have 
+				to contend with whomever opened the door in the first place (as they likely pelted right into the unlucky 
+				person, and based on the nature of the failure, this is probably a guard, or several guards) <em>and 
+				also</em> deal with their pursuers who - if they haven't caught up yet - have certainly gained on them due 
+				to the mishap. Depending on the pursuers, this likely means a fight which the Character might be woefully 
+				unprepared for.</p>
+				
+			</div>
+		</div>
+			
+		<div class="panel panel-default">
+			<div class="panel-body" id="DIV_Difficulty">
+				<p class="h3">Difficulty Levels</p>
+				<p>Difficulty Levels are directly related to how hard any given task is. The table below offers target 
+				Difficulty Levels, a description of how difficult a given task might be, and an example of a similar 
+				Check.</p>
+				
+				<table class="table table-bordered table-hover table-responsive" style="text-align: center">
+					<thead>
+						<th>Level</th>
+						<th>Difficulty</th>
+						<th>Example</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Easy</td>
+							<td>Wading through waist high swamps; disguising a shallow scar with make-up</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Moderate</td>
+							<td>Remaining concealed in the shadows; Deciphering a known language</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Challenging</td>
+							<td>Riding at a full gallop through a thick forest; trailing someone through a busy 
+							marketplace</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Demanding</td>
+							<td>Spotting week-old tracks; Balancing on an unstable shred of timber in the wind</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Extreme</td>
+							<td>Forging a Royal writ, including signature and seal; Climbing a sheer overhang</td>
+						</tr>
+						<tr>
+							<td>6 +</td>
+							<td>Nearly Impossible</td>
+							<td>Arcing an arrow over a high battlement to hit a specific person; Noticing an invisible 
+							creature</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p class="h3">Difficulty Totals</p>
+				<p>Difficulty Totals are used exclusively in Timed Checks, and are presented similarly to the Difficulty 
+				Level table. To create a Timed Check, multiply the number of Players in the party by the number of 
+				successes <em>per round</em> that the Check will require. Finally, multiple this number by the number of 
+				rounds given for the timed Check.</p>
+				
+				<table class="table table-bordered table-hover table-responsive" style="text-align: center">
+					<thead>
+						<th>Difficulty</th>
+						<th>Multiplier</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Easy</td>
+							<td>0.25</td>
+						</tr>
+						<tr>
+							<td>Moderate</td>
+							<td>0.5</td>
+						</tr>
+						<tr>
+							<td>Challenging</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Demanding</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>Extreme</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Nearly Impossible</td>
+							<td>4</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<div class="panel-body bg-warning" id="EXAMPLE_TimedChecks">
+					<p><strong>Example</strong>: For his game, Mike wants to incorporate a timed Check. He has four Players 
+					in his party, and wants the Check to be done quickly - two rounds. Multiplying the Players by the time 
+					he gets a total of eight (4 players x 2 rounds = 8). Mike wants this Check to be Demanding for his 
+					Players; referencing the Timed Check total, he finds that Demanding Checks are multiplied by 2. He 
+					multiplies these numbers together to get a Demanding Timed Check Total of 16 - or 16 successes required 
+					in two rounds.</p>
+				</div>
+				
+				<br/>
+				
+				<p>Bear in mind that penalties for using an Attribute during a Timed Skill Check still apply, requiring 
+				double the number of successes.</p>
+				
+			</div>
+		</div>
+			
+			<!-- Content must end before this -->
+		<br/>
+	</div>
+	<!-- Content ends here -->
+	
+	<!-- Footer begins here -->
+	<footer class="site-footer footer-static-bottom">
+		<div class="container-fluid">
+			<h4>Created by Brennan MacGregor, 2016</h4>
+		</div>
+	</footer>
+	<!-- Footer ends here -->
+</body>
+
+</html>
