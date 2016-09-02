@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Damage Calculator</title>
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet">
+	
+	<script src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+</head>
+<body onload="setupPage()">
+	<span>Select Damage Type : </span>
+	<select id="damageType" onchange="updateLocations()">
+		<option value="blunt">Blunt</option>
+		<option value="cleaving">Cleaving</option>
+		<option value="piercing">Piercing</option>
+		<option value="swung">Swung Piercing</option>
+	</select>
+	
+	<br/>
+	
+	<span>Select Damage Area : </span>
+	<select id="damageArea">
+	</select>
+	
+	<br/>
+	
+	<span>Select Damage Level : </span>
+	<select id="damageLevel">
+		<option value="level_1">1</option>
+		<option value="level_2">2</option>
+		<option value="level_3">3</option>
+		<option value="level_4">4</option>
+		<option value="level_5">5</option>
+		<option value="level_6">6</option>
+	</select>
+	
+	<br/>
+	
+	<span>d6 Roll : </span>
+	<select id="d6Roll">
+		<option value="d6_1">1</option>
+		<option value="d6_2">2</option>
+		<option value="d6_3">3</option>
+		<option value="d6_4">4</option>
+		<option value="d6_5">5</option>
+		<option value="d6_6">6</option>
+	</select>
+	
+	<br/>
+	
+	<input type="button" onclick="updateDamage()" value="Get Damage">
+	
+	<hr/>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Shock</th>
+				<th>Pain</th>
+				<th>Blood Loss</th>
+				<th>Knockdown</th>
+				<th>Knockout</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td id="Shock"></td>
+				<td id="Pain"></td>
+				<td id="BloodLoss"></td>
+				<td id="Knockdown"></td>
+				<td id="Knockout"></td>
+				<td id="Desc"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br/>
+	
+	<p id="test"></p>
+	
+	<script>
+	
+		var allBlunt = new Array();
+		var allCleaving = new Array();
+		var allPiercing = new Array();
+		var allSwung = new Array();
+		
+		function setupPage(){
+			updateLocations();
+			setupBlunt(); // beginning to build this array
+			setupCleaving();
+			setupPiercing();
+			setupSwung();
+		}
+		
+		function updateLocations(){
+			switch (document.getElementById("damageType").value){
+				case "blunt":
+					document.getElementById("damageArea").innerHTML = 
+					"<option value='area_1'>Area One (Lower Legs)</option>" + 
+					"<option value='area_2'>Area Two (Upper Legs)</option>" + 
+					"<option value='area_3'>Area Three (Upper Body)</option>" + 
+					"<option value='area_4'>Area Four (Overhand Swing)</option>" + 
+					"<option value='area_5'>Area Five (Vertical Swing)</option>" + 
+					"<option value='area_6'>Area Six (Upward Swing)</option>" + 
+					"<option value='area_7'>Area Seven (Arms)</option>" + 
+					"<option value='area_8'>Area Eight (Lower Legs)</option>" + 
+					"<option value='area_9'>Area Nine (Upper Legs)</option>" + 
+					"<option value='area_10'>Area Ten (Pelvic Region)</option>" + 
+					"<option value='area_11'>Area Eleven (Belly)</option>" + 
+					"<option value='area_12'>Area Twelve (Chest)</option>" + 
+					"<option value='area_13'>Area Thirteen (Head)</option>" + 
+					"<option value='area_14'>Area Fourteen (Arms)</option>";
+					break;
+				case "cleaving":
+					document.getElementById("damageArea").innerHTML = 
+					"<option value='area_1'>Area One (Lower Legs)</option>" + 
+					"<option value='area_2'>Area Two (Upper Legs)</option>" + 
+					"<option value='area_3'>Area Three (Upper Body)</option>" + 
+					"<option value='area_4'>Area Four (Overhand Swing)</option>" + 
+					"<option value='area_5'>Area Five (Vertical Swing)</option>" + 
+					"<option value='area_6'>Area Six (Upward Swing)</option>" + 
+					"<option value='area_7'>Area Seven (Arms)</option>";
+					break;
+				case "piercing":
+					document.getElementById("damageArea").innerHTML = 
+					"<option value='area_8'>Area Eight (Lower Legs)</option>" + 
+					"<option value='area_9'>Area Nine (Upper Legs)</option>" + 
+					"<option value='area_10'>Area Ten (Pelvic Region)</option>" + 
+					"<option value='area_11'>Area Eleven (Belly)</option>" + 
+					"<option value='area_12'>Area Twelve (Chest)</option>" + 
+					"<option value='area_13'>Area Thirteen (Head)</option>" + 
+					"<option value='area_14'>Area Fourteen (Arms)</option>";
+					break;
+				case "swung":
+					document.getElementById("damageArea").innerHTML = 
+					"<option value='area_1'>Area One (Lower Legs)</option>" + 
+					"<option value='area_2'>Area Two (Upper Legs)</option>" + 
+					"<option value='area_3'>Area Three (Upper Body)</option>" + 
+					"<option value='area_4'>Area Four (Overhand Swing)</option>" + 
+					"<option value='area_5'>Area Five (Vertical Swing)</option>" + 
+					"<option value='area_6'>Area Six (Upward Swing)</option>" + 
+					"<option value='area_7'>Area Seven (Arms)</option>";
+					break;
+			}
+		}
+		
+		function getDamage(type, area, level, roll){
+			var sendBack = new damage();
+			
+			return sendBack;
+		}
+		
+		function setupBlunt(){
+			// area one values
+			allBlunt[0] = new damage("blunt", "area_1", "level_1", "d6_1", 1, 2, 0, 0, 0, "Strike to Foe's instep");
+			allBlunt[1] = new damage("blunt", "area_1", "level_1", "d6_2", 1, 2, 0, 0, 0, "Your strike connects weakly");
+			allBlunt[2] = new damage("blunt", "area_1", "level_1", "d6_3", 1, 2, 0, 0, 0, "Your strike connects weakly");
+			allBlunt[3] = new damage("blunt", "area_1", "level_1", "d6_4", 1, 2, 0, 0, 0, "Your strike connects weakly");
+			allBlunt[4] = new damage("blunt", "area_1", "level_1", "d6_5", 2, 3, 0, 0, 0, "Cracks Foe's kneecap");
+			allBlunt[5] = new damage("blunt", "area_1", "level_1", "d6_6", 2, 3, 0, 0, 0, "Cracks Foe's kneecap");
+			
+			allBlunt[6] = new damage("blunt", "area_1", "level_2", "d6_1", 4, 4, 0, 1, 0, "Foe recoils as your blow impacts");
+			allBlunt[7] = new damage("blunt", "area_1", "level_2", "d6_2", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike");
+			allBlunt[8] = new damage("blunt", "area_1", "level_2", "d6_3", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike");
+			allBlunt[9] = new damage("blunt", "area_1", "level_2", "d6_4", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike");
+			allBlunt[10] = new damage("blunt", "area_1", "level_2", "d6_5", 5, 5, 0, 1, 0, "Glancing strike to knee. Foe turns away to avoid the worst of the damage");
+			allBlunt[11] = new damage("blunt", "area_1", "level_2", "d6_6", 5, 5, 0, 1, 0, "Glancing strike to knee. Foe turns away to avoid the worst of the damage");
+			
+			allBlunt[12] = new damage("blunt", "area_1", "level_3", "d6_1", 6, 6, 1, 2, 0, "Lightning fast strike leaves Foe limping");
+			allBlunt[13] = new damage("blunt", "area_1", "level_3", "d6_2", 6, 6, 1, 2, 0, "Shot takes foe in lower leg");
+			allBlunt[14] = new damage("blunt", "area_1", "level_3", "d6_3", 6, 6, 1, 2, 0, "Shot takes foe in lower leg");
+			allBlunt[15] = new damage("blunt", "area_1", "level_3", "d6_4", 6, 6, 1, 2, 0, "Shot takes foe in lower leg");
+			allBlunt[16] = new damage("blunt", "area_1", "level_3", "d6_5", 7, 7, 1, 2, 0, "Your hit leaves a massive bruise");
+			allBlunt[17] = new damage("blunt", "area_1", "level_3", "d6_6", 7, 7, 1, 2, 0, "Your hit leaves a massive bruise");
+			
+			allBlunt[18] = new damage("blunt", "area_1", "level_4", "d6_1", 9, 8, 2, 2, 0, "Blow lands with a crack! Foe’s eyes roll in pain");
+			allBlunt[19] = new damage("blunt", "area_1", "level_4", "d6_2", 9, 8, 2, 3, 0, "Foe reels back in agony");
+			allBlunt[20] = new damage("blunt", "area_1", "level_4", "d6_3", 9, 8, 2, 3, 0, "Foe reels back in agony");
+			allBlunt[21] = new damage("blunt", "area_1", "level_4", "d6_4", 9, 8, 2, 3, 0, "Foe reels back in agony");
+			allBlunt[22] = new damage("blunt", "area_1", "level_4", "d6_5", 9, 10, 2, 3, 0, "Foe leaps to avoid a strike to the gut and catches blow full on the knee");
+			allBlunt[23] = new damage("blunt", "area_1", "level_4", "d6_6", 9, 10, 2, 3, 0, "Foe leaps to avoid a strike to the gut and catches blow full on the knee");
+			
+			allBlunt[24] = new damage("blunt", "area_1", "level_5", "d6_1", 11, 11, 3, 3, 0, "A forceful swing that crushes toes");
+			allBlunt[25] = new damage("blunt", "area_1", "level_5", "d6_2", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain");
+			allBlunt[26] = new damage("blunt", "area_1", "level_5", "d6_3", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain");
+			allBlunt[27] = new damage("blunt", "area_1", "level_5", "d6_4", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain");
+			allBlunt[28] = new damage("blunt", "area_1", "level_5", "d6_5", 12, 13, 3, 3, 0, "Massive Strike to foe‘s right knee nearly brings him to the ground");
+			allBlunt[29] = new damage("blunt", "area_1", "level_5", "d6_6", 12, 13, 3, 3, 0, "Massive Strike to foe‘s right knee nearly brings him to the ground");
+			
+			allBlunt[30] = new damage("blunt", "area_1", "level_6", "d6_1", 14, 13, 3, 4, 0, "Strike comes down like a ton of bricks and smashes foot to paste");
+			allBlunt[31] = new damage("blunt", "area_1", "level_6", "d6_2", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear");
+			allBlunt[32] = new damage("blunt", "area_1", "level_6", "d6_3", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear");
+			allBlunt[33] = new damage("blunt", "area_1", "level_6", "d6_4", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear");
+			allBlunt[34] = new damage("blunt", "area_1", "level_6", "d6_5", 14, 15, 3, 4, 0, "Blow to foe’s kneecap shatters it");
+			allBlunt[35] = new damage("blunt", "area_1", "level_6", "d6_6", 14, 15, 3, 4, 0, "Blow to foe’s kneecap shatters it");
+			
+			// area two values
+		}
+		
+		function damage(type, area, level, d6, shock, pain, bloodloss, knockdown, knockout, desc){
+			this.Type = type;
+			this.Area = area;
+			this.Level = level;
+			this.D6 = d6;
+			
+			this.Shock = shock;
+			this.Pain = pain;
+			this.BloodLoss = bloodloss;
+			this.Knockdown = knockdown;
+			this.Knockout = knockout;
+			this.Desc = desc;
+		}
+		
+		function updateDamage(){
+			var getType = document.getElementById("damageType").value;
+			var getArea = document.getElementById("damageArea").value;
+			var getLevel = document.getElementById("damageLevel").value;
+			var getd6 = document.getElementById("d6Roll").value;
+			
+			var foundDamage = getDamage(getType, getArea, getLevel, getd6);
+			
+			document.getElementById("Shock").innerHTML = foundDamage.Shock;
+			document.getElementById("Pain").innerHTML = foundDamage.Pain;
+			document.getElementById("BloodLoss").innerHTML = foundDamage.BloodLoss;
+			document.getElementById("Knockdown").innerHTML = foundDamage.Knockdown;
+			document.getElementById("Knockout").innerHTML = foundDamage.Knockout;
+			document.getElementById("Desc").innerHTML = foundDamage.Desc;
+			
+			//document.getElementById("test").innerHTML = "Type: " + getType + ", Area: " + getArea + ", Level: " + getLevel + ", d6: " + getd6;
+		}
+	</script>
+	
+	
+	
+</body>
+</html>
