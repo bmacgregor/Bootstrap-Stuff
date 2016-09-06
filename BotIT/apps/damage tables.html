@@ -51,6 +51,9 @@
 	
 	<br/>
 	
+	<span>Opponent is Male?</span>
+	<input type="checkbox" checked="checked">
+	
 	<input type="button" onclick="updateDamage()" value="Get Damage">
 	
 	<hr/>
@@ -63,22 +66,23 @@
 				<th>Blood Loss</th>
 				<th>Knockdown</th>
 				<th>Knockout</th>
-				<th>Description</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td id="Shock"></td>
-				<td id="Pain"></td>
-				<td id="BloodLoss"></td>
-				<td id="Knockdown"></td>
-				<td id="Knockout"></td>
-				<td id="Desc"></td>
+				<td id="Shock"> </td>
+				<td id="Pain"> </td>
+				<td id="BloodLoss"> </td>
+				<td id="Knockdown"> </td>
+				<td id="Knockout"> </td>
 			</tr>
 		</tbody>
 	</table>
 	
 	<br/>
+	
+	<p id="Location"><strong>Location: </strong></p>
+	<p id="Desc"><strong>Description: </strong></p>
 	
 	<p id="test"></p>
 	
@@ -152,54 +156,564 @@
 		function getDamage(type, area, level, roll){
 			var sendBack = new damage();
 			
+			switch (type){
+				case "blunt":
+					for(var i = 0; i < allBlunt.length; ++i){
+						if ((allBlunt[i].Area === area) && (allBlunt[i].Level === level) && (allBlunt[i].D6 === roll)){
+							sendBack = allBlunt[i];
+							break;
+						}
+					}
+					break;
+				case "cleaving":
+					for(var i = 0; i < allCleaving.length; ++i){
+						if ((allCleaving[i].Area === area) && (allCleaving[i].Level === level) && (allCleaving[i].D6 === roll)){
+							sendBack = allCleaving[i];
+							break;
+						}
+					}
+					break;
+				case "piercing":
+					for(var i = 0; i < allCleaving.length; ++i){
+						if ((allPiercing[i].Area === area) && (allPiercing[i].Level === level) && (allPiercing[i].D6 === roll)){
+							sendBack = allPiercing[i];
+							break;
+						}
+					}
+					break;
+				case "swung":
+					for(var i = 0; i < allCleaving.length; ++i){
+						if ((allSwung[i].Area === area) && (allSwung[i].Level === level) && (allSwung[i].D6 === roll)){
+							sendBack = allSwung[i];
+							break;
+						}
+					}
+					break;
+			}
+			
 			return sendBack;
 		}
 		
 		function setupBlunt(){
 			// area one values
-			allBlunt[0] = new damage("blunt", "area_1", "level_1", "d6_1", 1, 2, 0, 0, 0, "Strike to Foe's instep");
-			allBlunt[1] = new damage("blunt", "area_1", "level_1", "d6_2", 1, 2, 0, 0, 0, "Your strike connects weakly");
-			allBlunt[2] = new damage("blunt", "area_1", "level_1", "d6_3", 1, 2, 0, 0, 0, "Your strike connects weakly");
-			allBlunt[3] = new damage("blunt", "area_1", "level_1", "d6_4", 1, 2, 0, 0, 0, "Your strike connects weakly");
-			allBlunt[4] = new damage("blunt", "area_1", "level_1", "d6_5", 2, 3, 0, 0, 0, "Cracks Foe's kneecap");
-			allBlunt[5] = new damage("blunt", "area_1", "level_1", "d6_6", 2, 3, 0, 0, 0, "Cracks Foe's kneecap");
+			allBlunt[0] = new damage("blunt", "area_1", "level_1", "d6_1", 1, 2, 0, 0, 0, "Strike to Foe's instep", "Foot");
+			allBlunt[1] = new damage("blunt", "area_1", "level_1", "d6_2", 1, 2, 0, 0, 0, "Your strike connects weakly", "Shin and Lower Leg");
+			allBlunt[2] = new damage("blunt", "area_1", "level_1", "d6_3", 1, 2, 0, 0, 0, "Your strike connects weakly", "Shin and Lower Leg");
+			allBlunt[3] = new damage("blunt", "area_1", "level_1", "d6_4", 1, 2, 0, 0, 0, "Your strike connects weakly", "Shin and Lower Leg");
+			allBlunt[4] = new damage("blunt", "area_1", "level_1", "d6_5", 2, 3, 0, 0, 0, "Cracks Foe's kneecap", "Knee and Nearby Areas");
+			allBlunt[5] = new damage("blunt", "area_1", "level_1", "d6_6", 2, 3, 0, 0, 0, "Cracks Foe's kneecap", "Knee and Nearby Areas");
 			
-			allBlunt[6] = new damage("blunt", "area_1", "level_2", "d6_1", 4, 4, 0, 1, 0, "Foe recoils as your blow impacts");
-			allBlunt[7] = new damage("blunt", "area_1", "level_2", "d6_2", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike");
-			allBlunt[8] = new damage("blunt", "area_1", "level_2", "d6_3", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike");
-			allBlunt[9] = new damage("blunt", "area_1", "level_2", "d6_4", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike");
-			allBlunt[10] = new damage("blunt", "area_1", "level_2", "d6_5", 5, 5, 0, 1, 0, "Glancing strike to knee. Foe turns away to avoid the worst of the damage");
-			allBlunt[11] = new damage("blunt", "area_1", "level_2", "d6_6", 5, 5, 0, 1, 0, "Glancing strike to knee. Foe turns away to avoid the worst of the damage");
+			allBlunt[6] = new damage("blunt", "area_1", "level_2", "d6_1", 4, 4, 0, 1, 0, "Foe recoils as your blow impacts", "Foot");
+			allBlunt[7] = new damage("blunt", "area_1", "level_2", "d6_2", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike", "Shin and Lower Leg");
+			allBlunt[8] = new damage("blunt", "area_1", "level_2", "d6_3", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike", "Shin and Lower Leg");
+			allBlunt[9] = new damage("blunt", "area_1", "level_2", "d6_4", 4, 4, 0, 1, 0, "Foe leans to your shield side as you strike", "Shin and Lower Leg");
+			allBlunt[10] = new damage("blunt", "area_1", "level_2", "d6_5", 5, 5, 0, 1, 0, "Glancing strike to knee. Foe turns away to avoid the worst of the damage", "Knee and Nearby Areas");
+			allBlunt[11] = new damage("blunt", "area_1", "level_2", "d6_6", 5, 5, 0, 1, 0, "Glancing strike to knee. Foe turns away to avoid the worst of the damage", "Knee and Nearby Areas");
 			
-			allBlunt[12] = new damage("blunt", "area_1", "level_3", "d6_1", 6, 6, 1, 2, 0, "Lightning fast strike leaves Foe limping");
-			allBlunt[13] = new damage("blunt", "area_1", "level_3", "d6_2", 6, 6, 1, 2, 0, "Shot takes foe in lower leg");
-			allBlunt[14] = new damage("blunt", "area_1", "level_3", "d6_3", 6, 6, 1, 2, 0, "Shot takes foe in lower leg");
-			allBlunt[15] = new damage("blunt", "area_1", "level_3", "d6_4", 6, 6, 1, 2, 0, "Shot takes foe in lower leg");
-			allBlunt[16] = new damage("blunt", "area_1", "level_3", "d6_5", 7, 7, 1, 2, 0, "Your hit leaves a massive bruise");
-			allBlunt[17] = new damage("blunt", "area_1", "level_3", "d6_6", 7, 7, 1, 2, 0, "Your hit leaves a massive bruise");
+			allBlunt[12] = new damage("blunt", "area_1", "level_3", "d6_1", 6, 6, 1, 2, 0, "Lightning fast strike leaves Foe limping", "Foot");
+			allBlunt[13] = new damage("blunt", "area_1", "level_3", "d6_2", 6, 6, 1, 2, 0, "Shot takes foe in lower leg", "Shin and Lower Leg");
+			allBlunt[14] = new damage("blunt", "area_1", "level_3", "d6_3", 6, 6, 1, 2, 0, "Shot takes foe in lower leg", "Shin and Lower Leg");
+			allBlunt[15] = new damage("blunt", "area_1", "level_3", "d6_4", 6, 6, 1, 2, 0, "Shot takes foe in lower leg", "Shin and Lower Leg");
+			allBlunt[16] = new damage("blunt", "area_1", "level_3", "d6_5", 7, 7, 1, 2, 0, "Your hit leaves a massive bruise", "Knee and Nearby Areas");
+			allBlunt[17] = new damage("blunt", "area_1", "level_3", "d6_6", 7, 7, 1, 2, 0, "Your hit leaves a massive bruise", "Knee and Nearby Areas");
 			
-			allBlunt[18] = new damage("blunt", "area_1", "level_4", "d6_1", 9, 8, 2, 2, 0, "Blow lands with a crack! Foe’s eyes roll in pain");
-			allBlunt[19] = new damage("blunt", "area_1", "level_4", "d6_2", 9, 8, 2, 3, 0, "Foe reels back in agony");
-			allBlunt[20] = new damage("blunt", "area_1", "level_4", "d6_3", 9, 8, 2, 3, 0, "Foe reels back in agony");
-			allBlunt[21] = new damage("blunt", "area_1", "level_4", "d6_4", 9, 8, 2, 3, 0, "Foe reels back in agony");
-			allBlunt[22] = new damage("blunt", "area_1", "level_4", "d6_5", 9, 10, 2, 3, 0, "Foe leaps to avoid a strike to the gut and catches blow full on the knee");
-			allBlunt[23] = new damage("blunt", "area_1", "level_4", "d6_6", 9, 10, 2, 3, 0, "Foe leaps to avoid a strike to the gut and catches blow full on the knee");
+			allBlunt[18] = new damage("blunt", "area_1", "level_4", "d6_1", 9, 8, 2, 2, 0, "Blow lands with a crack! Foe’s eyes roll in pain", "Foot");
+			allBlunt[19] = new damage("blunt", "area_1", "level_4", "d6_2", 9, 8, 2, 3, 0, "Foe reels back in agony", "Shin and Lower Leg");
+			allBlunt[20] = new damage("blunt", "area_1", "level_4", "d6_3", 9, 8, 2, 3, 0, "Foe reels back in agony", "Shin and Lower Leg");
+			allBlunt[21] = new damage("blunt", "area_1", "level_4", "d6_4", 9, 8, 2, 3, 0, "Foe reels back in agony", "Shin and Lower Leg");
+			allBlunt[22] = new damage("blunt", "area_1", "level_4", "d6_5", 9, 10, 2, 3, 0, "Foe leaps to avoid a strike to the gut and catches blow full on the knee", "Knee and Nearby Areas");
+			allBlunt[23] = new damage("blunt", "area_1", "level_4", "d6_6", 9, 10, 2, 3, 0, "Foe leaps to avoid a strike to the gut and catches blow full on the knee", "Knee and Nearby Areas");
 			
-			allBlunt[24] = new damage("blunt", "area_1", "level_5", "d6_1", 11, 11, 3, 3, 0, "A forceful swing that crushes toes");
-			allBlunt[25] = new damage("blunt", "area_1", "level_5", "d6_2", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain");
-			allBlunt[26] = new damage("blunt", "area_1", "level_5", "d6_3", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain");
-			allBlunt[27] = new damage("blunt", "area_1", "level_5", "d6_4", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain");
-			allBlunt[28] = new damage("blunt", "area_1", "level_5", "d6_5", 12, 13, 3, 3, 0, "Massive Strike to foe‘s right knee nearly brings him to the ground");
-			allBlunt[29] = new damage("blunt", "area_1", "level_5", "d6_6", 12, 13, 3, 3, 0, "Massive Strike to foe‘s right knee nearly brings him to the ground");
+			allBlunt[24] = new damage("blunt", "area_1", "level_5", "d6_1", 11, 11, 3, 3, 0, "A forceful swing that crushes toes", "Foot");
+			allBlunt[25] = new damage("blunt", "area_1", "level_5", "d6_2", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain", "Shin and Lower Leg");
+			allBlunt[26] = new damage("blunt", "area_1", "level_5", "d6_3", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain", "Shin and Lower Leg");
+			allBlunt[27] = new damage("blunt", "area_1", "level_5", "d6_4", 11, 11, 3, 3, 0, "Masterful strike to shin causes foe to howl in pain", "Shin and Lower Leg");
+			allBlunt[28] = new damage("blunt", "area_1", "level_5", "d6_5", 12, 13, 3, 3, 0, "Massive Strike to foe‘s right knee nearly brings him to the ground", "Knee and Nearby Areas");
+			allBlunt[29] = new damage("blunt", "area_1", "level_5", "d6_6", 12, 13, 3, 3, 0, "Massive Strike to foe‘s right knee nearly brings him to the ground", "Knee and Nearby Areas");
 			
-			allBlunt[30] = new damage("blunt", "area_1", "level_6", "d6_1", 14, 13, 3, 4, 0, "Strike comes down like a ton of bricks and smashes foot to paste");
-			allBlunt[31] = new damage("blunt", "area_1", "level_6", "d6_2", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear");
-			allBlunt[32] = new damage("blunt", "area_1", "level_6", "d6_3", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear");
-			allBlunt[33] = new damage("blunt", "area_1", "level_6", "d6_4", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear");
-			allBlunt[34] = new damage("blunt", "area_1", "level_6", "d6_5", 14, 15, 3, 4, 0, "Blow to foe’s kneecap shatters it");
-			allBlunt[35] = new damage("blunt", "area_1", "level_6", "d6_6", 14, 15, 3, 4, 0, "Blow to foe’s kneecap shatters it");
+			allBlunt[30] = new damage("blunt", "area_1", "level_6", "d6_1", 14, 13, 3, 4, 0, "Strike comes down like a ton of bricks and smashes foot to paste", "Foot");
+			allBlunt[31] = new damage("blunt", "area_1", "level_6", "d6_2", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear", "Shin and Lower Leg");
+			allBlunt[32] = new damage("blunt", "area_1", "level_6", "d6_3", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear", "Shin and Lower Leg");
+			allBlunt[33] = new damage("blunt", "area_1", "level_6", "d6_4", 14, 13, 3, 4, 0, "Powerful blow sweeps foe onto his back. Bones break and muscles tear", "Shin and Lower Leg");
+			allBlunt[34] = new damage("blunt", "area_1", "level_6", "d6_5", 14, 15, 3, 4, 0, "Blow to foe’s kneecap shatters it", "Knee and Nearby Areas");
+			allBlunt[35] = new damage("blunt", "area_1", "level_6", "d6_6", 14, 15, 3, 4, 0, "Blow to foe’s kneecap shatters it", "Knee and Nearby Areas");
 			
 			// area two values
+			allBlunt[36] = new damage("blunt", "area_2", "level_1", "d6_1", 2, 3, 0, 0, 0, "Foe evades frantically", "Knee and Nearby Areas");
+			allBlunt[37] = new damage("blunt", "area_2", "level_1", "d6_2", 2, 3, 0, 0, 0, "Foe evades frantically", "Knee and Nearby Areas");			
+			allBlunt[38] = new damage("blunt", "area_2", "level_1", "d6_3", 2, 2, 0, 0, 0, "Light swing to foe‘s thigh leaves a mark", "Thigh");
+			allBlunt[39] = new damage("blunt", "area_2", "level_1", "d6_4", 2, 2, 0, 0, 0, "Light swing to foe‘s thigh leaves a mark", "Thigh");
+			allBlunt[40] = new damage("blunt", "area_2", "level_1", "d6_5", 2, 2, 0, 0, 0, "Light swing to foe‘s thigh leaves a mark", "Thigh");
+			allBlunt[41] = new damage("blunt", "area_2", "level_1", "d6_6", 2, 2, 0, 0, 0, "Blow causes Foe to backpedal away", "Hip");
+			
+			allBlunt[42] = new damage("blunt", "area_2", "level_2", "d6_1", 5, 5, 0, 1, 0, "Foe dances away, nearly avoiding the blow", "Knee and Nearby Areas");
+			allBlunt[43] = new damage("blunt", "area_2", "level_2", "d6_2", 5, 5, 0, 1, 0, "Foe dances away, nearly avoiding the blow", "Knee and Nearby Areas");			
+			allBlunt[44] = new damage("blunt", "area_2", "level_2", "d6_3", 5, 4, 0, 1, 0, "Strike blunted by clothing", "Thigh");
+			allBlunt[45] = new damage("blunt", "area_2", "level_2", "d6_4", 5, 4, 0, 1, 0, "Strike blunted by clothing", "Thigh");
+			allBlunt[46] = new damage("blunt", "area_2", "level_2", "d6_5", 5, 4, 0, 1, 0, "Strike blunted by clothing", "Thigh");
+			allBlunt[47] = new damage("blunt", "area_2", "level_2", "d6_6", 5, 4, 0, 0, 0, "Blow to Foe‘s left hip spins him", "Hip");
+			
+			allBlunt[48] = new damage("blunt", "area_2", "level_3", "d6_1", 7, 7, 1, 2, 0, "Blow lands just above knee. Minor fracture", "Knee and Nearby Areas");
+			allBlunt[49] = new damage("blunt", "area_2", "level_3", "d6_2", 7, 7, 1, 2, 0, "Blow lands just above knee. Minor fracture", "Knee and Nearby Areas");			
+			allBlunt[50] = new damage("blunt", "area_2", "level_3", "d6_3", 7, 6, 0, 2, 0, "No blood, but Foe yells in pain", "Thigh");
+			allBlunt[51] = new damage("blunt", "area_2", "level_3", "d6_4", 7, 6, 0, 2, 0, "No blood, but Foe yells in pain", "Thigh");
+			allBlunt[52] = new damage("blunt", "area_2", "level_3", "d6_5", 7, 6, 0, 2, 0, "No blood, but Foe yells in pain", "Thigh");
+			allBlunt[53] = new damage("blunt", "area_2", "level_3", "d6_6", 7, 7, 1, 1, 0, "Blow to foe‘s hip causes his right leg to shake uncontrollably", "Hip");
+			
+			allBlunt[54] = new damage("blunt", "area_2", "level_4", "d6_1", 9, 10, 2, 3, 0, "Disorient foe with a tricky shot to the leg", "Knee and Nearby Areas");
+			allBlunt[55] = new damage("blunt", "area_2", "level_4", "d6_2", 9, 10, 2, 3, 0, "Disorient foe with a tricky shot to the leg", "Knee and Nearby Areas");			
+			allBlunt[56] = new damage("blunt", "area_2", "level_4", "d6_3", 9, 8, 1, 2, 0, "Strong blow breaks foe‘s guard, leaving him unbalanced", "Thigh");
+			allBlunt[57] = new damage("blunt", "area_2", "level_4", "d6_4", 9, 8, 1, 2, 0, "Strong blow breaks foe‘s guard, leaving him unbalanced", "Thigh");
+			allBlunt[58] = new damage("blunt", "area_2", "level_4", "d6_5", 9, 8, 1, 2, 0, "Strong blow breaks foe‘s guard, leaving him unbalanced", "Thigh");
+			allBlunt[59] = new damage("blunt", "area_2", "level_4", "d6_6", 9, 9, 2, 2, 0, "Strike to side slips down into foe‘s hip", "Hip");
+			
+			allBlunt[60] = new damage("blunt", "area_2", "level_5", "d6_1", 12, 13, 3, 3, 0, "Demolish Foe's knee joint", "Knee and Nearby Areas");
+			allBlunt[61] = new damage("blunt", "area_2", "level_5", "d6_2", 12, 13, 3, 3, 0, "Demolish Foe's knee joint", "Knee and Nearby Areas");			
+			allBlunt[62] = new damage("blunt", "area_2", "level_5", "d6_3", 12, 11, 3, 3, 0, "Blow to foe's right thigh crushes a variety of organs", "Thigh");
+			allBlunt[63] = new damage("blunt", "area_2", "level_5", "d6_4", 12, 11, 3, 3, 0, "Blow to foe's right thigh crushes a variety of organs", "Thigh");
+			allBlunt[64] = new damage("blunt", "area_2", "level_5", "d6_5", 12, 11, 3, 3, 0, "Blow to foe's right thigh crushes a variety of organs", "Thigh");
+			allBlunt[65] = new damage("blunt", "area_2", "level_5", "d6_6", 12, 11, 3, 3, 0, "Blow thunders as it connects. Foe‘s hip contorts horribly", "Hip");
+			
+			allBlunt[66] = new damage("blunt", "area_2", "level_6", "d6_1", 14, 15, 3, 4, 0, "Foe makes a mistake and pays. You send him crashing to the ground", "Knee and Nearby Areas");
+			allBlunt[67] = new damage("blunt", "area_2", "level_6", "d6_2", 14, 15, 3, 4, 0, "Foe makes a mistake and pays. You send him crashing to the ground", "Knee and Nearby Areas");			
+			allBlunt[68] = new damage("blunt", "area_2", "level_6", "d6_3", 14, 13, 4, 4, 0, "Massive blow to thigh. Compound fracture severs an artery. Foe goes down hard", "Thigh");
+			allBlunt[69] = new damage("blunt", "area_2", "level_6", "d6_4", 14, 13, 4, 4, 0, "Massive blow to thigh. Compound fracture severs an artery. Foe goes down hard", "Thigh");
+			allBlunt[70] = new damage("blunt", "area_2", "level_6", "d6_5", 14, 13, 4, 4, 0, "Massive blow to thigh. Compound fracture severs an artery. Foe goes down hard", "Thigh");
+			allBlunt[71] = new damage("blunt", "area_2", "level_6", "d6_6", "-", "-", "-", "-", "-", "Titan-like strike turns foes hip to powder. He collapses and dies", "Hip");
+			
+			// area three values
+			allBlunt[72] = new damage("blunt", "area_3", "level_1", "d6_1", 2, 2, 0, 0, 0, "Foe steps back and out of position", "Hip");
+			allBlunt[73] = new damage("blunt", "area_3", "level_1", "d6_2", 3, 2, 0, 0, 0, "Foe dodges away before the full force of your strike connects", "Upper Abdominals");			
+			allBlunt[74] = new damage("blunt", "area_3", "level_1", "d6_3", 3, 2, 0, 0, 0, "Foe dodges away before the full force of your strike connects", "Lower Abdominals");
+			allBlunt[75] = new damage("blunt", "area_3", "level_1", "d6_4", 3, 2, 0, 0, 0, "Cheap shot to foe‘s ribs", "Ribcage");
+			allBlunt[76] = new damage("blunt", "area_3", "level_1", "d6_5", 3, 2, 0, 0, 0, "Cheap shot to foe‘s ribs", "Ribcage");
+			allBlunt[77] = new damage("blunt", "area_3", "level_1", "d6_6", "-", "-", "-", "-", "-", "Go to Arms (Area 7)", "-");
+			
+			allBlunt[78] = new damage("blunt", "area_3", "level_2", "d6_1", 5, 4, 0, 0, 0, "More noise than impact", "Hip");
+			allBlunt[79] = new damage("blunt", "area_3", "level_2", "d6_2", 6, 4, 0, 0, 0, "Precise strike to foe's abs", "Upper Abdominals");			
+			allBlunt[80] = new damage("blunt", "area_3", "level_2", "d6_3", 6, 4, 0, 0, 0, "Precise strike to foe's abs", "Lower Abdominals");
+			allBlunt[81] = new damage("blunt", "area_3", "level_2", "d6_4", 6, 4, 0, 0, 0, "Shot too close to foe‘s throat. He dodges away frantically", "Ribcage");
+			allBlunt[82] = new damage("blunt", "area_3", "level_2", "d6_5", 4, 4, 0, 0, 0, "Shot too close to foe‘s throat. He dodges away frantically", "Ribcage");
+			allBlunt[83] = new damage("blunt", "area_3", "level_2", "d6_6", "-", "-", "-", "-", "-", "Go to Arms (Area 7)", "-");
+			
+			allBlunt[84] = new damage("blunt", "area_3", "level_3", "d6_1", 7, 7, 1, 1, 0, "Blow to foe‘s hip causes him to rage", "Hip");
+			allBlunt[85] = new damage("blunt", "area_3", "level_3", "d6_2", 9, 7, 1, 0, 0, "Foe walks into your blow, you leave him winded", "Upper Abdominals");			
+			allBlunt[86] = new damage("blunt", "area_3", "level_3", "d6_3", 9, 7, 1, 0, 0, "Foe walks into your blow, you leave him winded", "Lower Abdominals");
+			allBlunt[87] = new damage("blunt", "area_3", "level_3", "d6_4", 9, 7, 1, 0, 0, "Blow to chest. Foe seeks to regain his wind and survive", "Ribcage");
+			allBlunt[88] = new damage("blunt", "area_3", "level_3", "d6_5", 9, 7, 1, 0, 0, "Blow to chest. Foe seeks to regain his wind and survive", "Ribcage");
+			allBlunt[89] = new damage("blunt", "area_3", "level_3", "d6_6", "-", "-", "-", "-", "-", "Go to Arms (Area 7)", "-");
+			
+			allBlunt[90] = new damage("blunt", "area_3", "level_4", "d6_1", 9, 9, 2, 2, 0, "Miss foe's arm and strike his hip", "Hip");
+			allBlunt[91] = new damage("blunt", "area_3", "level_4", "d6_2", 12, 10, 3, 0, 0, "Foe dives away desperately, stumbling across the field", "Upper Abdominals");			
+			allBlunt[92] = new damage("blunt", "area_3", "level_4", "d6_3", 12, 10, 3, 0, 0, "Foe dives away desperately, stumbling across the field", "Lower Abdominals");
+			allBlunt[93] = new damage("blunt", "area_3", "level_4", "d6_4", 12, 10, 2, 0, 0, "Drive foe’s shield backward into ribs, breaking them", "Ribcage");
+			allBlunt[94] = new damage("blunt", "area_3", "level_4", "d6_5", 12, 10, 2, 0, 0, "Drive foe’s shield backward into ribs, breaking them", "Ribcage");
+			allBlunt[95] = new damage("blunt", "area_3", "level_4", "d6_6", "-", "-", "-", "-", "-", "Go to Arms (Area 7)", "-");
+			
+			allBlunt[96] = new damage("blunt", "area_3", "level_5", "d6_1", 12, 11, 3, 3, 0, "Deal foe an Olympic blow to his left hip. Any one container on your foe is flattened", "Hip");
+			allBlunt[97] = new damage("blunt", "area_3", "level_5", "d6_2", 14, 13, 4, 0, 0, "Catch foe in mid-swing and disarm him with crushing strike", "Upper Abdominals");			
+			allBlunt[98] = new damage("blunt", "area_3", "level_5", "d6_3", 14, 13, 4, 0, 0, "Catch foe in mid-swing and disarm him with crushing strike", "Lower Abdominals");
+			allBlunt[99] = new damage("blunt", "area_3", "level_5", "d6_4", 14, 13, 4, 0, 0, "Strike drops foe to his knees", "Ribcage");
+			allBlunt[100] = new damage("blunt", "area_3", "level_5", "d6_5", 14, 13, 4, 0, 0, "Strike drops foe to his knees", "Ribcage");
+			allBlunt[101] = new damage("blunt", "area_3", "level_5", "d6_6", "-", "-", "-", "-", "-", "Go to Arms (Area 7)", "-");
+			
+			allBlunt[102] = new damage("blunt", "area_3", "level_6", "d6_1", "-", "-", "-", "-", "-", "Crush Foe's hip. Staggers to the ground and dies", "Hip");
+			allBlunt[103] = new damage("blunt", "area_3", "level_6", "d6_2", "-", "-", "-", "-", "-", "Blast to foe's abdomen drives a bone into vital organs. Foe dies gasping", "Upper Abdominals");			
+			allBlunt[104] = new damage("blunt", "area_3", "level_6", "d6_3", "-", "-", "-", "-", "-", "Blast to foe's abdomen drives a bone into vital organs. Foe dies gasping", "Lower Abdominals");
+			allBlunt[105] = new damage("blunt", "area_3", "level_6", "d6_4", "-", "-", "-", "-", "-", "Demolish foe’s chest cavity. He grips your arm and burbles his last", "Ribcage");
+			allBlunt[106] = new damage("blunt", "area_3", "level_6", "d6_5", "-", "-", "-", "-", "-", "Demolish foe’s chest cavity. He grips your arm and burbles his last", "Ribcage");
+			allBlunt[107] = new damage("blunt", "area_3", "level_6", "d6_6", "-", "-", "-", "-", "-", "Go to Arms (Area 7)", "-");
+			
+			// area four values
+			allBlunt[108] = new damage("blunt", "area_4", "level_1", "d6_1", 2, 2, 0, 0, 0, "Foe is not sure what you’re up to", "Upper Arm and Shoulder");
+			allBlunt[109] = new damage("blunt", "area_4", "level_1", "d6_2", 2, 2, 0, 0, 0, "Foe is not sure what you’re up to", "Upper Arm and Shoulder");			
+			allBlunt[110] = new damage("blunt", "area_4", "level_1", "d6_3", 3, 2, 0, 0, 0, "A sharp tap", "Upper Body");
+			allBlunt[111] = new damage("blunt", "area_4", "level_1", "d6_4", 3, 2, 0, 0, 0, "Foe howls with rage", "Neck");
+			allBlunt[112] = new damage("blunt", "area_4", "level_1", "d6_5", 4, 2, 0, 0, 0, "Terrific form that misses by a heartbeat", "Head (Lower), including the Face");
+			allBlunt[113] = new damage("blunt", "area_4", "level_1", "d6_6", 3, 2, 0, 0, 0, "Light tap to the skull gives foe a pounding headache", "Head (Upper)");
+			
+			allBlunt[114] = new damage("blunt", "area_4", "level_2", "d6_1", 5, 4, 0, 0, 0, "Foe sags under your strike", "Upper Arm and Shoulder");
+			allBlunt[115] = new damage("blunt", "area_4", "level_2", "d6_2", 5, 4, 0, 0, 0, "Foe sags under your strike", "Upper Arm and Shoulder");			
+			allBlunt[116] = new damage("blunt", "area_4", "level_2", "d6_3", 6, 4, 0, 0, 0, "Strike flows past Foe's guard and into his ribs", "Upper Body");
+			allBlunt[117] = new damage("blunt", "area_4", "level_2", "d6_4", 6, 4, 0, 0, 0, "Close strike to neck panics Foe", "Neck");
+			allBlunt[118] = new damage("blunt", "area_4", "level_2", "d6_5", 7, 4, 0, 1, 1, "Strike splits foe's nose. His frantic defense saves him for now", "Head (Lower), including the Face");
+			allBlunt[119] = new damage("blunt", "area_4", "level_2", "d6_6", 6, 4, 1, 1, 1, "Little blood, but he bellows like a wounded ox", "Head (Upper)");
+			
+			allBlunt[120] = new damage("blunt", "area_4", "level_3", "d6_1", 7, 6, 1, 0, 0, "Foe raises an arm to block your strike", "Upper Arm and Shoulder");
+			allBlunt[121] = new damage("blunt", "area_4", "level_3", "d6_2", 7, 6, 1, 0, 0, "Foe raises an arm to block your strike", "Upper Arm and Shoulder");			
+			allBlunt[122] = new damage("blunt", "area_4", "level_3", "d6_3", 9, 7, 1, 0, 0, "Your main effort misses, but you catch foe on recovery", "Upper Body");
+			allBlunt[123] = new damage("blunt", "area_4", "level_3", "d6_4", 8, 6, 1, 1, 0, "Foe’s flashy moves earn him a slap to the Adam’s Apple", "Neck");
+			allBlunt[124] = new damage("blunt", "area_4", "level_3", "d6_5", 9, 5, 1, 2, 2, "Savage attack knocks out Foe's teeth", "Head (Lower), including the Face");
+			allBlunt[125] = new damage("blunt", "area_4", "level_3", "d6_6", 8, 6, 1, 2, 3, "Blow to foe‘s head pulps an ear", "Head (Upper)");
+			
+			allBlunt[126] = new damage("blunt", "area_4", "level_4", "d6_1", 9, 8, 3, 0, 0, "Miss foe‘s head and strike his arm. He gasps and drops something", "Upper Arm and Shoulder");
+			allBlunt[127] = new damage("blunt", "area_4", "level_4", "d6_2", 9, 8, 3, 0, 0, "Miss foe‘s head and strike his arm. He gasps and drops something", "Upper Arm and Shoulder");			
+			allBlunt[128] = new damage("blunt", "area_4", "level_4", "d6_3", 12, 10, 2, 0, 0, "Foe miscalculates his timing and lurches into your swing", "Upper Body");
+			allBlunt[129] = new damage("blunt", "area_4", "level_4", "d6_4", 11, 8, 1, 2, 0, "You smash Foe‘s neck as he ducks a swing to the chest", "Neck");
+			allBlunt[130] = new damage("blunt", "area_4", "level_4", "d6_5", 12, 7, 2, 3, 3, "Break foe's jaw", "Head (Lower), including the Face");
+			allBlunt[131] = new damage("blunt", "area_4", "level_4", "d6_6", 11, 8, 2, 3, 5, "Foe gasps, leans forward, and your strike crushes his face", "Head (Upper)");
+			
+			allBlunt[132] = new damage("blunt", "area_4", "level_5", "d6_1", 12, 11, 4, 0, 0, "Catch foe in shoulder blade. Foe drops his guard and reels from your blow", "Upper Arm and Shoulder");
+			allBlunt[133] = new damage("blunt", "area_4", "level_5", "d6_2", 12, 11, 4, 0, 0, "Catch foe in shoulder blade. Foe drops his guard and reels from your blow", "Upper Arm and Shoulder");			
+			allBlunt[134] = new damage("blunt", "area_4", "level_5", "d6_3", 14, 13, 4, 0, 0, "Slam foe with little grace. He coughs blood from cracked lips", "Upper Body");
+			allBlunt[135] = new damage("blunt", "area_4", "level_5", "d6_4", "-", "-", "-", "-", "-", "Blow snaps neck. Foe is paralyzed from the shoulders down", "Neck");
+			allBlunt[136] = new damage("blunt", "area_4", "level_5", "d6_5", 14, 10, 3, 4, 4, "Strike to foe’s nose drives cartilage back into brain", "Head (Lower), including the Face");
+			allBlunt[137] = new damage("blunt", "area_4", "level_5", "d6_6", "-", "-", "-", "-", "-", "Iron-fisted strike to crown of foe’s head drives skull into brain", "Head (Upper)");
+			
+			allBlunt[138] = new damage("blunt", "area_4", "level_6", "d6_1", 14, 13, 5, 0, 0, "Thunderous blow to shoulder crushes bone", "Upper Arm and Shoulder");
+			allBlunt[139] = new damage("blunt", "area_4", "level_6", "d6_2", 14, 13, 5, 0, 0, "Thunderous blow to shoulder crushes bone", "Upper Arm and Shoulder");			
+			allBlunt[140] = new damage("blunt", "area_4", "level_6", "d6_3", "-", "-", "-", "-", "-", "Savage blow pulps chest. Foe collapses to the ground", "Upper Body");
+			allBlunt[141] = new damage("blunt", "area_4", "level_6", "d6_4", "-", "-", "-", "-", "-", "Foe’s head snaps to a crazy angle. He drops like a brained cow, twitching limply", "Neck");
+			allBlunt[142] = new damage("blunt", "area_4", "level_6", "d6_5", "-", "-", "-", "-", "-", "Blow to the face. If visored, it's driven into his face, killing him in 2 Limelight rounds. Otherwise, he dies instantly", "Head (Lower), including the Face");
+			allBlunt[143] = new damage("blunt", "area_4", "level_6", "d6_6", "-", "-", "-", "-", "-", "Strike to forehead shatters foe‘s brain. Instant Death", "Head (Upper)");
+			
+			// area five values
+			allBlunt[144] = new damage("blunt", "area_5", "level_1", "d6_1", 2, 2, 0, 0, 0, "Your strike slides off", "Shoulders");
+			allBlunt[145] = new damage("blunt", "area_5", "level_1", "d6_2", 2, 2, 0, 0, 0, "Your strike slides off", "Shoulders");			
+			allBlunt[146] = new damage("blunt", "area_5", "level_1", "d6_3", 4, 2, 0, 0, 0, "Foe evades much of your strike's impact", "Head (Lower), including the Face");
+			allBlunt[147] = new damage("blunt", "area_5", "level_1", "d6_4", 3, 2, 0, 0, 0, "A stinging blow", "Head (Upper)");
+			allBlunt[148] = new damage("blunt", "area_5", "level_1", "d6_5", 3, 2, 0, 0, 0, "A stinging blow", "Head (Upper)");
+			allBlunt[149] = new damage("blunt", "area_5", "level_1", "d6_6", 3, 2, 0, 0, 0, "A stinging blow", "Head (Upper)");
+			
+			allBlunt[150] = new damage("blunt", "area_5", "level_2", "d6_1", 5, 4, 0, 0, 0, "Modest strike to foe's shield drives edge into shoulder", "Shoulders");
+			allBlunt[151] = new damage("blunt", "area_5", "level_2", "d6_2", 5, 4, 0, 0, 0, "Modest strike to foe's shield drives edge into shoulder", "Shoulders");			
+			allBlunt[152] = new damage("blunt", "area_5", "level_2", "d6_3", 7, 4, 0, 1, 1, "Foe dances away from your swing", "Head (Lower), including the Face");
+			allBlunt[153] = new damage("blunt", "area_5", "level_2", "d6_4", 6, 4, 1, 1, 1, "Foe slips, escaping the brunt of your attack", "Head (Upper)");
+			allBlunt[154] = new damage("blunt", "area_5", "level_2", "d6_5", 6, 4, 1, 1, 1, "Foe slips, escaping the brunt of your attack", "Head (Upper)");
+			allBlunt[155] = new damage("blunt", "area_5", "level_2", "d6_6", 6, 4, 1, 1, 1, "Foe slips, escaping the brunt of your attack", "Head (Upper)");
+			
+			allBlunt[156] = new damage("blunt", "area_5", "level_3", "d6_1", 7, 6, 1, 0, 0, "Foe bobs and weaves desperately to avoid your strike", "Shoulders");
+			allBlunt[157] = new damage("blunt", "area_5", "level_3", "d6_2", 7, 6, 1, 0, 0, "Foe bobs and weaves desperately to avoid your strike", "Shoulders");			
+			allBlunt[158] = new damage("blunt", "area_5", "level_3", "d6_3", 9, 5, 1, 2, 2, "Foe attempts to disarm you and takes strike to ear for his trouble", "Head (Lower), including the Face");
+			allBlunt[159] = new damage("blunt", "area_5", "level_3", "d6_4", 8, 6, 1, 2, 3, "Blow drives foe’s shield back into his eyes", "Head (Upper)");
+			allBlunt[160] = new damage("blunt", "area_5", "level_3", "d6_5", 8, 6, 1, 2, 3, "Blow drives foe’s shield back into his eyes", "Head (Upper)");
+			allBlunt[161] = new damage("blunt", "area_5", "level_3", "d6_6", 8, 6, 1, 2, 3, "Blow drives foe’s shield back into his eyes", "Head (Upper)");
+			
+			allBlunt[162] = new damage("blunt", "area_5", "level_4", "d6_1", 9, 8, 3, 0, 0, "You slam Foe’s shoulder, leaving him screeching", "Shoulders");
+			allBlunt[163] = new damage("blunt", "area_5", "level_4", "d6_2", 9, 8, 3, 0, 0, "You slam Foe’s shoulder, leaving him screeching", "Shoulders");			
+			allBlunt[164] = new damage("blunt", "area_5", "level_4", "d6_3", 12, 7, 2, 3, 3, "Foe deflects your stroke down into his cheek", "Head (Lower), including the Face");
+			allBlunt[165] = new damage("blunt", "area_5", "level_4", "d6_4", 11, 8, 2, 3, 5, "Devastating blow to Foe's head cause his eyes to glaze over", "Head (Upper)");
+			allBlunt[166] = new damage("blunt", "area_5", "level_4", "d6_5", 11, 8, 2, 3, 5, "Devastating blow to Foe's head cause his eyes to glaze over", "Head (Upper)");
+			allBlunt[167] = new damage("blunt", "area_5", "level_4", "d6_6", 11, 8, 2, 3, 5, "Devastating blow to Foe's head cause his eyes to glaze over", "Head (Upper)");
+			
+			allBlunt[168] = new damage("blunt", "area_5", "level_5", "d6_1", 12, 11, 4, 0, 0, "Titan-like swing drives foe’s own weapon into shoulder", "Shoulders");
+			allBlunt[169] = new damage("blunt", "area_5", "level_5", "d6_2", 12, 11, 4, 0, 0, "Titan-like swing drives foe’s own weapon into shoulder", "Shoulders");			
+			allBlunt[170] = new damage("blunt", "area_5", "level_5", "d6_3", 14, 10, 3, 4, 4, "Brilliant blow to chin sends foe reeling", "Head (Lower), including the Face");
+			allBlunt[171] = new damage("blunt", "area_5", "level_5", "d6_4", "-", "-", "-", "-", "-", "Furious stroke pulps both eye and brain. Dead before he hits the ground", "Head (Upper)");
+			allBlunt[172] = new damage("blunt", "area_5", "level_5", "d6_5", "-", "-", "-", "-", "-", "Furious stroke pulps both eye and brain. Dead before he hits the ground", "Head (Upper)");
+			allBlunt[173] = new damage("blunt", "area_5", "level_5", "d6_6", "-", "-", "-", "-", "-", "Furious stroke pulps both eye and brain. Dead before he hits the ground", "Head (Upper)");
+			
+			allBlunt[174] = new damage("blunt", "area_5", "level_6", "d6_1", 14, 13, 5, 0, 0, "That does it for him. Strike pulverizes foe’s shoulder blade", "Shoulders");
+			allBlunt[175] = new damage("blunt", "area_5", "level_6", "d6_2", 14, 13, 5, 0, 0, "That does it for him. Strike pulverizes foe’s shoulder blade", "Shoulders");			
+			allBlunt[176] = new damage("blunt", "area_5", "level_6", "d6_3", "-", "-", "-", "-", "-", "Mangle what was once foe‘s face. Foe's nerveless fingers drop his weapon", "Head (Lower), including the Face");
+			allBlunt[177] = new damage("blunt", "area_5", "level_6", "d6_4", "-", "-", "-", "-", "-", "Masterful strike to Foe's hairline kills him instantly", "Head (Upper)");
+			allBlunt[178] = new damage("blunt", "area_5", "level_6", "d6_5", "-", "-", "-", "-", "-", "Masterful strike to Foe's hairline kills him instantly", "Head (Upper)");
+			allBlunt[179] = new damage("blunt", "area_5", "level_6", "d6_6", "-", "-", "-", "-", "-", "Masterful strike to Foe's hairline kills him instantly", "Head (Upper)");
+			
+			// area six values
+			allBlunt[180] = new damage("blunt", "area_6", "level_1", "d6_1", 2, 2, 0, 0, 0, "Foe swears and moves into a defensive posture", "Inner Thigh");
+			allBlunt[181] = new damage("blunt", "area_6", "level_1", "d6_2", 2, 2, 0, 0, 0, "Foe swears and moves into a defensive posture", "Inner Thigh");			
+			allBlunt[182] = new damage("blunt", "area_6", "level_1", "d6_3", 2, 2, 0, 0, 0, "Foe swears and moves into a defensive posture", "Inner Thigh");
+			allBlunt[183] = new damage("blunt", "area_6", "level_1", "d6_4", 5, 6, 0, 0, 0, "Close call that might have been fatal", "Groin (Male)");
+			allBlunt[184] = new damage("blunt", "area_6", "level_1", "d6_4", 2, 2, 0, 0, 0, "Close call that might have been fatal", "Groin (Female)", "f");
+			allBlunt[185] = new damage("blunt", "area_6", "level_1", "d6_5", 3, 2, 0, 0, 0, "Strike fouled by poor attack angle", "Abdomen");
+			allBlunt[186] = new damage("blunt", "area_6", "level_1", "d6_6", 4, 2, 0, 0, 0, "Foe leans far back to evade blow. He is off-balance", "Head (Lower) including the Face");
+			
+			allBlunt[187] = new damage("blunt", "area_6", "level_2", "d6_1", 5, 4, 0, 1, 0, "Foe steps just out of range, fouling the blow", "Inner Thigh");
+			allBlunt[188] = new damage("blunt", "area_6", "level_2", "d6_2", 5, 4, 0, 1, 0, "Foe steps just out of range, fouling the blow", "Inner Thigh");			
+			allBlunt[189] = new damage("blunt", "area_6", "level_2", "d6_3", 5, 4, 0, 1, 0, "Foe steps just out of range, fouling the blow", "Inner Thigh");
+			allBlunt[190] = new damage("blunt", "area_6", "level_2", "d6_4", 9, 8, 0, 0, 0, "Strike to foe's groin forces him back five feet", "Groin (Male)");
+			allBlunt[191] = new damage("blunt", "area_6", "level_2", "d6_4", 5, 4, 0, 0, 0, "Strike to foe's groin forces her back five feet", "Groin (Female)", "f");
+			allBlunt[192] = new damage("blunt", "area_6", "level_2", "d6_5", 6, 4, 0, 0, 0, "You knock the air from foe's lungs", "Abdomen");
+			allBlunt[193] = new damage("blunt", "area_6", "level_2", "d6_6", 7, 4, 0, 1, 1, "Your swing raps Foe’s jaw", "Head (Lower) including the Face");
+			
+			allBlunt[194] = new damage("blunt", "area_6", "level_3", "d6_1", 7, 6, 0, 2, 0, "Foe howls in pain", "Inner Thigh");
+			allBlunt[195] = new damage("blunt", "area_6", "level_3", "d6_2", 7, 6, 0, 2, 0, "Foe howls in pain", "Inner Thigh");			
+			allBlunt[196] = new damage("blunt", "area_6", "level_3", "d6_3", 7, 6, 0, 2, 0, "Foe howls in pain", "Inner Thigh");
+			allBlunt[197] = new damage("blunt", "area_6", "level_3", "d6_4", 11, 9, 1, 1, 0, "Foe limps away in agony", "Groin (Male)");
+			allBlunt[198] = new damage("blunt", "area_6", "level_3", "d6_4", 7, 7, 0, 1, 0, "Foe limps away in agony", "Groin (Female)", "f");
+			allBlunt[199] = new damage("blunt", "area_6", "level_3", "d6_5", 9, 7, 1, 0, 0, "Bash to the gut has your foe spitting blood", "Abdomen");
+			allBlunt[200] = new damage("blunt", "area_6", "level_3", "d6_6", 9, 5, 1, 2, 2, "Foe’s lips burst from blow’s impact", "Head (Lower) including the Face");
+			
+			allBlunt[201] = new damage("blunt", "area_6", "level_4", "d6_1", 9, 8, 1, 2, 0, "Blow to foe's thigh makes him stumble to the right", "Inner Thigh");
+			allBlunt[202] = new damage("blunt", "area_6", "level_4", "d6_2", 9, 8, 1, 2, 0, "Blow to foe's thigh makes him stumble to the right", "Inner Thigh");			
+			allBlunt[203] = new damage("blunt", "area_6", "level_4", "d6_3", 9, 8, 1, 2, 0, "Blow to foe's thigh makes him stumble to the right", "Inner Thigh");
+			allBlunt[204] = new damage("blunt", "area_6", "level_4", "d6_4", 13, 10, 1, 2, 0, "Foe vomits from the impact", "Groin (Male)");
+			allBlunt[205] = new damage("blunt", "area_6", "level_4", "d6_4", 9, 9, 1, 2, 0, "Foe vomits from the impact", "Groin (Female)", "f");
+			allBlunt[206] = new damage("blunt", "area_6", "level_4", "d6_5", 12, 10, 3, 0, 0, "Lightning strike to foe’s gut has him gasping. Internal bleeding", "Abdomen");
+			allBlunt[207] = new damage("blunt", "area_6", "level_4", "d6_6", 12, 7, 2, 3, 3, "Vicious swing removes foe’s nose and upper lip", "Head (Lower) including the Face");
+			
+			allBlunt[208] = new damage("blunt", "area_6", "level_5", "d6_1", 12, 11, 3, 3, 0, "Foe arches in agony from your strike", "Inner Thigh");
+			allBlunt[209] = new damage("blunt", "area_6", "level_5", "d6_2", 12, 11, 3, 3, 0, "Foe arches in agony from your strike", "Inner Thigh");			
+			allBlunt[210] = new damage("blunt", "area_6", "level_5", "d6_3", 12, 11, 3, 3, 0, "Foe arches in agony from your strike", "Inner Thigh");
+			allBlunt[211] = new damage("blunt", "area_6", "level_5", "d6_4", 15, 12, 3, 3, 0, "Blow causes Foe to rave with pain", "Groin (Male)");
+			allBlunt[212] = new damage("blunt", "area_6", "level_5", "d6_4", 12, 11, 3, 3, 0, "Blow causes Foe to rave with pain", "Groin (Female)", "f");
+			allBlunt[213] = new damage("blunt", "area_6", "level_5", "d6_5", 14, 13, 4, 0, 0, "Foe doubles over in agony, spitting blood", "Abdomen");
+			allBlunt[214] = new damage("blunt", "area_6", "level_5", "d6_6", 14, 10, 3, 4, 4, "Upward stroke drives foe’s nose cartilage into brain", "Head (Lower) including the Face");
+			
+			allBlunt[215] = new damage("blunt", "area_6", "level_6", "d6_1", 14, 13, 4, 4, 0, "Foe's leg nearly torn from body", "Inner Thigh");
+			allBlunt[216] = new damage("blunt", "area_6", "level_6", "d6_2", 14, 13, 4, 4, 0, "Foe's leg nearly torn from body", "Inner Thigh");			
+			allBlunt[217] = new damage("blunt", "area_6", "level_6", "d6_3", 14, 13, 4, 4, 0, "Foe's leg nearly torn from body", "Inner Thigh");
+			allBlunt[218] = new damage("blunt", "area_6", "level_6", "d6_4", 17, 14, 4, 4, 0, "Master strike to Foe’s groin brings Foe to his knees. Massive internal bleeding", "Groin (Male)");
+			allBlunt[219] = new damage("blunt", "area_6", "level_6", "d6_4", 14, 13, 4, 4, 0, "Master strike to Foe’s groin brings Foe to his knees. Massive internal bleeding", "Groin (Female)", "f");
+			allBlunt[220] = new damage("blunt", "area_6", "level_6", "d6_5", 17, 16, 5, 0, 0, "Savage strike leaves foe prostrate at your feet", "Abdomen");
+			allBlunt[221] = new damage("blunt", "area_6", "level_6", "d6_6", "-", "-", "-", "-", "-", "Foe’s face sheared off from force of blow. Foe dances back and collapses dead", "Head (Lower) including the Face");
+			
+			// area seven values
+			allBlunt[222] = new damage("blunt", "area_7", "level_1", "d6_1", 2, 2, 0, 0, 0, "Strike failed to connect properly", "Hand");
+			allBlunt[223] = new damage("blunt", "area_7", "level_1", "d6_2", 2, 2, 0, 0, 0, "Strike lands without energy", "Forearm");			
+			allBlunt[224] = new damage("blunt", "area_7", "level_1", "d6_3", 2, 2, 0, 0, 0, "Strike lands without energy", "Forearm");
+			allBlunt[225] = new damage("blunt", "area_7", "level_1", "d6_4", 2, 2, 0, 0, 0, "Glancing blow caught by Foe's shield", "Elbow");
+			allBlunt[226] = new damage("blunt", "area_7", "level_1", "d6_5", 2, 2, 0, 0, 0, "Foe evades and maneuvers for a better position", "Upper Arm and Shoulder");
+			allBlunt[227] = new damage("blunt", "area_7", "level_1", "d6_6", 2, 2, 0, 0, 0, "Foe evades and maneuvers for a better position", "Upper Arm and Shoulder");
+			
+			allBlunt[228] = new damage("blunt", "area_7", "level_2", "d6_1", 5, 4, 0, 0, 0, "Strike raps foe’s knuckles", "Hand");
+			allBlunt[229] = new damage("blunt", "area_7", "level_2", "d6_2", 5, 4, 0, 0, 0, "Strike makes Foe flinch", "Forearm");			
+			allBlunt[230] = new damage("blunt", "area_7", "level_2", "d6_3", 5, 4, 0, 0, 0, "Strike makes Foe flinch", "Forearm");
+			allBlunt[231] = new damage("blunt", "area_7", "level_2", "d6_4", 5, 4, 0, 0, 0, "Foe goes low to evade your attack", "Elbow");
+			allBlunt[232] = new damage("blunt", "area_7", "level_2", "d6_5", 5, 4, 0, 0, 0, "Minor shoulder wound staggers Foe", "Upper Arm and Shoulder");
+			allBlunt[233] = new damage("blunt", "area_7", "level_2", "d6_6", 5, 4, 0, 0, 0, "Minor shoulder wound staggers Foe", "Upper Arm and Shoulder");
+			
+			allBlunt[234] = new damage("blunt", "area_7", "level_3", "d6_1", 7, 6, 1, 0, 0, "Strike crosses foe's hand. If he has a gauntlet it's knocked off", "Hand");
+			allBlunt[235] = new damage("blunt", "area_7", "level_3", "d6_2", 7, 6, 1, 0, 0, "Strike numbs Foe's forearm", "Forearm");			
+			allBlunt[236] = new damage("blunt", "area_7", "level_3", "d6_3", 7, 6, 1, 0, 0, "Strike numbs Foe's forearm", "Forearm");
+			allBlunt[237] = new damage("blunt", "area_7", "level_3", "d6_4", 7, 6, 1, 0, 0, "Strike causes Foe to panic", "Elbow");
+			allBlunt[238] = new damage("blunt", "area_7", "level_3", "d6_5", 7, 6, 1, 0, 0, "Strike to upper arm causes for to retreat", "Upper Arm and Shoulder");
+			allBlunt[239] = new damage("blunt", "area_7", "level_3", "d6_6", 7, 6, 1, 0, 0, "Strike to upper arm causes for to retreat", "Upper Arm and Shoulder");
+			
+			allBlunt[240] = new damage("blunt", "area_7", "level_4", "d6_1", 9, 8, 2, 0, 0, "Blow shatters several fingers. Blood streams from wound", "Hand");
+			allBlunt[241] = new damage("blunt", "area_7", "level_4", "d6_2", 9, 8, 2, 0, 0, "Solid bash splinters bone", "Forearm");			
+			allBlunt[242] = new damage("blunt", "area_7", "level_4", "d6_3", 9, 8, 2, 0, 0, "Solid bash splinters bone", "Forearm");
+			allBlunt[243] = new damage("blunt", "area_7", "level_4", "d6_4", 9, 8, 2, 0, 0, "Drive foe’s elbow into his side. Internal bleeding", "Elbow");
+			allBlunt[244] = new damage("blunt", "area_7", "level_4", "d6_5", 9, 8, 3, 0, 0, "Strike to Foe's arm elicits howls of pain", "Upper Arm and Shoulder");
+			allBlunt[245] = new damage("blunt", "area_7", "level_4", "d6_6", 9, 8, 3, 0, 0, "Strike to Foe's arm elicits howls of pain", "Upper Arm and Shoulder");
+			
+			allBlunt[246] = new damage("blunt", "area_7", "level_5", "d6_1", 12, 10, 3, 0, 0, "Strike crushes foe's wrist", "Hand");
+			allBlunt[247] = new damage("blunt", "area_7", "level_5", "d6_2", 12, 10, 3, 0, 0, "Foe blocks your strike with his forearm. He drops his weapon", "Forearm");			
+			allBlunt[248] = new damage("blunt", "area_7", "level_5", "d6_3", 12, 10, 3, 0, 0, "Foe blocks your strike with his forearm. He drops his weapon", "Forearm");
+			allBlunt[249] = new damage("blunt", "area_7", "level_5", "d6_4", 12, 10, 3, 0, 0, "Blow sends bone shards flying", "Elbow");
+			allBlunt[250] = new damage("blunt", "area_7", "level_5", "d6_5", 12, 11, 4, 0, 0, "Reach long and catch foe in his upper arm. His eyes glaze over", "Upper Arm and Shoulder");
+			allBlunt[251] = new damage("blunt", "area_7", "level_5", "d6_6", 12, 11, 4, 0, 0, "Reach long and catch foe in his upper arm. His eyes glaze over", "Upper Arm and Shoulder");
+			
+			allBlunt[252] = new damage("blunt", "area_7", "level_6", "d6_1", 14, 12, 3, 0, 0, "Crush foe’s hand to pulp with masterful strike", "Hand");
+			allBlunt[253] = new damage("blunt", "area_7", "level_6", "d6_2", 14, 12, 3, 0, 0, "Blow destroys foe's forearm. Arm is useless", "Forearm");			
+			allBlunt[254] = new damage("blunt", "area_7", "level_6", "d6_3", 14, 12, 3, 0, 0, "Blow destroys foe's forearm. Arm is useless", "Forearm");
+			allBlunt[255] = new damage("blunt", "area_7", "level_6", "d6_4", 14, 12, 3, 0, 0, "Strike shatters foe's elbow. Foe screams his head off", "Elbow");
+			allBlunt[256] = new damage("blunt", "area_7", "level_6", "d6_5", 14, 13, 5, 0, 0, "Strike foe in weapon arm, the bone is broken. Arm is useless, artery is open", "Upper Arm and Shoulder");
+			allBlunt[257] = new damage("blunt", "area_7", "level_6", "d6_6", 14, 13, 5, 0, 0, "Strike foe in weapon arm, the bone is broken. Arm is useless, artery is open", "Upper Arm and Shoulder");
+			
+			// area eight values
+			allBlunt[258] = new damage("blunt", "area_8", "level_1", "d6_1", 1, 2, 0, 0, 0, "Foe's deft footwork saves him from the worst", "Foot");
+			allBlunt[259] = new damage("blunt", "area_8", "level_1", "d6_2", 1, 2, 0, 0, 0, "Not much weight to your strike, but he yells", "Shin and Lower Leg");			
+			allBlunt[260] = new damage("blunt", "area_8", "level_1", "d6_3", 1, 2, 0, 0, 0, "Not much weight to your strike, but he yells", "Shin and Lower Leg");
+			allBlunt[261] = new damage("blunt", "area_8", "level_1", "d6_4", 1, 2, 0, 0, 0, "Not much weight to your strike, but he yells", "Shin and Lower Leg");
+			allBlunt[262] = new damage("blunt", "area_8", "level_1", "d6_5", 2, 3, 0, 0, 0, "Foe grits his teeth", "Knee and Nearby Areas");
+			allBlunt[263] = new damage("blunt", "area_8", "level_1", "d6_6", "-", "-", "-", "-", "-", "Missed the target - better luck next time", "Passed between Legs");
+			
+			allBlunt[264] = new damage("blunt", "area_8", "level_2", "d6_1", 4, 4, 0, 1, 0, "Foe dances back from your strike", "Foot");
+			allBlunt[265] = new damage("blunt", "area_8", "level_2", "d6_2", 4, 4, 0, 1, 0, "Hard crack to the shin-bone", "Shin and Lower Leg");			
+			allBlunt[266] = new damage("blunt", "area_8", "level_2", "d6_3", 4, 4, 0, 1, 0, "Hard crack to the shin-bone", "Shin and Lower Leg");
+			allBlunt[267] = new damage("blunt", "area_8", "level_2", "d6_4", 4, 4, 0, 1, 0, "Hard crack to the shin-bone", "Shin and Lower Leg");
+			allBlunt[268] = new damage("blunt", "area_8", "level_2", "d6_5", 5, 5, 0, 1, 0, "Foe staggers back and assumes a defensive posture", "Knee and Nearby Areas");
+			allBlunt[269] = new damage("blunt", "area_8", "level_2", "d6_6", "-", "-", "-", "-", "-", "Missed the target - better luck next time", "Passed between Legs");
+			
+			allBlunt[270] = new damage("blunt", "area_8", "level_3", "d6_1", 6, 6, 1, 2, 0, "Solid strike to foe’s instep has him cursing", "Foot");
+			allBlunt[271] = new damage("blunt", "area_8", "level_3", "d6_2", 6, 6, 1, 2, 0, "As foe spins away, you blast his calf", "Shin and Lower Leg");			
+			allBlunt[272] = new damage("blunt", "area_8", "level_3", "d6_3", 6, 6, 1, 2, 0, "As foe spins away, you blast his calf", "Shin and Lower Leg");
+			allBlunt[273] = new damage("blunt", "area_8", "level_3", "d6_4", 6, 6, 1, 2, 0, "As foe spins away, you blast his calf", "Shin and Lower Leg");
+			allBlunt[274] = new damage("blunt", "area_8", "level_3", "d6_5", 7, 7, 1, 2, 0, "Light swing connects with Foe's kneecap", "Knee and Nearby Areas");
+			allBlunt[275] = new damage("blunt", "area_8", "level_3", "d6_6", "-", "-", "-", "-", "-", "Missed the target - better luck next time", "Passed between Legs");
+			
+			allBlunt[276] = new damage("blunt", "area_8", "level_4", "d6_1", 9, 8, 2, 2, 0, "Authoritative blow delivered to foe's heel has him gasping in pain", "Foot");
+			allBlunt[277] = new damage("blunt", "area_8", "level_4", "d6_2", 9, 8, 2, 3, 0, "Cheap shot to Foe's shin leaves him ashen with pain", "Shin and Lower Leg");			
+			allBlunt[278] = new damage("blunt", "area_8", "level_4", "d6_3", 9, 8, 2, 3, 0, "Cheap shot to Foe's shin leaves him ashen with pain", "Shin and Lower Leg");
+			allBlunt[279] = new damage("blunt", "area_8", "level_4", "d6_4", 9, 8, 2, 3, 0, "Cheap shot to Foe's shin leaves him ashen with pain", "Shin and Lower Leg");
+			allBlunt[280] = new damage("blunt", "area_8", "level_4", "d6_5", 10, 10, 1, 3, 0, "Powerful thrust drives foe's weapon into his knee", "Knee and Nearby Areas");
+			allBlunt[281] = new damage("blunt", "area_8", "level_4", "d6_6", "-", "-", "-", "-", "-", "Missed the target - better luck next time", "Passed between Legs");
+			
+			allBlunt[282] = new damage("blunt", "area_8", "level_5", "d6_1", 11, 11, 3, 3, 0, "Savage thrust to foe’s instep crushes bone and tears muscle", "Foot");
+			allBlunt[283] = new damage("blunt", "area_8", "level_5", "d6_2", 11, 11, 3, 3, 0, "Foe leapt right into your low thrust", "Shin and Lower Leg");			
+			allBlunt[284] = new damage("blunt", "area_8", "level_5", "d6_3", 11, 11, 3, 3, 0, "Foe leapt right into your low thrust", "Shin and Lower Leg");
+			allBlunt[285] = new damage("blunt", "area_8", "level_5", "d6_4", 11, 11, 3, 3, 0, "Foe leapt right into your low thrust", "Shin and Lower Leg");
+			allBlunt[286] = new damage("blunt", "area_8", "level_5", "d6_5", 12, 13, 3, 3, 0, "Foe blocks your thrust to groin with his leg. He raves with pain", "Knee and Nearby Areas");
+			allBlunt[287] = new damage("blunt", "area_8", "level_5", "d6_6", "-", "-", "-", "-", "-", "Missed the target - better luck next time", "Passed between Legs");
+			
+			allBlunt[288] = new damage("blunt", "area_8", "level_6", "d6_1", 14, 13, 3, 4, 0, "Foe tried to kick you. Your response shatters his foot completely", "Foot");
+			allBlunt[289] = new damage("blunt", "area_8", "level_6", "d6_2", 14, 13, 3, 4, 0, "Pile-driving strike to shin snaps foe's leg in half. Foe stunned with pain", "Shin and Lower Leg");			
+			allBlunt[290] = new damage("blunt", "area_8", "level_6", "d6_3", 14, 13, 3, 4, 0, "Pile-driving strike to shin snaps foe's leg in half. Foe stunned with pain", "Shin and Lower Leg");
+			allBlunt[291] = new damage("blunt", "area_8", "level_6", "d6_4", 14, 13, 3, 4, 0, "Pile-driving strike to shin snaps foe's leg in half. Foe stunned with pain", "Shin and Lower Leg");
+			allBlunt[292] = new damage("blunt", "area_8", "level_6", "d6_5", 15, 15, 3, 4, 0, "Foe mistimes his attack and plants his leg directly beneath your strike", "Knee and Nearby Areas");
+			allBlunt[293] = new damage("blunt", "area_8", "level_6", "d6_6", "-", "-", "-", "-", "-", "Missed the target - better luck next time", "Passed between Legs");
+			
+			// area nine values
+			allBlunt[294] = new damage("blunt", "area_9", "level_1", "d6_1", 2, 3, 0, 0, 0, "Clumsy strike taps the target", "Knee and Nearby Areas");
+			allBlunt[295] = new damage("blunt", "area_9", "level_1", "d6_2", 2, 2, 0, 0, 0, "Strike slides off", "Thigh");
+			allBlunt[296] = new damage("blunt", "area_9", "level_1", "d6_3", 2, 2, 0, 0, 0, "Strike slides off", "Thigh");
+			allBlunt[297] = new damage("blunt", "area_9", "level_1", "d6_4", 2, 2, 0, 0, 0, "Strike slides off", "Thigh");
+			allBlunt[298] = new damage("blunt", "area_9", "level_1", "d6_5", 2, 2, 0, 0, 0, "Strike slides off", "Thigh");
+			allBlunt[299] = new damage("blunt", "area_9", "level_1", "d6_6", 2, 2, 0, 0, 0, "Foe leans back just in time to save himself", "Hip");
+			
+			allBlunt[300] = new damage("blunt", "area_9", "level_2", "d6_1", 5, 5, 0, 1, 0, "Foe slips to the left and avoids the brunt of the strike", "Knee and Nearby Areas");
+			allBlunt[301] = new damage("blunt", "area_9", "level_2", "d6_2", 5, 4, 0, 1, 0, "Thrust clips Foe", "Thigh");
+			allBlunt[302] = new damage("blunt", "area_9", "level_2", "d6_3", 5, 4, 0, 1, 0, "Thrust clips Foe", "Thigh");
+			allBlunt[303] = new damage("blunt", "area_9", "level_2", "d6_4", 5, 4, 0, 1, 0, "Thrust clips Foe", "Thigh");
+			allBlunt[304] = new damage("blunt", "area_9", "level_2", "d6_5", 5, 4, 0, 1, 0, "Thrust clips Foe", "Thigh");
+			allBlunt[305] = new damage("blunt", "area_9", "level_2", "d6_6", 5, 4, 0, 0, 0, "Foe is getting nervous", "Hip");
+			
+			allBlunt[306] = new damage("blunt", "area_9", "level_3", "d6_1", 7, 7, 1, 2, 0, "Cheap shot to the kneecap forces foe to give up ground", "Knee and Nearby Areas");
+			allBlunt[307] = new damage("blunt", "area_9", "level_3", "d6_2", 7, 6, 0, 2, 0, "Light thrust has foe off-balance", "Thigh");
+			allBlunt[308] = new damage("blunt", "area_9", "level_3", "d6_3", 7, 6, 0, 2, 0, "Light thrust has foe off-balance", "Thigh");
+			allBlunt[309] = new damage("blunt", "area_9", "level_3", "d6_4", 7, 6, 0, 2, 0, "Light thrust has foe off-balance", "Thigh");
+			allBlunt[310] = new damage("blunt", "area_9", "level_3", "d6_5", 7, 6, 0, 2, 0, "Light thrust has foe off-balance", "Thigh");
+			allBlunt[311] = new damage("blunt", "area_9", "level_3", "d6_6", 7, 7, 1, 1, 0, "Foe’s clumsy footwork costs him", "Hip");
+			
+			allBlunt[312] = new damage("blunt", "area_9", "level_4", "d6_1", 10, 10, 2, 3, 0, "You fake foe into stepping into your swing", "Knee and Nearby Areas");
+			allBlunt[313] = new damage("blunt", "area_9", "level_4", "d6_2", 9, 8, 1, 2, 0, "Solid slam to thigh has foe staggering. Blood pools under his feet", "Thigh");
+			allBlunt[314] = new damage("blunt", "area_9", "level_4", "d6_3", 9, 8, 1, 2, 0, "Solid slam to thigh has foe staggering. Blood pools under his feet", "Thigh");
+			allBlunt[315] = new damage("blunt", "area_9", "level_4", "d6_4", 9, 8, 1, 2, 0, "Solid slam to thigh has foe staggering. Blood pools under his feet", "Thigh");
+			allBlunt[316] = new damage("blunt", "area_9", "level_4", "d6_5", 9, 8, 1, 2, 0, "Solid slam to thigh has foe staggering. Blood pools under his feet", "Thigh");
+			allBlunt[317] = new damage("blunt", "area_9", "level_4", "d6_6", 9, 9, 2, 2, 0, "Foe screams as your thrust connects with his hip", "Hip");
+			
+			allBlunt[318] = new damage("blunt", "area_9", "level_5", "d6_1", 12, 13, 3, 3, 0, "Miss foe‘s hip and strike his knee. He gasps and spits up blood", "Knee and Nearby Areas");
+			allBlunt[319] = new damage("blunt", "area_9", "level_5", "d6_2", 12, 11, 3, 3, 0, "Blow to foe’s thigh causes his left leg to tremble and shake", "Thigh");
+			allBlunt[320] = new damage("blunt", "area_9", "level_5", "d6_3", 12, 11, 3, 3, 0, "Blow to foe’s thigh causes his left leg to tremble and shake", "Thigh");
+			allBlunt[321] = new damage("blunt", "area_9", "level_5", "d6_4", 12, 11, 3, 3, 0, "Blow to foe’s thigh causes his left leg to tremble and shake", "Thigh");
+			allBlunt[322] = new damage("blunt", "area_9", "level_5", "d6_5", 12, 11, 3, 3, 0, "Blow to foe’s thigh causes his left leg to tremble and shake", "Thigh");
+			allBlunt[323] = new damage("blunt", "area_9", "level_5", "d6_6", 12, 11, 3, 3, 0, "Crippling strike strips equipment from left side of Foe's waist", "Hip");
+			
+			allBlunt[324] = new damage("blunt", "area_9", "level_6", "d6_1", 15, 15, 3, 4, 0, "Your powerful thrust buckles Foe's knee and brings him to the ground", "Knee and Nearby Areas");
+			allBlunt[325] = new damage("blunt", "area_9", "level_6", "d6_2", 14, 13, 4, 4, 0, "Foe screeches and babbles something at you before collapsing", "Thigh");
+			allBlunt[326] = new damage("blunt", "area_9", "level_6", "d6_3", 14, 13, 4, 4, 0, "Foe screeches and babbles something at you before collapsing", "Thigh");
+			allBlunt[327] = new damage("blunt", "area_9", "level_6", "d6_4", 14, 13, 4, 4, 0, "Foe screeches and babbles something at you before collapsing", "Thigh");
+			allBlunt[328] = new damage("blunt", "area_9", "level_6", "d6_5", 14, 13, 4, 4, 0, "Foe screeches and babbles something at you before collapsing", "Thigh");
+			allBlunt[329] = new damage("blunt", "area_9", "level_6", "d6_6", "-", "-", "-", "-", "-", "Titan smash pulps Foe’s hip and sends an enormous spray of blood over you. Foe collapses to the ground", "Hip");
+			
+			// area ten values
+			allBlunt[330] = new damage("blunt", "area_10", "level_1", "d6_1", 3, 2, 0, 0, 0, "Foe parries desperately to avert disaster", "Lower Abdomen");
+			allBlunt[331] = new damage("blunt", "area_10", "level_1", "d6_2", 3, 2, 0, 0, 0, "Foe parries desperately to avert disaster", "Lower Abdomen");			
+			allBlunt[332] = new damage("blunt", "area_10", "level_1", "d6_3", 5, 6, 0, 0, 0, "Foe twists at the last moment to save himself", "Groin (Male)");
+			allBlunt[333] = new damage("blunt", "area_10", "level_1", "d6_4", 5, 6, 0, 0, 0, "Foe twists at the last moment to save himself", "Groin (Male)");
+			allBlunt[334] = new damage("blunt", "area_10", "level_1", "d6_3", 3, 2, 0, 0, 0, "Foe parries desperately to avert disaster", "Groin (Female)", "f");
+			allBlunt[335] = new damage("blunt", "area_10", "level_1", "d6_4", 2, 2, 0, 0, 0, "Foe rolls away from your blow", "Groin (Female)", "f");
+			allBlunt[336] = new damage("blunt", "area_10", "level_1", "d6_5", 2, 2, 0, 0, 0, "Foe rolls away from your blow", "Hip");
+			allBlunt[337] = new damage("blunt", "area_10", "level_1", "d6_6", 2, 2, 0, 0, 0, "Foe rolls away from your blow", "Hip");
+			
+			allBlunt[338] = new damage("blunt", "area_10", "level_2", "d6_1", 6, 4, 0, 0, 0, "Foe's evasion puts him out of position", "Lower Abdomen");
+			allBlunt[339] = new damage("blunt", "area_10", "level_2", "d6_2", 6, 4, 0, 0, 0, "Foe's evasion puts him out of position", "Lower Abdomen");
+			allBlunt[340] = new damage("blunt", "area_10", "level_2", "d6_3", 9, 8, 0, 0, 0, "Foe goes airborne to avoid your thrust", "Groin (Male)");
+			allBlunt[341] = new damage("blunt", "area_10", "level_2", "d6_4", 9, 8, 0, 0, 0, "Foe goes airborne to avoid your thrust", "Groin (Male)");
+			allBlunt[342] = new damage("blunt", "area_10", "level_2", "d6_3", 6, 4, 0, 0, 0, "Foe's evasion puts her out of position", "Groin (Female)", "f");
+			allBlunt[343] = new damage("blunt", "area_10", "level_2", "d6_4", 5, 4, 0, 0, 0, "Your thrust catches foe in hip and forces her back", "Groin (Female)", "f");
+			allBlunt[344] = new damage("blunt", "area_10", "level_2", "d6_5", 5, 4, 0, 0, 0, "Your thrust catches foe in hip and forces him back", "Hip");
+			allBlunt[345] = new damage("blunt", "area_10", "level_2", "d6_6", 5, 4, 0, 0, 0, "Your thrust catches foe in hip and forces him back", "Hip");
+			
+			allBlunt[346] = new damage("blunt", "area_10", "level_3", "d6_1", 9, 7, 1, 0, 0, "Foe quivers from the impact of your assault", "Lower Abdomen");
+			allBlunt[347] = new damage("blunt", "area_10", "level_3", "d6_2", 9, 7, 1, 0, 0, "Foe quivers from the impact of your assault", "Lower Abdomen");
+			allBlunt[348] = new damage("blunt", "area_10", "level_3", "d6_3", 11, 9, 1, 1, 0, "Foe goes completely pale as your strike lands", "Groin (Male)");
+			allBlunt[349] = new damage("blunt", "area_10", "level_3", "d6_4", 11, 9, 1, 1, 0, "Foe goes completely pale as your strike lands", "Groin (Male)");
+			allBlunt[350] = new damage("blunt", "area_10", "level_3", "d6_3", 9, 7, 1, 0, 0, "Foe quivers from the impact of your assault", "Groin (Female)", "f");
+			allBlunt[351] = new damage("blunt", "area_10", "level_3", "d6_4", 7, 7, 1, 1, 0, "Glancing blow takes skin with it", "Groin (Female)", "f");
+			allBlunt[352] = new damage("blunt", "area_10", "level_3", "d6_5", 7, 7, 1, 1, 0, "Glancing blow takes skin with it", "Hip");
+			allBlunt[353] = new damage("blunt", "area_10", "level_3", "d6_6", 7, 7, 1, 1, 0, "Glancing blow takes skin with it", "Hip");
+			
+			allBlunt[354] = new damage("blunt", "area_10", "level_4", "d6_1", 12, 10, 3, 0, 0, "Foe stumbles, coughing wetly", "Lower Abdomen");
+			allBlunt[355] = new damage("blunt", "area_10", "level_4", "d6_2", 12, 10, 3, 0, 0, "Foe stumbles, coughing wetly", "Lower Abdomen");
+			allBlunt[356] = new damage("blunt", "area_10", "level_4", "d6_3", 13, 10, 1, 2, 0, "Disorient foe with a canny strike", "Groin (Male)");
+			allBlunt[357] = new damage("blunt", "area_10", "level_4", "d6_4", 13, 10, 1, 2, 0, "Disorient foe with a canny strike", "Groin (Male)");
+			allBlunt[358] = new damage("blunt", "area_10", "level_4", "d6_3", 12, 10, 3, 0, 0, "Foe stumbles, coughing wetly", "Groin (Female)", "f");
+			allBlunt[359] = new damage("blunt", "area_10", "level_4", "d6_4", 9, 9, 2, 2, 0, "Reckless Foe is panicked by your strike", "Groin (Female)", "f");
+			allBlunt[360] = new damage("blunt", "area_10", "level_4", "d6_5", 9, 9, 2, 2, 0, "Reckless Foe is panicked by your strike", "Hip");
+			allBlunt[361] = new damage("blunt", "area_10", "level_4", "d6_6", 9, 9, 2, 2, 0, "Reckless Foe is panicked by your strike", "Hip");
+			
+			allBlunt[362] = new damage("blunt", "area_10", "level_5", "d6_1", 14, 13, 4, 0, 0, "Blow thunders as it connects. Foe's guts are mangled", "Lower Abdomen");
+			allBlunt[363] = new damage("blunt", "area_10", "level_5", "d6_2", 14, 13, 4, 0, 0, "Blow thunders as it connects. Foe's guts are mangled", "Lower Abdomen");			
+			allBlunt[364] = new damage("blunt", "area_10", "level_5", "d6_3", 15, 12, 3, 3, 0, "Shot to foe‘s groin has him down and screaming", "Groin (Male)");
+			allBlunt[365] = new damage("blunt", "area_10", "level_5", "d6_4", 15, 12, 3, 3, 0, "Shot to foe‘s groin has him down and screaming", "Groin (Male)");
+			allBlunt[366] = new damage("blunt", "area_10", "level_5", "d6_3", 14, 13, 4, 0, 0, "Blow thunders as it connects. Foe's guts are mangled", "Groin (Female)", "f");
+			allBlunt[367] = new damage("blunt", "area_10", "level_5", "d6_4", 12, 11, 3, 3, 0, "Foe's leg swings loosely. Joint is shattered", "Groin (Female)", "f");
+			allBlunt[368] = new damage("blunt", "area_10", "level_5", "d6_5", 12, 11, 3, 3, 0, "Foe's leg swings loosely. Joint is shattered", "Hip");
+			allBlunt[369] = new damage("blunt", "area_10", "level_5", "d6_6", 12, 11, 3, 3, 0, "Foe's leg swings loosely. Joint is shattered", "Hip");
+			
+			allBlunt[370] = new damage("blunt", "area_10", "level_6", "d6_1", "-", "-", "-", "-", "-", "Hellish blow to foe's abdomen. Strike destroys a variety of organs and kills instantly", "Lower Abdomen");
+			allBlunt[371] = new damage("blunt", "area_10", "level_6", "d6_2", "-", "-", "-", "-", "-", "Hellish blow to foe's abdomen. Strike destroys a variety of organs and kills instantly", "Lower Abdomen");			
+			allBlunt[372] = new damage("blunt", "area_10", "level_6", "d6_3", 17, 14, 4, 4, 0, "Crush foe's groin. He kneels, clutching at his ruined manhood", "Groin (Male)");
+			allBlunt[373] = new damage("blunt", "area_10", "level_6", "d6_4", 17, 14, 4, 4, 0, "Crush foe's groin. He kneels, clutching at his ruined manhood", "Groin (Male)");
+			allBlunt[374] = new damage("blunt", "area_10", "level_6", "d6_3", "-", "-", "-", "-", "-", "Hellish blow to foe's abdomen. Strike destroys a variety of organs and kills instantly", "Groin (Female)", "f");
+			allBlunt[375] = new damage("blunt", "area_10", "level_6", "d6_4", "-", "-", "-", "-", "-", "Massive blow to hip. Compound fracture severs major artery. Foe goes down and bleeds out", "Groin (Female)", "f");
+			allBlunt[376] = new damage("blunt", "area_10", "level_6", "d6_5", "-", "-", "-", "-", "-", "Massive blow to hip. Compound fracture severs major artery. Foe goes down and bleeds out", "Hip");
+			allBlunt[377] = new damage("blunt", "area_10", "level_6", "d6_6", "-", "-", "-", "-", "-", "Massive blow to hip. Compound fracture severs major artery. Foe goes down and bleeds out", "Hip");
+			
+			// area eleven values
+			allBlunt[378] = new damage("blunt", "area_11", "level_1", "d6_1", 3, 2, 0, 0, 0, "Weak attack clips Foe", "Lower Abdomen");
+			allBlunt[379] = new damage("blunt", "area_11", "level_1", "d6_2", 3, 2, 0, 0, 0, "Weak attack clips Foe", "Lower Abdomen");
+			allBlunt[380] = new damage("blunt", "area_11", "level_1", "d6_3", 3, 2, 0, 0, 0, "Weak attack clips Foe", "Lower Abdomen");
+			allBlunt[381] = new damage("blunt", "area_11", "level_1", "d6_4", 3, 2, 0, 0, 0, "Weak attack clips Foe", "Lower Abdomen");
+			allBlunt[382] = new damage("blunt", "area_11", "level_1", "d6_5", 3, 2, 0, 0, 0, "Weak attack clips Foe", "Lower Abdomen");
+			allBlunt[383] = new damage("blunt", "area_11", "level_1", "d6_6", 3, 2, 0, 0, 0, "Weak attack clips Foe", "Lower Abdomen");
+			
+			allBlunt[384] = new damage("blunt", "area_11", "level_2", "d6_1", 6, 4, 0, 0, 0, "Foe fakes to the left and spoils your aim", "Lower Abdomen");
+			allBlunt[385] = new damage("blunt", "area_11", "level_2", "d6_2", 6, 4, 0, 0, 0, "Foe fakes to the left and spoils your aim", "Lower Abdomen");
+			allBlunt[386] = new damage("blunt", "area_11", "level_2", "d6_3", 6, 4, 0, 0, 0, "Foe fakes to the left and spoils your aim", "Lower Abdomen");
+			allBlunt[387] = new damage("blunt", "area_11", "level_2", "d6_4", 6, 4, 0, 0, 0, "Foe fakes to the left and spoils your aim", "Lower Abdomen");
+			allBlunt[388] = new damage("blunt", "area_11", "level_2", "d6_5", 6, 4, 0, 0, 0, "Foe fakes to the left and spoils your aim", "Lower Abdomen");
+			allBlunt[389] = new damage("blunt", "area_11", "level_2", "d6_6", 6, 4, 0, 0, 0, "Foe fakes to the left and spoils your aim", "Lower Abdomen");
+			
+			allBlunt[390] = new damage("blunt", "area_11", "level_3", "d6_1", 9, 7, 1, 0, 0, "Foe’s clever move earns him pain", "Lower Abdomen");
+			allBlunt[391] = new damage("blunt", "area_11", "level_3", "d6_2", 9, 7, 1, 0, 0, "Foe’s clever move earns him pain", "Lower Abdomen");
+			allBlunt[392] = new damage("blunt", "area_11", "level_3", "d6_3", 9, 7, 1, 0, 0, "Foe’s clever move earns him pain", "Lower Abdomen");
+			allBlunt[393] = new damage("blunt", "area_11", "level_3", "d6_4", 9, 7, 1, 0, 0, "Foe’s clever move earns him pain", "Lower Abdomen");
+			allBlunt[394] = new damage("blunt", "area_11", "level_3", "d6_5", 9, 7, 1, 0, 0, "Foe’s clever move earns him pain", "Lower Abdomen");
+			allBlunt[395] = new damage("blunt", "area_11", "level_3", "d6_6", 9, 7, 1, 0, 0, "Foe’s clever move earns him pain", "Lower Abdomen");
+			
+			allBlunt[396] = new damage("blunt", "area_11", "level_4", "d6_1", 12, 10, 3, 0, 0, "Well timed blow delivered to foe’s gut has him reeling in agony", "Lower Abdomen");
+			allBlunt[397] = new damage("blunt", "area_11", "level_4", "d6_2", 12, 10, 3, 0, 0, "Well timed blow delivered to foe’s gut has him reeling in agony", "Lower Abdomen");
+			allBlunt[398] = new damage("blunt", "area_11", "level_4", "d6_3", 12, 10, 3, 0, 0, "Well timed blow delivered to foe’s gut has him reeling in agony", "Lower Abdomen");
+			allBlunt[399] = new damage("blunt", "area_11", "level_4", "d6_4", 12, 10, 3, 0, 0, "Well timed blow delivered to foe’s gut has him reeling in agony", "Lower Abdomen");
+			allBlunt[400] = new damage("blunt", "area_11", "level_4", "d6_5", 12, 10, 3, 0, 0, "Well timed blow delivered to foe’s gut has him reeling in agony", "Lower Abdomen");
+			allBlunt[401] = new damage("blunt", "area_11", "level_4", "d6_6", 12, 10, 3, 0, 0, "Well timed blow delivered to foe’s gut has him reeling in agony", "Lower Abdomen");
+			
+			allBlunt[402] = new damage("blunt", "area_11", "level_5", "d6_1", 14, 13, 4, 0, 0, "Foe is lifted from the ground with the force of your attack", "Lower Abdomen");
+			allBlunt[403] = new damage("blunt", "area_11", "level_5", "d6_2", 14, 13, 4, 0, 0, "Foe is lifted from the ground with the force of your attack", "Lower Abdomen");
+			allBlunt[404] = new damage("blunt", "area_11", "level_5", "d6_3", 14, 13, 4, 0, 0, "Foe is lifted from the ground with the force of your attack", "Lower Abdomen");
+			allBlunt[405] = new damage("blunt", "area_11", "level_5", "d6_4", 14, 13, 4, 0, 0, "Foe is lifted from the ground with the force of your attack", "Lower Abdomen");
+			allBlunt[406] = new damage("blunt", "area_11", "level_5", "d6_5", 14, 13, 4, 0, 0, "Foe is lifted from the ground with the force of your attack", "Lower Abdomen");
+			allBlunt[407] = new damage("blunt", "area_11", "level_5", "d6_6", 14, 13, 4, 0, 0, "Foe is lifted from the ground with the force of your attack", "Lower Abdomen");
+			
+			allBlunt[408] = new damage("blunt", "area_11", "level_6", "d6_1", "-", "-", "-", "-", "-", "Strike shatters organs. He collapses to the ground moaning his last", "Lower Abdomen");
+			allBlunt[409] = new damage("blunt", "area_11", "level_6", "d6_2", "-", "-", "-", "-", "-", "Strike shatters organs. He collapses to the ground moaning his last", "Lower Abdomen");
+			allBlunt[410] = new damage("blunt", "area_11", "level_6", "d6_3", "-", "-", "-", "-", "-", "Strike shatters organs. He collapses to the ground moaning his last", "Lower Abdomen");
+			allBlunt[411] = new damage("blunt", "area_11", "level_6", "d6_4", "-", "-", "-", "-", "-", "Strike shatters organs. He collapses to the ground moaning his last", "Lower Abdomen");
+			allBlunt[412] = new damage("blunt", "area_11", "level_6", "d6_5", "-", "-", "-", "-", "-", "Strike shatters organs. He collapses to the ground moaning his last", "Lower Abdomen");
+			allBlunt[413] = new damage("blunt", "area_11", "level_6", "d6_6", "-", "-", "-", "-", "-", "Strike shatters organs. He collapses to the ground moaning his last", "Lower Abdomen");
+			
+			// area twelve values
+			allBlunt[414] = new damage("blunt", "area_12", "level_1", "d6_1", 3, 2, 0, 0, 0, "Foe vaults back five feet", "Under the Ribs (Upper Abdomen)");
+			allBlunt[415] = new damage("blunt", "area_12", "level_1", "d6_2", 3, 2, 0, 0, 0, "Foe vaults back five feet", "Under the Ribs (Upper Abdomen)");
+			allBlunt[416] = new damage("blunt", "area_12", "level_1", "d6_3", 3, 2, 0, 0, 0, "Strike blunted by Foe's shieldwork", "Chest");
+			allBlunt[417] = new damage("blunt", "area_12", "level_1", "d6_4", 3, 2, 0, 0, 0, "Strike blunted by Foe's shieldwork", "Chest");
+			allBlunt[418] = new damage("blunt", "area_12", "level_1", "d6_5", 3, 2, 0, 0, 0, "Strike blunted by Foe's shieldwork", "Chest");
+			allBlunt[419] = new damage("blunt", "area_12", "level_1", "d6_6", 3, 2, 0, 0, 0, "Strike blunted by Foe's shieldwork", "Chest");
+			
+			allBlunt[420] = new damage("blunt", "area_12", "level_2", "d6_1", 6, 4, 0, 0, 0, "Foe turns with your strike", "Under the Ribs (Upper Abdomen)");
+			allBlunt[421] = new damage("blunt", "area_12", "level_2", "d6_2", 6, 4, 0, 0, 0, "Foe turns with your strike", "Under the Ribs (Upper Abdomen)");
+			allBlunt[422] = new damage("blunt", "area_12", "level_2", "d6_3", 6, 4, 0, 0, 0, "Foe dances away and nearly avoids your strike", "Chest");
+			allBlunt[423] = new damage("blunt", "area_12", "level_2", "d6_4", 6, 4, 0, 0, 0, "Foe dances away and nearly avoids your strike", "Chest");
+			allBlunt[424] = new damage("blunt", "area_12", "level_2", "d6_5", 6, 4, 0, 0, 0, "Foe dances away and nearly avoids your strike", "Chest");
+			allBlunt[425] = new damage("blunt", "area_12", "level_2", "d6_6", 6, 4, 0, 0, 0, "Foe dances away and nearly avoids your strike", "Chest");
+			
+			allBlunt[426] = new damage("blunt", "area_12", "level_3", "d6_1", 9, 7, 1, 0, 0, "Strike foe under ribs. Muscles and cartilage are damaged", "Under the Ribs (Upper Abdomen)");
+			allBlunt[427] = new damage("blunt", "area_12", "level_3", "d6_2", 9, 7, 1, 0, 0, "Strike foe under ribs. Muscles and cartilage are damaged", "Under the Ribs (Upper Abdomen)");
+			allBlunt[428] = new damage("blunt", "area_12", "level_3", "d6_3", 9, 7, 1, 0, 0, "Blow to Foe‘s ribs. It hurts him to raise his arms. Foe cannot lean over", "Chest");
+			allBlunt[429] = new damage("blunt", "area_12", "level_3", "d6_4", 9, 7, 1, 0, 0, "Blow to Foe‘s ribs. It hurts him to raise his arms. Foe cannot lean over", "Chest");
+			allBlunt[430] = new damage("blunt", "area_12", "level_3", "d6_5", 9, 7, 1, 0, 0, "Blow to Foe‘s ribs. It hurts him to raise his arms. Foe cannot lean over", "Chest");
+			allBlunt[431] = new damage("blunt", "area_12", "level_3", "d6_6", 9, 7, 1, 0, 0, "Blow to Foe‘s ribs. It hurts him to raise his arms. Foe cannot lean over", "Chest");
+			
+			allBlunt[432] = new damage("blunt", "area_12", "level_4", "d6_1", 12, 10, 3, 0, 0, "Solid strike causes a host of troubles", "Under the Ribs (Upper Abdomen)");
+			allBlunt[433] = new damage("blunt", "area_12", "level_4", "d6_2", 12, 10, 3, 0, 0, "Solid strike causes a host of troubles", "Under the Ribs (Upper Abdomen)");
+			allBlunt[434] = new damage("blunt", "area_12", "level_4", "d6_3", 12, 10, 2, 0, 0, "Blow to chest. He seeks to regain his wind and survive your onslaught", "Chest");
+			allBlunt[435] = new damage("blunt", "area_12", "level_4", "d6_4", 12, 10, 2, 0, 0, "Blow to chest. He seeks to regain his wind and survive your onslaught", "Chest");
+			allBlunt[436] = new damage("blunt", "area_12", "level_4", "d6_5", 12, 10, 2, 0, 0, "Blow to chest. He seeks to regain his wind and survive your onslaught", "Chest");
+			allBlunt[437] = new damage("blunt", "area_12", "level_4", "d6_6", 12, 10, 2, 0, 0, "Blow to chest. He seeks to regain his wind and survive your onslaught", "Chest");
 		}
 		
 		function setupCleaving(){}
@@ -208,7 +722,7 @@
 		
 		function setupSwung(){}
 		
-		function damage(type, area, level, d6, shock, pain, bloodloss, knockdown, knockout, desc){
+		function damage(type, area, level, d6, shock, pain, bloodloss, knockdown, knockout, desc, location, gender){
 			this.Type = type;
 			this.Area = area;
 			this.Level = level;
@@ -220,6 +734,8 @@
 			this.Knockdown = knockdown;
 			this.Knockout = knockout;
 			this.Desc = desc;
+			this.Location = location;
+			this.Gender = gender;
 		}
 		
 		function updateDamage(){
@@ -235,7 +751,8 @@
 			document.getElementById("BloodLoss").innerHTML = foundDamage.BloodLoss;
 			document.getElementById("Knockdown").innerHTML = foundDamage.Knockdown;
 			document.getElementById("Knockout").innerHTML = foundDamage.Knockout;
-			document.getElementById("Desc").innerHTML = foundDamage.Desc;
+			document.getElementById("Desc").innerHTML = "<strong>Description: </strong><em>" + foundDamage.Desc + "</em>";
+			document.getElementById("Location").innerHTML = "<strong>Location: </strong>" + foundDamage.Location;
 			
 			//document.getElementById("test").innerHTML = "Type: " + getType + ", Area: " + getArea + ", Level: " + getLevel + ", d6: " + getd6;
 		}
